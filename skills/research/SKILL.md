@@ -15,6 +15,14 @@ checker and the writer. Wait for each one's completion notice before the step th
 poll and do not do its work meanwhile. So the session stays free when `task`, `project` or
 `brainstorm` calls this skill.
 
+**Run it in the main session, never inside a subagent.** Claude Code refuses a subagent's Write of
+a report-like markdown file (`findings…`, `report…`, `summary…`, `analysis…`): subagents return
+their results as text. So the agents that produce the merged findings and the final report — the
+compressor and the writer — **return their text, and you save it** with Write, verbatim, without
+retelling it. Researchers' notes and the checker's verdicts are working files the agents write
+themselves. Never try to get around the refusal (another name, Bash, a script): it is the
+harness's rule, and it is how a subagent's result is meant to reach you.
+
 Paths below: `<skill>` is this skill's base directory (shown when the skill loads); `<run>` is the
 run folder you create in step 2.
 
@@ -101,9 +109,10 @@ python <skill>/scripts/check_links.py <run>/notes
 
 ## 6. Compression (standard, deep)
 
-One agent (`general-purpose`, `model: sonnet`) merges all notes into `<run>/findings.md`:
+One agent (`general-purpose`, `model: sonnet`) merges all notes:
 "First read <skill>/references/compressor.md and follow it. Notes: <run>/notes/. Links:
-<run>/links.md. Write <run>/findings.md." Compression drops the process and duplicates — **never a
+<run>/links.md. Return the merged findings as your reply." Save its reply, from `# Findings` to the
+end, to `<run>/findings.md` as is. Compression drops the process and duplicates — **never a
 conclusion, a claim with its source, a contradiction or a gap.** Quick: the single researcher's
 notes are the findings (copy them to `findings.md`).
 
@@ -133,12 +142,11 @@ the writer whatever comes back.
 
 One agent (`general-purpose`, `model: sonnet`): "First read <skill>/references/writer.md and follow
 it. Question: <…>. Consumer: <human|agent>. Findings: <run>/findings.md. Check: <run>/check.md.
-Write <run>/report.md<, and <run>/report.html if the consumer is the human and the result is
-large>."
+Return the report as your reply<; and write the page <run>/page.html if the consumer is the human
+and the result is large>."
 
-Only claims the checker marked **supported** (or partial, marked so) reach the report. If the
-writer returns the report as text because its file write was refused, save it yourself to
-`<run>/report.md` without reading it into the conversation more than once.
+Only claims the checker marked **supported** (or partial, marked so) reach the report. Save the
+writer's reply, from its first heading to the end, to `<run>/report.md` as is.
 
 ## 10. Hand over
 

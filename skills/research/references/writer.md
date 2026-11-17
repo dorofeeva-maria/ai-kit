@@ -41,7 +41,7 @@ of a foreign-language quote in the human's language).
 - **Small result** (up to ~10 findings): the same `report.md`, answer first.
 - **A comparison or a decision:** lead with the table of options and where they **strongly
   differ**, then a recommendation with its price and risks, then what would change it.
-- **A large result** (many findings, several sections): also write `report.html` — one
+- **A large result** (many findings, several sections): also write the HTML page named in your brief — one
   self-contained page: the answer at the top, a sortable or filterable findings table, the
   contradictions and gaps, sources at the end. Light and dark themes, readable on a phone, no
   external scripts.
@@ -55,8 +55,9 @@ of a foreign-language quote in the human's language).
   Unchecked claims may appear only under "Not checked", never as findings.
 - A source with no date: write "no date" in the Date column — that is allowed, not a defect.
 - Sections with nothing in them are left out (no empty "Options compared", "Contradictions"…).
-- **Saving:** write the file(s) named in your brief. If the write is refused, do not work around
-  it — return the full report text in your reply and say so; the coordinator saves it.
+- **Saving:** you do not write the markdown report to a file — return it whole as your reply,
+  starting with its first heading (the coordinator saves it; Claude Code refuses subagents' report
+  files). Only the HTML page, when the brief asks for one, is a file you write.
 
 - The first line states "as of <date>". A finding older than the freshness guidance is marked
   with its date.
@@ -65,4 +66,5 @@ of a foreign-language quote in the human's language).
 - If the deep duplicate ran on the same engine, or the checker could not reach some claims, say so
   in one line under the answer.
 
-Your reply to the coordinator: the 3–6 line answer and the file paths.
+Your reply to the coordinator: the whole markdown report (its opening lines are the 3–6 line
+answer), then, after a line `---`, the path of the HTML page if you wrote one.

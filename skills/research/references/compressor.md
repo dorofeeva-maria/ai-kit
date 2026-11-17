@@ -31,5 +31,8 @@ as of <YYYY-MM-DD>
 ```
 
 Number the claims (C1, C2…) — the checker answers by number. Before finishing, count: the number of
-distinct claims, contradictions and gaps in the notes must equal those in `findings.md`; state the
-three counts in your reply.
+distinct claims, contradictions and gaps in the notes must equal those in your findings.
+
+**Do not write a file.** Your reply is the findings themselves, from `# Findings` to the end, then a
+line `---` and the three counts. The coordinator saves the text as `findings.md` (Claude Code
+refuses subagents' report files; do not work around that).

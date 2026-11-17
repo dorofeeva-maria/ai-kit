@@ -149,7 +149,10 @@ Reports: a file `tasks/<KEY>-notes/<role>-<part>-<round>.md` plus a short reply;
 not reports (`research.md`, `mockups.html`, `manual-check.md`) keep a plain name, and the project
 start names its reports by stage (`START-notes/product.md`, `check-1.md`…). Conclusion first, in
 two lines. For every statement — checked by running, checked by reading, or not checked. If a file write is
-refused, the agent returns the text and the orchestrator saves it. Reports are written in the
+refused, the agent returns the text and the orchestrator saves it. Claude Code always refuses a
+subagent's Write of a markdown file whose name starts with `report`, `summary`, `findings` or
+`analysis`: a step whose output is such a document returns it as text and the orchestrator (the
+main session) saves it — never work around that refusal. Reports are written in the
 language the profile sets for talking with the human.
 
 ## Models

@@ -1,0 +1,6 @@
+{
+  "name": "ai-kit",
+  "version": "0.1.0",
+  "description": "Orchestrator, role agents and skills for working with Claude Code: research first, then project start and task pipelines.",
+  "author": { "name": "Maria Dorofeeva" }
+}

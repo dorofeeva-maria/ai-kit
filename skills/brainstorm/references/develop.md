@@ -16,7 +16,11 @@ Read every file in `ideas/`, the brief and `day.md`.
 3. **Opportunities first.** Group candidates by the job (opportunity) they serve. Where one job
    has several competing solutions, keep the 2–3 most different side by side — they are compared
    against each other in Select, not judged alone.
-4. Keep **10–16 candidates**. For each: who uses it daily, the jobs it takes over, what it
+4. **Assemble the whole.** When several candidates serve the same people and share data or a
+   moment across jobs, also write the candidate that carries those jobs together as one solution
+   (marked "assembled from …"), so Select compares the whole against its parts — never leave the
+   whole implied in a note.
+5. Keep **10–16 candidates**. For each: who uses it daily, the jobs it takes over, what it
    replaces, the closest existing products from `ground.md`.
 
 `clusters.md`: a table (name · user · jobs · replaces · closest existing), then each candidate in

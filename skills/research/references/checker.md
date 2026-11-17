@@ -12,6 +12,11 @@ are cited for.
 - **deep** — all of standard, plus every disagreement with the duplicate run, plus the critic
   roles below.
 
+A **claim** is one row of a claims table. If the rows carry no numbers (quick level: the findings
+are the researcher's notes), number them yourself in order — C1, C2… — and quote the first words of
+each. The researcher's "Confidence" is the author's opinion: ignore it, your verdict replaces it.
+A gap the researcher flagged as "not verified" is worth one attempt when it bears on the answer.
+
 ## For each claim
 
 1. **Open the source yourself** and find the supporting words. Not found, or the page says
@@ -23,6 +28,9 @@ are cited for.
    date of the thing, not of the article. Mark `outdated` when a newer version or fact replaces
    the claim, and say what replaced it. A source with no date is acceptable; write `no date`. Flag a
    page whose "updated" date is new but whose content is plainly old.
+   If your fetch tool returns a summary of the page rather than its text, a match is approximate:
+   say so once at the top of the report, and for a number or a command ask the tool to quote the
+   exact line.
 4. Dead link (see `links.md`) and no other source → `unsupported: source dead`.
 
 Stop at about 20 tool calls (35 at deep); say which claims you did not reach.

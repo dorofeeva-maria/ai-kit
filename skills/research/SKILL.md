@@ -131,7 +131,9 @@ it. Question: <…>. Consumer: <human|agent>. Findings: <run>/findings.md. Check
 Write <run>/report.md<, and <run>/report.html if the consumer is the human and the result is
 large>."
 
-Only claims the checker marked **supported** (or partial, marked so) reach the report.
+Only claims the checker marked **supported** (or partial, marked so) reach the report. If the
+writer returns the report as text because its file write was refused, save it yourself to
+`<run>/report.md` without reading it into the conversation more than once.
 
 ## 10. Hand over
 

@@ -50,6 +50,14 @@ of a foreign-language quote in the human's language).
 
 ## Always
 
+- **Counts in the first line:** confirmed = supported + partial; not confirmed = unsupported +
+  outdated; "not checked" is its own number (`<n> confirmed, <k> not confirmed, <j> not checked`).
+  Unchecked claims may appear only under "Not checked", never as findings.
+- A source with no date: write "no date" in the Date column — that is allowed, not a defect.
+- Sections with nothing in them are left out (no empty "Options compared", "Contradictions"…).
+- **Saving:** write the file(s) named in your brief. If the write is refused, do not work around
+  it — return the full report text in your reply and say so; the coordinator saves it.
+
 - The first line states "as of <date>". A finding older than the freshness guidance is marked
   with its date.
 - Every finding carries its source link. A finding with no source does not appear.

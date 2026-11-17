@@ -16,7 +16,7 @@ import sys
 import urllib.error
 import urllib.request
 
-URL_RE = re.compile(r"https?://[^\s<>\"')\]|]+")
+URL_RE = re.compile(r"https?://[^\s<>\"'`)\]|]+")
 UA = "Mozilla/5.0 (compatible; link-check/1.0)"
 BLOCKED = {401, 403, 405, 429, 999}
 

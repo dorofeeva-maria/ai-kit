@@ -19,6 +19,7 @@ After pulling changes: `/reload-plugins` or a new session. Check it loaded: `cla
 | Path | What |
 |---|---|
 | `skills/research/` | `/ai-kit:research` — research on any topic: three depths, blind researchers, link check, a checker that tries to refute claims, verified findings only |
+| `skills/brainstorm/` | `/ai-kit:brainstorm` — ideas for a goal: interview, blind research of the field, independent generators with different lenses, selection, hyperbole, a reality loop with research, an attack by critics; three checked ideas at the end |
 | `agents/checker.md` | `ai-kit:checker` — the read-only, always-fresh checker every pipeline uses |
 
 ## Agent types (design)

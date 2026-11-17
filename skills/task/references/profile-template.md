@@ -24,16 +24,21 @@ over this file).
 - app: `npm run dev` → http://localhost:5173 · runs from any worktree
 
 ## Tasks
-<!-- Where tasks come from, key format, branch name. Default: tasks/ files, T-001, task/<KEY>-<slug>. -->
+<!-- Where tasks come from, key format, branch name; keys or kinds of task the kit must not take
+     (another procedure owns them). Default: tasks/ files, T-001, task/<KEY>-<slug>, none excluded. -->
 - Source: `tasks/` files
 - Key: `T-001`
 - Branch: `task/<KEY>-<slug>`
+- Not taken by the kit: none
 
 ## Git and PRs
 <!-- Commit format, PR title and description rules, draft or not, who is assigned, AI attribution
-     lines yes/no. Default: the repo's rules; PRs open as drafts; nobody assigned. -->
+     lines yes/no; a worktree command if the place creates worktrees its own way (it replaces the
+     default `git worktree add`; say its arguments). Default: the repo's rules; PRs open as drafts;
+     nobody assigned; plain `git worktree add`. -->
 - Commits: the repo's format
 - PRs: draft; title `<KEY>: <what>`; description: what, why, how checked
+- Worktree: default
 
 ## Autonomy
 <!-- stops: approve (the human approves mock-ups and plan) | blockers (stop only on blockers) |
@@ -52,8 +57,10 @@ over this file).
 - Sizes: 375 px · 1440 px
 
 ## Extra stages
-<!-- Place-only skills and where they run. Default: none. Example:
-     - e2e: skill `e2e`, after all parts, before handoff; needs the slot. -->
+<!-- Place-only skills and where they run; a default step of the task skill replaced by the
+     place's own way, or switched off. Default: none. Examples:
+     - e2e: skill `e2e`, after all parts, before handoff; needs the slot.
+     - architecture: never (the contract between parts lives in the plan) | always for large tasks. -->
 
 ## Never
 <!-- What must not be read, changed or taken outside — passed verbatim into every brief.

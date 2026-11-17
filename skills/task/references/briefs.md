@@ -52,6 +52,7 @@ All stages: "Your decisions so far: <the human's decisions and approved plan/moc
   `<profile Design>` and the real texts. Screen sizes: `<profile Design>`. Write `<notes>/mockups.html`."
 - **develop** — "Follow `ai-kit:develop`. Part: <part of the plan>. Worktree: `<ws>/worktrees/<KEY>/<repo>`,
   branch `<branch>`. Checks to keep green: <profile Checks for this repo>. Run: <profile Run>.
+  slot: `<held for you | not needed>` — look at what a human will see before you report.
   Tests come after the function check: build and push the part now; you will be continued to
   write the tests."
 - **tests** (continue the same instance) — "The function check passed at `<sha>`. Write the part's
@@ -63,9 +64,11 @@ All stages: "Your decisions so far: <the human's decisions and approved plan/moc
 - **fixes** (continue the same instance) — "Findings: `<notes>/<report>.md`. Fix BLOCKS and MUST;
   MINOR if cheap; never TASTE; reject a finding that widens the task or argues with a decision.
   Answer with the table finding → fixed (commit) / rejected (why) / could not fix (why)."
-- **rebase** (the part's implementer) — "Rebase `<branch>` in `<worktree>` on `origin/<base>`,
+- **rebase** (the part's implementer) — "Rebase `<branch>` in `<worktree>` on `<target>`,
   resolve conflicts keeping both sides' intent, run the checks, push with `--force-with-lease`.
-  This branch only; never a plain force push."
+  This branch only; never a plain force push." You name `<target>`: `origin/<base>` for a single PR
+  or the first part of a chain; in a chain of PRs, the previous part's branch until that part is
+  merged.
 
 ## Checkers (add to the skeleton)
 
@@ -91,8 +94,10 @@ the decisions.
 
 ## Small task — one checker, continued
 
-Skeleton + "Follow `<skill>/references/check-function.md` now. Subject: branch `<branch>` at
-`<sha>`, worktree `<path>` (read and run only), the plan in the task file." Add the look
+If mock-ups were drawn, this checker starts there: skeleton + the mock-up checker part above; then
+continue it with the next brief. Otherwise it starts here. Skeleton + "Follow
+`<skill>/references/check-function.md` now. Subject: branch `<branch>` at `<sha>`, worktree
+`<path>` (read and run only), the plan in the task file." Add the look
 (`check-look.md`, part Built UI) only if something visible changed. After the tests, continue the
 same checker: "Now follow `<skill>/references/check-review.md` on `git diff origin/<base>...<branch>`
 at `<sha>`." After the docs: the docs re-check above.

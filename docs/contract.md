@@ -34,17 +34,21 @@ In the workspace root. Plain markdown with these headings (a missing heading = t
 ## Repos            <!-- table: folder · what it is · base branch · sync (on only where others work too) -->
 ## Checks           <!-- per repo: the commands that must be green (lint, types, tests, build) -->
 ## Run              <!-- per repo: how to start the app for a function or look check -->
-## Tasks            <!-- where tasks come from (tasks/ files, a tracker), key format, branch naming -->
-## Git and PRs      <!-- commit format, PR title and description rules, draft or not, who is assigned -->
+## Tasks            <!-- where tasks come from (tasks/ files, a tracker), key format, branch naming, keys the kit must not take -->
+## Git and PRs      <!-- commit format, PR title and description rules, draft or not, who is assigned, a worktree command if not the default -->
 ## Autonomy         <!-- stops: approve | blockers | own · merge: pr | auto-low | full -->
 ## Design           <!-- design system location(s), screen sizes -->
-## Extra stages     <!-- place-only skills and when they run, e.g. an end-to-end test on a stand -->
+## Extra stages     <!-- place-only skills and when they run, e.g. an end-to-end test on a stand; default steps replaced or switched off (e.g. architecture: always | never) -->
 ## Never            <!-- what must not be read, changed or taken outside -->
 ## Language         <!-- language with the human; language of code, commits and docs -->
 ```
 
 Defaults: stops `approve`, merge `pr`, tasks in `tasks/` files, sync off, the human's language for
 conversation and English for everything that goes into repos.
+
+`Extra stages` may add steps, and may also **replace or switch off** a default step of a coordinator
+skill when the place has its own way of doing it; the coordinator then follows the profile for that
+step.
 
 Before the profile exists (a project being started), the coordinator asks the human for the stop
 level and the languages once, and setup writes them into the profile.

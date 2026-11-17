@@ -28,7 +28,9 @@ you do not get the author's report: judge the code. Output and levels:
   runnable as written, consistent with the code.
 - **Docs and the PR description** — in the first review they are not written yet (docs come after
   the review): do not flag them as missing. In the docs re-check they are the whole subject: they
-  tell the truth about the current code. Translations are present in every locale the repo keeps.
+  tell the truth about the current code.
+- **Translations.** Every user-facing text the diff adds or changes is present in every locale the
+  repo keeps — checked in the first review too, not left to the docs re-check.
 - **No data that must not leave:** secrets, real customer data, anything in the profile's Never.
 
 Not findings: style the repo's formatter or linter already decides; personal taste (mark TASTE if

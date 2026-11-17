@@ -41,15 +41,20 @@ the first agent you start.
 ## 0. Start or continue
 
 1. Argument: a task key, a description in words, or nothing (then ask what the task is).
-2. `tasks/<KEY>.md` exists → read it, its `<notes>` and the PRs it links; continue from `State` and
-   `Next step`. Do not reconstruct from old conversations.
+2. A key the profile's `Tasks` lists as not taken by the kit (read that heading first) → say so
+   and stop; another procedure owns it. `tasks/<KEY>.md` exists but is not in the contract's format
+   (no `status:` line) → stop and ask the human: it was started another way and may belong to
+   another procedure. Otherwise read it, its `<notes>` and the PRs it links; continue from `State`
+   and `Next step`. Do not reconstruct from old conversations.
 3. Otherwise create it by the contract's task-file template. Key: the profile's format (default:
    the next free `T-NNN` across `tasks/` and `tasks/done/`). Set `status: in work`.
 4. **Read the profile** `<ws>/.claude/kit-profile.md`; a missing heading means the contract's
    default. No profile at all → say so in one line, work on defaults, and offer to write one from
    [references/profile-template.md](references/profile-template.md) (or `ai-kit:setup`). The human
    may change the stops level for this task by a word ("on your own this time") — record it in
-   `Decisions`.
+   `Decisions`. The profile's `Extra stages` may add steps and may also **replace or switch off** a
+   default step of this skill (the place has its own way of doing it): follow the profile for that
+   step and say so in one line when you reach it.
 5. Repos with sync on: fetch and bring the base branch up to date. A task branch behind its base →
    brief its implementer to rebase it (briefs, "rebase"). **Rebase rule:** only the task's own
    branch, only by its implementer on your brief, pushed with `--force-with-lease` — never a plain
@@ -63,8 +68,8 @@ small; several parts or repos, or a contract between them → large; else medium
 | | small | medium | large |
 |---|---|---|---|
 | Research | — | if there is something to find | yes |
-| Plan | you, in the task file | implementer + plan check | + `ai-kit:architecture` first, a contract between parts |
-| Mock-ups | if anything visible changes | yes + check | yes + check |
+| Plan | you, in the task file | implementer + plan check | + a contract between parts; `ai-kit:architecture` first only as step 5 says |
+| Mock-ups | if anything visible changes; checked by the one checker | if anything visible changes + check | if anything visible changes + check |
 | Code | one implementer | implementer per part | several, in separate worktrees |
 | Checks | by command | by command | by command |
 | Function and look | one checker for all | function; look only if the UI changed | both + the place's end-to-end stage |
@@ -109,12 +114,14 @@ changes a screen or a contract is open.
 
 ## 4. Mock-ups — if anything visible changes
 
-Even one button. No visible change → skip, say so in one line.
+At any size, even one button. No visible change → skip, say so in one line. Drawn mock-ups are
+always checked.
 
 - The profile's `Design` names a design skill or stage → use it. Otherwise a fresh implementer draws
   **one page** with every screen and state of the task (brief: "mock-ups"); publish it as an
   artifact if the session can.
-- A fresh checker checks it (`check-look.md`, part "Mock-ups"); fix loop per the contract.
+- A fresh checker checks it (`check-look.md`, part "Mock-ups"); fix loop per the contract. In a
+  small task this is the one combined checker, continued later for steps 7.3, 7.5 and 7.7.
 - `approve`: **stop** — the link and the open questions; continue on the human's yes. Later changes
   go into the same page.
 
@@ -123,13 +130,16 @@ Even one button. No visible change → skip, say so in one line.
 - **Small:** you write a short plan in the task file in the format of `ai-kit:plan`.
 - **Medium / large:** an implementer with stage `ai-kit:plan` writes `tasks/<KEY>-plan.md` (large:
   first an implementer with `ai-kit:architecture` in change mode, which amends
-  `<ws>/architecture.md`; briefs, "architecture"). Then a fresh checker with `check-plan.md`. The
-  planner (continued) answers the findings; loop to "satisfied".
+  `<ws>/architecture.md`; briefs, "architecture" — only when the task changes the system's
+  structure **and** the workspace keeps an `architecture.md` or the profile's `Extra stages` asks
+  for it; otherwise the contract between parts lives in the plan). Then a fresh checker with
+  `check-plan.md`. The planner (continued) answers the findings; loop to "satisfied".
 - **The planner's requests.** Its reply may carry a neutral research question → run
   `ai-kit:research` (as in step 2), report to `<notes>/research-<n>.md`; or "the architecture must
-  change: …" → a fresh implementer with `ai-kit:architecture` in change mode (briefs,
-  "architecture"). Then continue the same planner with the result's path. The plan check covers
-  an architecture change made for this task.
+  change: …" → under the same condition as above, a fresh implementer with `ai-kit:architecture`
+  in change mode (briefs, "architecture"), then continue the same planner with the result's path;
+  otherwise continue the planner to write the structural change and the contract into the plan.
+  The plan check covers an architecture change made for this task.
 - The plan holds per repo what changes and what could break, the checks that cover it, the contract
   between parts, the parts in merge order (the first useful on its own), the place's extra stages
   and their scenario, forks for the human at the top with defaults, what will stay unchecked.
@@ -140,12 +150,14 @@ Even one button. No visible change → skip, say so in one line.
 
 - One branch name for the task in every touched repo (the profile's `Tasks`; default
   `task/<KEY>-<slug>`), from a fresh base, each in its worktree:
-  `git -C <repo> worktree add <ws>/worktrees/<KEY>/<repo> -b <branch> origin/<base>`. Main
-  checkouts stay on the base branch. Install dependencies in the worktree, or link them from the
-  main checkout while the lock file is identical.
+  `git -C <repo> worktree add <ws>/worktrees/<KEY>/<repo> -b <branch> origin/<base>`, or the
+  worktree command the profile's `Git and PRs` gives instead. Main checkouts stay on the base
+  branch. Install dependencies in the worktree, or link them from the main checkout while the lock
+  file is identical.
 - **Shared slot.** If running the app needs the main checkout or a single shared resource (a port, a
-  database), one task holds it at a time: you take it, hand it to the checker, and return it (main
-  checkout back to base; refuse if the run left edits). Taken by another task → wait in line.
+  database), one task holds it at a time: you take it, hand it to the implementer for its own look
+  (step 7.1) and to each checker that runs the app, and return it (main checkout back to base;
+  refuse if the run left edits). Taken by another task → wait in line.
 - Branches → task file.
 
 ## 7. Implementation — part by part
@@ -154,10 +166,12 @@ Independent parts in parallel (separate worktrees); what others depend on (a con
 first. For each part:
 
 1. **Develop.** An implementer with stage `ai-kit:develop` writes the code in its worktree (tests
-   come in step 4), commits, pushes. A wrong or silent plan → it stops; a small clarification you
-   settle with the planner and the plan checker; a change to scope, contract or mock-ups goes to
-   the human; record it in the task file with the date. After the part's first push: a PR per repo
-   by the profile's `Git and PRs` (default: draft), title and description by the repo's rules,
+   come in step 4), commits, pushes. If the place has a shared slot, take it for the implementer
+   before the brief (briefs, "develop": `slot`), as for checkers: it must look at what a human will
+   see before it reports. A wrong or silent plan → it stops; a small clarification you settle with
+   the planner and the plan checker; a change to scope, contract or mock-ups goes to the human;
+   record it in the task file with the date. After the part's first push: a PR per repo by the
+   profile's `Git and PRs` (default: draft), title and description by the repo's rules,
    links to the paired PRs; PR links → task file.
 2. **Checks — by command, not a model.** Run the profile's `Checks` on the pushed commit yourself.
    Red = not ready: the failures go back to the same implementer (continue it).
@@ -175,8 +189,8 @@ first. For each part:
    which you put on the PR. Checks again. Then the same reviewer (continued) re-checks only the
    docs diff and the PR description; its findings go to the docs implementer (continued).
 
-Small task: one checker does step 3 (the look only if something visible changed) and, continued,
-the review (5) and the docs re-check (7).
+Small task: one checker checks the mock-ups (step 4) if any were drawn, does step 3 (the look only
+if something visible changed) and, continued, the review (5) and the docs re-check (7).
 
 ## 8. The place's extra stages
 

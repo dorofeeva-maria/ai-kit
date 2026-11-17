@@ -52,9 +52,13 @@ All stages: "Your decisions so far: <the human's decisions and approved plan/moc
   `<profile Design>` and the real texts. Screen sizes: `<profile Design>`. Write `<notes>/mockups.html`."
 - **develop** — "Follow `ai-kit:develop`. Part: <part of the plan>. Worktree: `<ws>/worktrees/<KEY>/<repo>`,
   branch `<branch>`. Checks to keep green: <profile Checks for this repo>. Run: <profile Run>.
-  slot: `<held for you | not needed>` — look at what a human will see before you report.
+  slot: `<not yet — you will be continued for the look once your commit is pushed | not needed>`.
+  Look at what a human will see before you report; with a slot, look only when continued with it.
   Tests come after the function check: build and push the part now; you will be continued to
   write the tests."
+- **look** (continue the same instance; only with a shared slot, after its push) — "The slot is
+  held for you on your pushed commit `<sha>`. Run: <profile Run>. Look at what a human will see,
+  fix what you see, push, report; the slot is returned right after your report."
 - **tests** (continue the same instance) — "The function check passed at `<sha>`. Write the part's
   tests by `ai-kit:develop`, Tests; run the checks; push."
 - **docs** — "Follow `ai-kit:docs`. Same worktree and branch. Subject: the diff
@@ -83,7 +87,8 @@ the decisions.
   `<branch>` at commit `<sha>`, worktree `<path>` (read and run only, never edit); the plan part;
   run: `<profile Run>`; slot: `<held for you | not needed>`."
 - **Look checker** — "Follow `<skill>/references/check-look.md`, part Built UI. Subject: commit
-  `<sha>`, run: `<profile Run>`; approved mock-ups `<link>`; screen sizes `<profile Design>`."
+  `<sha>`, run: `<profile Run>`; slot: `<held for you | not needed>`; approved mock-ups `<link>`;
+  screen sizes `<profile Design>`."
 - **Reviewer** — "Follow `<skill>/references/check-review.md`. Subject:
   `git diff origin/<base>...<branch>` at `<sha>`; the plan part; the repo's rules."
 - **Re-check** (continue the same checker) — "Fixes: commit `<sha>`. Per each of your findings:
@@ -97,7 +102,8 @@ the decisions.
 If mock-ups were drawn, this checker starts there: skeleton + the mock-up checker part above; then
 continue it with the next brief. Otherwise it starts here. Skeleton + "Follow
 `<skill>/references/check-function.md` now. Subject: branch `<branch>` at `<sha>`, worktree
-`<path>` (read and run only), the plan in the task file." Add the look
+`<path>` (read and run only), the plan in the task file; run: `<profile Run>`; slot:
+`<held for you | not needed>`." Add the look
 (`check-look.md`, part Built UI) only if something visible changed. After the tests, continue the
 same checker: "Now follow `<skill>/references/check-review.md` on `git diff origin/<base>...<branch>`
 at `<sha>`." After the docs: the docs re-check above.

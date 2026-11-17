@@ -155,9 +155,10 @@ always checked.
   branch. Install dependencies in the worktree, or link them from the main checkout while the lock
   file is identical.
 - **Shared slot.** If running the app needs the main checkout or a single shared resource (a port, a
-  database), one task holds it at a time: you take it, hand it to the implementer for its own look
-  (step 7.1) and to each checker that runs the app, and return it (main checkout back to base;
-  refuse if the run left edits). Taken by another task → wait in line.
+  database), one task holds it at a time: you take it on a pushed commit, hand it to the implementer
+  for its own look (step 7.1) or to a checker that runs the app, and return it as soon as that look
+  or run is over (main checkout back to base; refuse if the run left edits). Never hold it while a
+  part is being developed. Taken by another task → wait in line.
 - Branches → task file.
 
 ## 7. Implementation — part by part
@@ -166,10 +167,11 @@ Independent parts in parallel (separate worktrees); what others depend on (a con
 first. For each part:
 
 1. **Develop.** An implementer with stage `ai-kit:develop` writes the code in its worktree (tests
-   come in step 4), commits, pushes. If the place has a shared slot, take it for the implementer
-   before the brief (briefs, "develop": `slot`), as for checkers: it must look at what a human will
-   see before it reports. A wrong or silent plan → it stops; a small clarification you settle with
-   the planner and the plan checker; a change to scope, contract or mock-ups goes to the human;
+   come in step 4), commits, pushes. It must look at what a human will see before it reports. If
+   the place has a shared slot, the implementer works without it (briefs, "develop": `slot`): after
+   it pushes, take the slot on that commit, continue the same implementer to look and fix what it
+   sees, and return the slot right after. A wrong or silent plan → it stops; a small clarification
+   you settle with the planner and the plan checker; a change to scope, contract or mock-ups goes to the human;
    record it in the task file with the date. After the part's first push: a PR per repo by the
    profile's `Git and PRs` (default: draft), title and description by the repo's rules,
    links to the paired PRs; PR links → task file.

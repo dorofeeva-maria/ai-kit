@@ -22,13 +22,15 @@ Shared terms (task file, profile, findings, briefs): [contract](../../docs/contr
   on guessed file names fails on the first step.
 
 Missing information is not guessed. If something must be found out (a library's behaviour, how
-others solve it), ask the orchestrator for research; in a human's own session, use the
+others solve it), stop and put a neutral research question in your reply — the orchestrator runs
+the research and continues you with the report; in a human's own session, use the
 `ai-kit:research` skill. Small facts in the repo you check yourself by reading.
 
 ## When to ask for the architecture stage
 
-Stop and ask the orchestrator for the architecture stage (in your own session: say so to the
-human) when the plan would change the system's structure: a new repo, service or module boundary;
+Stop and reply "the architecture must change: <what and why>" — the orchestrator runs the
+architecture stage and continues you (in your own session: say so to the human) — when the plan
+would change the system's structure: a new repo, service or module boundary;
 a new storage or a schema change other code depends on; a new external dependency of weight; a
 change to how parts talk to each other. A plan does not make those choices quietly.
 

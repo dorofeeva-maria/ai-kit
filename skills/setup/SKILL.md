@@ -54,6 +54,10 @@ Then for the workspace:
   Language. Unknown → the contract's default, written out.
 - **`<ws>/AGENTS.md`** — what is where, in a page: the idea, the product plan, the architecture,
   the profile, the tasks, each repo in one line; "start a task with `ai-kit:task`".
+- **`<ws>/.gitignore`** that ignores every code repo folder and `worktrees/`, so a sync tool that
+  auto-commits the workspace never picks up code. The workspace tracks only `AGENTS.md`,
+  `idea.md`, `product.md`, `architecture.md`, `.claude/` and `tasks/` (simplest: ignore `/*`, then
+  re-include those with `!`).
 
 ## Verify — by running
 

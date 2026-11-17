@@ -29,7 +29,10 @@ directory). Layout, task file, findings and briefs are as in the contract.
 
 Take today's date with a tool. Ask the human, in one batch with defaults, only what the place does
 not already say: where the workspace goes (a rule in the place's instructions wins; otherwise ask),
-the project name, the language of files (default: English), and the stop level (default `approve`).
+the project name, the language with the human (default: theirs) and of files (default: English),
+and the stop level (default `approve`).
+
+Every Agent call below passes `model` and `effort` by the contract's "Models".
 
 ## Size — say your choice in one line
 
@@ -72,7 +75,7 @@ Nothing from the brainstorm's graveyard or the generators' reasoning goes in —
 
 ## 2. Product stage
 
-Start `ai-kit:implementer`, `model: opus`, high effort (the MVP cut is weighing options):
+Start `ai-kit:implementer`, `model: opus`, `effort: high` (the MVP cut is weighing options):
 
 ```
 Product stage of a new project. Workspace: <ws>. Today is <YYYY-MM-DD>.
@@ -89,12 +92,12 @@ exists — their remarks reach the architect while it works, not after.
 
 ## 3. Architecture stage
 
-Start a fresh `ai-kit:implementer`, `model: fable` (if unavailable, `opus`), high effort:
+Start a fresh `ai-kit:implementer`, `model: fable` (if unavailable, `opus`), `effort: high`:
 
 ```
 Architecture stage of a new project. Workspace: <ws>. Today is <YYYY-MM-DD>.
 First read the architecture skill (ai-kit:architecture), then idea.md, product.md, tasks/.
-Mode: design. Size: <short|full>. Decisions already made: <…>.
+Size: <short|full>. Decisions already made: <…>.
 Never: <…>; no repos, no code.
 Write <ws>/architecture.md; report to <ws>/tasks/START-notes/architecture.md.
 Reply: conclusion in two lines; missing requirements; research requests as neutral questions.
@@ -108,7 +111,7 @@ Reply: conclusion in two lines; missing requirements; research requests as neutr
 
 ## 4. Independent check
 
-A fresh `ai-kit:checker`, `model: opus`. It gets the files, never the authors' replies or reports:
+A fresh `ai-kit:checker`, `model: opus`, `effort: high`. It gets the files, never the authors' replies or reports:
 
 ```
 Check the product plan and the architecture of a new project against its idea. Today is <date>.
@@ -159,7 +162,8 @@ the same instance; cap 3 rounds.
 Tell the human, briefly: the workspace path; the repos (local / remote); the MVP in one line each;
 what was checked by running, by reading, not at all; open hypotheses. Name the **first task** —
 the highest-priority one in `tasks/` (often the design system or the thinnest end-to-end slice) —
-to take with `ai-kit:task`. Move `START.md` and its notes to `tasks/done/`.
+to take with `ai-kit:task`. Append the run-log line (contract, "Run log", key `START`) to
+`tasks/runs.md`. Move `START.md` and its notes to `tasks/done/`.
 
 ## Never
 

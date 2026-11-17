@@ -147,8 +147,8 @@ reasoning.
 
 Reports: a file `tasks/<KEY>-notes/<role>-<part>-<round>.md` plus a short reply; artefacts that are
 not reports (`research.md`, `mockups.html`, `manual-check.md`) keep a plain name, and the project
-start names its reports by stage (`START-notes/product.md`, `check-1.md`…). Conclusion first, in two lines. For
-every statement — checked by running, checked by reading, or not checked. If a file write is
+start names its reports by stage (`START-notes/product.md`, `check-1.md`…). Conclusion first, in
+two lines. For every statement — checked by running, checked by reading, or not checked. If a file write is
 refused, the agent returns the text and the orchestrator saves it. Reports are written in the
 language the profile sets for talking with the human.
 
@@ -156,7 +156,8 @@ language the profile sets for talking with the human.
 
 The Agent tool call takes `model` and `effort`; the orchestrator passes both on every call, by the
 kind of work. Thinking roles — architecture, plan, plan check, review, selection, the product cut —
-get the strongest available model and `effort: high` (the human of this kit asked for high effort on
+get a strong model (`opus`) — the strongest (`fable`) for the hardest work: a large architecture,
+the critique of a large plan — and `effort: high` (the human of this kit asked for high effort on
 thinking roles). Ordinary implementation — a strong model; mechanical work (setup, running checks,
 gathering) — a cheaper one; both at the default effort. Effort is never set in agent definitions.
 Tests and linters are run by command, not by a model; the implementer reads the failures.

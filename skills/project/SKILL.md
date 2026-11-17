@@ -111,7 +111,8 @@ Reply: conclusion in two lines; missing requirements; research requests as neutr
 
 ## 4. Independent check
 
-A fresh `ai-kit:checker`, `model: opus`, `effort: high`. It gets the files, never the authors' replies or reports:
+A fresh `ai-kit:checker`, `model: opus`, `effort: high`. It gets the files, never the authors'
+replies or reports:
 
 ```
 Check the product plan and the architecture of a new project against its idea. Today is <date>.

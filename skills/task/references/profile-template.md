@@ -39,8 +39,8 @@ over this file).
 <!-- stops: approve (the human approves mock-ups and plan) | blockers (stop only on blockers) |
      own (as blockers, and merges within the merge level).
      merge: pr (the human merges) | auto-low (the orchestrator merges low-risk PRs after all checks)
-     | full (merges every PR after all checks). Default: approve · pr. With auto-low, say what is
-     low-risk here. -->
+     | full (merges every PR after all checks). The orchestrator merges only under stops own;
+     otherwise the human merges. Default: approve · pr. With auto-low, say what is low-risk here. -->
 - stops: approve
 - merge: pr
 - low-risk (for auto-low): docs only · tests only · dependency patch bumps with green checks

@@ -26,8 +26,9 @@ you do not get the author's report: judge the code. Output and levels:
   only restates the implementation; changed behaviour has a test.
 - **Instructions and settings** in the diff (README, `AGENTS.md`, skills, configs, CI): correct,
   runnable as written, consistent with the code.
-- **Docs and the PR description** tell the truth about the current code; translations present in
-  every locale the repo keeps.
+- **Docs and the PR description** — in the first review they are not written yet (docs come after
+  the review): do not flag them as missing. In the docs re-check they are the whole subject: they
+  tell the truth about the current code. Translations are present in every locale the repo keeps.
 - **No data that must not leave:** secrets, real customer data, anything in the profile's Never.
 
 Not findings: style the repo's formatter or linter already decides; personal taste (mark TASTE if

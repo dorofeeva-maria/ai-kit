@@ -10,6 +10,11 @@ coordination stays here). Keep your context clean: you do not search, read sourc
 findings yourself — researchers, the checker and the writer do; you read only their short replies
 and the final text. Files carry the knowledge between steps, not your memory.
 
+**Every agent runs in the background** — researchers (all in one message), the compressor, the
+checker and the writer. Wait for each one's completion notice before the step that needs it; do not
+poll and do not do its work meanwhile. So the session stays free when `task`, `project` or
+`brainstorm` calls this skill.
+
 Paths below: `<skill>` is this skill's base directory (shown when the skill loads); `<run>` is the
 run folder you create in step 2.
 
@@ -64,7 +69,7 @@ together covering the question. One researcher per aspect, 2–4 in total; merge
 ## 4. Researchers — in parallel, one message
 
 Start every researcher in the same message (Agent tool, `subagent_type: general-purpose`,
-`model: sonnet`, foreground). Each brief:
+`model: sonnet`, in the background). Each brief:
 
 ```
 Research: <the aspect, phrased as questions>.

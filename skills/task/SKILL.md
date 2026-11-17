@@ -24,9 +24,9 @@ the first agent you start.
 
 ## Rules you keep all the way
 
-- **Nothing is accepted without an independent check.** Plan (medium and large), mock-ups, code, docs and settings are
-  checked by an agent that did not make them; it gets the subject, the request and the human's
-  decisions — never the author's reasoning.
+- **Nothing is accepted without an independent check.** Plan (medium and large), mock-ups, code,
+  docs and settings are checked by an agent that did not make them; it gets the subject, the
+  request and the human's decisions — never the author's reasoning.
 - **An agent's report is a claim.** Check the cheap parts yourself: the commit is on origin, the
   checks are green, the file exists. What was not run is called "not checked".
 - **One tree, one writer.** Many may read or test a tree; only its implementer writes there.

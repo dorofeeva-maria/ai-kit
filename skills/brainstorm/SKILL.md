@@ -72,8 +72,8 @@ ideas**. Own data on unless the human wants an outside view. Save the report as 
 
 ## 3. Diverge — generators in parallel, blind to each other
 
-One message, all generators in the background (`general-purpose`, `model: opus`, high effort —
-the human of this kit asked for high effort on thinking roles). Each gets **one lens**:
+One message, all generators in the background (`general-purpose`, `model: opus`, `effort: high`
+by the contract's "Models"). Each gets **one lens**:
 
 | # | Lens | The question it works from |
 |---|---|---|

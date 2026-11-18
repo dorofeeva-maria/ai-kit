@@ -57,7 +57,7 @@ In the workspace root. Plain markdown with these headings (a missing heading = t
 ## Repos            <!-- table: folder · what it is · base branch · sync (on only where others work too) -->
 ## Checks           <!-- per repo: the commands that must be green (lint, types, tests, build) -->
 ## Run              <!-- per repo: how to start the app for a function or look check -->
-## Tasks            <!-- where tasks come from (tasks/ files, a tracker), key format, branch naming, keys the kit must not take -->
+## Tasks            <!-- where tasks come from (tasks/ files, a tracker, issues); every place the team keeps tasks and what "open" means there (read for duplicates and related, task step 1); key format, branch naming, keys the kit must not take -->
 ## Git and PRs      <!-- commit format, PR title and description rules, draft or not, who is assigned, a worktree command if not the default -->
 ## Autonomy         <!-- stops: approve | blockers | own · merge: pr | auto-low | full -->
 ## Design           <!-- design system location(s), screen sizes -->

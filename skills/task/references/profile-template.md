@@ -25,8 +25,12 @@ over this file).
 
 ## Tasks
 <!-- Where tasks come from, key format, branch name; keys or kinds of task the kit must not take
-     (another procedure owns them). Default: tasks/ files, T-001, task/<KEY>-<slug>, none excluded. -->
+     (another procedure owns them). Default: tasks/ files, T-001, task/<KEY>-<slug>, none excluded.
+     Name EVERY place where the team keeps tasks (a tracker and its projects, GitHub/GitLab issues,
+     tasks/ files) and how to read it: the task skill reads all of them for duplicates and related
+     tasks before each task (step 1); say what "open" (= not released) means there. -->
 - Source: `tasks/` files
+- Other tasks (duplicates, related): `tasks/` files; open = `status:` is not `done`
 - Key: `T-001`
 - Branch: `task/<KEY>-<slug>`
 - Not taken by the kit: none

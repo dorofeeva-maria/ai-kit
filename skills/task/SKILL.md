@@ -74,7 +74,8 @@ small; several parts or repos, or a contract between them → large; else medium
 
 | | small | medium | large |
 |---|---|---|---|
-| Research | — | if there is something to find | yes |
+| Other tasks (step 1) | yes | yes | yes |
+| Research (step 2) | inside; outside + brainstorm only if something is new | same | same |
 | Plan | you, in the task file | implementer + plan check | + a contract between parts; `ai-kit:architecture` first only as step 5 says |
 | Mock-ups | if anything visible changes; checked by the one checker | if anything visible changes + check | if anything visible changes + check |
 | Code | one implementer | implementer per part | several, in separate worktrees |
@@ -103,14 +104,39 @@ questions get your recommended default, recorded as "default, not confirmed".
 - Write to the task file: the human's words quoted with the date, acceptance criteria, scope.
 - Cheap facts yourself: branches or PRs that already carry this key in any repo (`git branch -r`,
   the PR list) — someone may have started.
+- **Other tasks — always, before any work on this one.** Read the place's other tasks where the
+  profile's `Tasks` says they live (a tracker, issues, `tasks/` files — every source it names).
+  Only **open** ones: everything not released counts, in progress and in review included. Related
+  means related by context or by the area the change touches, not only by links: read titles and
+  descriptions. One read-only agent writes `<notes>/related-tasks.md`: per task — key, status, what
+  it changes, and how it meets this one (duplicate / related / conflicts / depends / this task can
+  prepare the ground). Then propose to the human: **duplicates** — delete (or close) them;
+  **related** — merge them into this task, or keep them apart and carry their context into this
+  one (scope, plan, what not to break, what to prepare for them). The answers go to `Decisions`.
+  The kit never edits the tracker itself.
 
-## 2. Research — only if there is something to find
+## 2. Research — what exists, and whether anything is new
 
-Skip it for "one more of the same, by an existing pattern" and say so. Otherwise run
-`ai-kit:research` (read its `SKILL.md` and follow it; you stay its coordinator): what exists now in
-each touched repo (own data on), how others solved this, what the options cost. Save the report as
-`<notes>/research.md`. Tell the human in a few lines: what is there now, what must change, the
-proposed approach and why, what was unexpected.
+1. **Inside — always.** Read-only agents (one per touched repo) report what exists now: code,
+   patterns, docs, recent and open changes in the same area (`<notes>/research-<repo>.md`).
+2. **Is anything fundamentally new? — you decide, by the existing code and docs only**, not by
+   other tasks. New means one of: no existing feature or pattern does it; it exists in code but
+   the approach is **not documented**; or the same goal is reached **in different ways** in
+   different places. The last two need a decision and documentation too: the plan names the doc
+   that will record the chosen approach. Nothing new → say "by pattern X" in one line and go to
+   step 3.
+3. **Something new → outside research.** Run `ai-kit:research` (read its `SKILL.md` and follow it;
+   you stay its coordinator) on the new part only: how other projects and products do it, what
+   the options cost. Report: `<notes>/research-external.md`.
+4. **Then a brainstorm.** Run `ai-kit:brainstorm` (you coordinate it; mode `stops`, depth `quick`
+   or `standard`) on the new part. Input: the inside, related-tasks and outside reports. Its people
+   are the users of the change and the developers of the related tasks; its limit — do not get in
+   the related tasks' way, prepare the ground for them where it is cheap.
+5. **Stop — the human picks** one of the options (AskUserQuestion, with your recommendation); the
+   pick goes to `Decisions`, dated. Questions, journeys, mock-ups and the plan build on it.
+
+Tell the human in a few lines at each step: what is there now, what is new and why, what was
+unexpected.
 
 ## 3. Questions — in batches
 

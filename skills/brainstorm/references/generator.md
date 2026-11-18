@@ -45,7 +45,7 @@ that.
 - **The user's day** — pick the role that uses it most; walk the day hour by hour. Find the
   worst recurring moments and the jobs behind them. Design the product that lives in that day
   every day.
-- **The payer's day** — walk the payer's day and night: what they cannot see, what they chase by
+- **The payer's day** (only if there is a payer) — walk the payer's day and night: what they cannot see, what they chase by
   hand, what they decide blind, what they lose money or sleep on. Design what they would check
   every morning and pay for every month.
 - **Fire the current tool** — for each job, what they "hire" today (paper, chat group,
@@ -81,7 +81,7 @@ that.
 **Who uses it, when:** <role · moments of their day · how often>
 **What it replaces:** <the current way it "fires"> · **push:** <the pain that moves them> ·
 **habit / fear to beat:** <what holds them to the old way, and how the idea beats it>
-**Who pays and why:** <…>
+**Who pays and why:** <… or "no payer">
 **Already exists?** <what in ground.md is closest, and what is open>
 **Fits the appetite:** <near: what the first used version is · bold: how far it grows>
 **Needs to be true:** <1–3 things>

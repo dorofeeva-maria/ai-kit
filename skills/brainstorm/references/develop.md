@@ -20,7 +20,7 @@ Read every file in `ideas/`, the brief and `day.md`.
    moment across jobs, also write the candidate that carries those jobs together as one solution
    (marked "assembled from …"), so Select compares the whole against its parts — never leave the
    whole implied in a note.
-5. Keep **10–16 candidates**. For each: who uses it daily, the jobs it takes over, what it
+5. Keep **10–16 candidates**. For each: who uses it, the jobs it takes over, what it
    replaces, the closest existing products from `ground.md`.
 
 `clusters.md`: a table (name · user · jobs · replaces · closest existing), then each candidate in
@@ -33,10 +33,10 @@ nightly verdict idea new?").
 
 Read `taken.md` (what research found per candidate) and `day.md` again.
 
-1. **Score** each on the brief's criteria, 1–5 with one line of why. Defaults: used every day
-   without force · real benefit (user and payer) · a whole solution · new where it matters ·
-   buildable by us within the appetite. "Used every day" is judged from `day.md` — the user's real
-   moment, not the idea's promise.
+1. **Score** each on the brief's criteria, 1–5 with one line of why. Defaults: used every time the
+   job comes up, without force · real benefit (user, and payer if there is one) · a whole solution ·
+   new where it matters · doable by us within the appetite. "Used" is judged from `day.md` — the
+   user's real moment, not the idea's promise.
 2. **Exists as is** in the human's market for these people → drop, or rebuild it around the real
    opening `taken.md` shows (done badly, too expensive, not localised, not for this segment) and
    say what the opening is. "Exists elsewhere" is an opening, not a death.
@@ -46,14 +46,10 @@ Read `taken.md` (what research found per candidate) and `day.md` again.
    candidate write its **pros and cons**, each with a weight (high · medium · low) and one line of
    why, from the scores, `taken.md` and `day.md`. An idea is dropped only when its cons outweigh its
    pros; say the balance in one line ("pros: 2 high, 1 medium · cons: 1 high, 2 low → keep").
-5. **Decision goal:** pick 3–5 (one per real option), and write `lessons.md` only when fewer than 3
-   keep a balance in their favour. The rest of this part applies as written.
-   **Product goal, pick 6–8: the strongest and the most different.** After the top three, each
-   next pick must
+5. **Pick 6–8: the strongest and the most different.** After the top three, each next pick must
    differ in who it serves or in the jobs it takes. At least two as ambitious as the bold appetite
    allows.
-6. **Too few or too weak?** If fewer than 6 (product goal) or fewer than 3 (decision goal) candidates keep a balance in
-   their favour, or the
+6. **Too few or too weak?** If fewer than 6 candidates keep a balance in their favour, or the
    last three picks are weak (their cons weigh as much as their pros), say so at the top of
    `shortlist.md` and write `<run>/lessons.md`: why this round produced weak ideas — a lens too
    narrow, a constraint missing from the brief, copying what exists, one assumption every
@@ -61,7 +57,7 @@ Read `taken.md` (what research found per candidate) and `day.md` again.
    that would have avoided it. The coordinator then runs one more generation round with the lessons
    (SKILL.md, step 6).
 
-`shortlist.md`: a table (name · pitch · who uses it daily · five scores · pros/cons balance ·
+`shortlist.md`: a table (name · pitch · who uses it · five scores · pros/cons balance ·
 exists? · horizon · lenses), then each idea's full text with its pros and cons. `graveyard.md`:
 every candidate not picked, one line, with the balance that dropped it.
 
@@ -82,7 +78,7 @@ For each of the top N:
    ready — go back to 3.
 5. **Press release from the future** — 5–8 lines dated a year ahead (the bold horizon): what
    exists, who is better off, the number that proves it.
-6. **Wedge and path** — the first version used daily within the near horizon (what it does, for
+6. **Wedge and path** — the first version really used within the near horizon (what it does, for
    whom, in how many hours of the team's work); then the steps to the big version within the bold
    horizon.
 7. **What must be true** — 3–5 checkable hypotheses, the most doubtful first, phrased so a

@@ -30,6 +30,10 @@ the first agent you start.
 - **Think it through before the human sees it** (contract, "Agent types"). Mock-ups, a plan, a
   pattern or an answer to the human's "how will it work" go with a step-by-step walkthrough of one
   concrete case in every state, checked for logic by a fresh agent before you show them.
+- **Choosing or inventing.** Wherever the task must pick an approach, a pattern or a rule: when
+  there are options that already fit and one must be chosen, run `ai-kit:decide`
+  (`<kit>/skills/decide/SKILL.md`; you coordinate it; pass the human's own proposal if the request
+  has one). When no option fits — each has a critical con — run `ai-kit:brainstorm`.
 - **An agent's report is a claim.** Check the cheap parts yourself: the commit is on origin, the
   checks are green, the file exists. What was not run is called "not checked".
 - **One tree, one writer.** Many may read or test a tree; only its implementer writes there.

@@ -18,9 +18,10 @@ no independent eye on it.
 
 **What it is for.** Generating something new, whatever it is: a product, a feature, an approach
 nobody has, names, a way to do X. It is not tied to any task or place. Use it when **no suitable
-solution exists yet** and something fundamentally new must be invented. When suitable solutions
-already exist and only the one that fits best must be picked, use `<kit>/skills/decide` instead
-(it calls this skill back only if every existing option is weak).
+solution exists yet**, or none of the options fits because each has a critical con, and something
+fundamentally new must be invented. When options that fit already exist and only the best must
+be picked, use `<kit>/skills/decide` instead (it calls this skill back only if every option has
+a critical con; a weak option that still fits stays with `decide`).
 
 Some parts below fit only some goals: a payer, a market, a build horizon. Use them when the goal
 has them (a product to sell, a thing to build and run) and leave them out when it has not (names,

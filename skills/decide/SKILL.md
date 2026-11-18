@@ -92,9 +92,10 @@ outweigh its pros or it breaks something fixed.
 each part, write it as its own option ("assembled from …") and weigh it the same way. The human's
 proposal is weighed like the others, and the file says honestly where it wins and where it loses.
 
-**All options weak?** If no option keeps a favourable balance, say so to the human in a line.
-Then run `<kit>/skills/brainstorm` once, to invent new options. You coordinate it, with mode
-without me and depth standard. Its brief is this question, the criteria and why each existing
+**No option fits?** If every option has a critical (fatal) con, say so to the human in a line.
+A weak option that still fits goes on through this skill. Otherwise run
+`<kit>/skills/brainstorm` once, to invent new options. You coordinate it, with mode without me
+and depth standard. Its brief is this question, the criteria and why each existing
 option fails; the caller's brief is `<run>/brief.md`, and its run folder is `<run>/brainstorm/`.
 Then weigh the new options together with the old.
 

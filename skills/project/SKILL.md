@@ -123,10 +123,9 @@ defaults, limits to confirm) — or "none", then go on and write.
    of options.
 2. **Missing requirements and limits** — ask the human, with the architect's defaults. Do not let
    it guess.
-3. **Write** — continue the **same** instance: "Phase 2: write <ws>/architecture.md; report into
-   the same file under ## Result. Research: <report paths>. The human's answers: <…>." A new
-   question in its reply is one more gather
-   round (1–3 again); it does not write "not verified".
+3. **Write** — continue the **same** instance: "Phase 2: write <ws>/architecture.md; report into the
+   same file under ## Result. Research: <report paths>. The human's answers: <…>." A new question in
+   its reply is one more gather round (1–3 again); it does not write "not verified".
 
 ## 4. Independent check
 

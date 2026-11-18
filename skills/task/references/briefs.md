@@ -40,8 +40,9 @@ All stages: "Your decisions so far: <the human's decisions and approved plan/moc
 
 - **architecture** — "Follow `ai-kit:architecture`, Mode: change. Subject: the request (or the
   planner's 'the architecture must change: …'), research `<notes>/research*.md`, the repos. Report
-  to `<notes>/architecture-1-<round>.md`. First the gather list there under `## Gather` and in your
-  reply, and stop (or "none"); you will be continued with research and the human's answers. Then,
+  to `<notes>/architecture-all-<round>.md` (part `all`: it covers the whole task). First the gather
+  list there under `## Gather` and in your reply, and stop; you will be continued with research and
+  the human's answers. A gather list of "none" → go on to the amendment in the same run. Then,
   adding `## Result` to the same file, amend `<ws>/architecture.md` only where this task needs it.
   Repo docs to update → list them in your report; they are changed in the task's branches by the
   docs stage."

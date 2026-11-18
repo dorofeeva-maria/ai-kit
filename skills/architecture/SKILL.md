@@ -10,10 +10,10 @@ session. You do not start agents: research is requested in your reply ("ask the 
 research"); in the human's own session, use `ai-kit:research`. Layout and report rules are in the
 [contract](../../docs/contract.md).
 
-Two phases, in this order: **gather** everything you must know, then **write**. No decision and
-no `architecture.md`, not even a draft, before the gather list is answered — unless the list is
-an explicit "Gather: none". *Why:* an architecture
-written first and questioned after comes back half "not verified" and is written twice.
+Two phases, in this order: **gather** everything you must know, then **write**. No decision and no
+`architecture.md`, not even a draft, before the gather list is answered — unless the list is an
+explicit "Gather: none". *Why:* an architecture written first and questioned after comes back half
+"not verified" and is written twice.
 
 Why this stage is careful: the architecture is the most expensive thing to change later. Copying
 what most projects use is safe but may fit a different problem; inventing from nothing ignores

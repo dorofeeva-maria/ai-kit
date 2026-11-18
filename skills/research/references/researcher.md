@@ -33,6 +33,24 @@ If your brief names own data (paths, a knowledge base, connectors), search it to
   could not find or open goes to Gaps.
 - When sources disagree, record both — do not silently pick one.
 
+**Three checks on every research, before you stop:**
+
+- **Relevance — sources close to the place.** Prefer sources about products, domains and users
+  like the ones in your brief: the same kind of product (an internal business tool, a public form,
+  a consumer app, a game are different worlds), the same field, similar users and conditions. A
+  famous source from a different world is weak evidence: if you cite it, say in the claim how its
+  context differs. When the brief names the place's field, search it by name first (for example
+  "warehouse management", "ERP", "back office", "handheld scanner") and name the field-specific
+  sources you looked for and did not find.
+- **Contradictions — resolve, do not just list.** When two sources disagree, search on until you
+  find what explains it: a third source, a newer version, a difference of context (users, device,
+  scale) under which each is right. Record the explanation; if none is found, say so in Gaps.
+- **Balance and coverage.** Do not stop at one side. Look on purpose for the opposing position
+  (who argues against the common answer, and why), and for sources on the separate aspects of the
+  question (each sub-topic, edge case, user group, device) — not only the sources that answer the
+  whole question at once. In your notes, list the positions you found and which aspects stay
+  without a source.
+
 ## Notes format
 
 Save to the path in your brief:

@@ -35,6 +35,18 @@ A gap the researcher flagged as "not verified" is worth one attempt when it bear
 
 Stop at about 20 tool calls (35 at deep); say which claims you did not reach.
 
+## Three checks on the findings as a whole (every level)
+
+- **Relevance.** Are the sources a conclusion rests on close to the place — the same kind of
+  product, field and users as the question? A conclusion carried by sources from a different world
+  (a public-service form for a back-office tool, a consumer app for a handheld at work) is at most
+  `partial`, with the difference named.
+- **Contradictions resolved.** For each contradiction: is there an explanation (context, version,
+  a third source)? None → it is a gap.
+- **Balance and coverage.** Is there an opposing position, and are the separate aspects of the
+  question covered? A one-sided answer, or an aspect with no source, goes to the gaps — and if the
+  answer depends on it, to "Gaps that make the answer wrong or useless".
+
 ## Critic roles (deep)
 
 Read the conclusions once as each role and add what each would object to:

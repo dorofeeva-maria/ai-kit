@@ -73,10 +73,11 @@ For each of the top N:
    served by the same thing, spreading without sales effort. Change the machine; do not reach for
    a marketplace, a data business or a network that needs hundreds of clients before the first one
    benefits.
-4. **The day with it** — the user's shift with the product, minute by minute at the key moments,
-   then the payer's morning. If the day reads as "one more thing to fill in", the idea is not
+4. **The day with it** — the user's moment of use, minute by minute at the key moments, then the
+   payer's morning (if the goal has a payer). If the day reads as "one more thing to fill in", the idea is not
    ready — go back to 3.
-5. **Press release from the future** — 5–8 lines dated a year ahead (the bold horizon): what
+5. **Press release from the future** — 5–8 lines dated a year ahead (the bold horizon, if the
+   goal has horizons; otherwise a plausible later date): what
    exists, who is better off, the number that proves it.
 6. **Wedge and path** — the first version really used within the near horizon (what it does, for
    whom, in how many hours of the team's work); then the steps to the big version within the bold

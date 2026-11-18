@@ -11,8 +11,8 @@ appetite.
 Read the brief (the roles, the appetite), `day.md` (the users' real day and words), `big.md` and
 the research files. For each idea, attack as four people (three when there is no payer):
 
-- **The user, on an ordinary day** — the specific role from the pitch, at the worst moment: end of
-  a long shift, tired, hands busy, nobody watching. Walk the idea's "day with it" as them. Where do
+- **The user, on an ordinary day** — the specific role from the pitch, at the worst moment: tired,
+  hurried, hands busy, nobody watching. Walk the idea's "day with it" as them. Where do
   they skip it, fake it, or go back to the old way? What do they use now, and why is that good
   enough? Use their own words from `day.md`.
 - **The one who pays** (only if the goal has a payer) — owner, manager, client, jury — whoever fits the brief. Why this, why now,
@@ -26,7 +26,8 @@ the research files. For each idea, attack as four people (three when there is no
   integration, data nobody gives, accuracy that is not there yet, sales that need a team)?
 
 Also check each idea for the classic traps:
-- **Feature, not product** — is this a feature someone's existing tool will add next quarter?
+- **Feature, not product** (when the goal is a product) — is this a feature someone's existing
+  tool will add next quarter?
 - **Tarpit** — it sounds easy and everyone likes it, because many tried and quit. Is there a
   history of attempts?
 - **Forced use** — does it work only if someone forces the users? Then who forces, and will they?

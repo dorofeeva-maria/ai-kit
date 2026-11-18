@@ -11,7 +11,7 @@ repeat.
 ## What an idea is here
 
 An idea is a **whole solution for named people**: who uses it, at which moments of their day,
-which jobs it takes off them end to end, what it replaces, and who pays. "Photo checklist",
+which jobs it takes off them end to end, what it replaces, and who pays (if anyone). "Photo checklist",
 "voice count", "a leaderboard" are features — material, not ideas. If what you have is a feature,
 ask "what whole job is this part of, and what would take that whole job off their day?" and write
 that.

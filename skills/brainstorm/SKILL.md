@@ -49,6 +49,10 @@ anchored on three things:
 `SKILL.md` before the first research step and run research exactly by it).
 `<run>` = `~/.cache/ai-kit/brainstorm/<YYYY-MM-DD>-<short-slug>/` with `ideas/` (absolute path).
 
+**When a caller (e.g. `decide`) gives a brief,** use it: do not re-ask what it already answers
+(ask only what is missing), take the mode and depth it names, and use the caller's run folder as
+`<run>`.
+
 ## Files — who writes what
 
 Claude Code refuses a subagent's Write of a markdown file whose name starts with `report`,
@@ -76,7 +80,7 @@ verbatim — never by renaming, Bash or a script.
 |---|---|---|---|
 | Interview | short | full | full |
 | Ground: the people's day + what exists (step 2) | from what the place already has | + research `standard` on what exists | + research `deep` |
-| Generators (step 3) | 1 agent with 2–3 lenses | 4 | 7 |
+| Generators (step 3) | 1 agent with 2–3 lenses | 4 | 7 (6 with no payer) |
 | "Already exists?" before selection (step 5) | 1 research `quick` agent on the finalists | research `quick` per cluster | research `quick` per cluster, 2 phrasings |
 | Hyperbole | top 3 | top 5 | top 6 |
 | Reality loop | 1 quick research on the best idea | up to 2 rounds | up to 3 rounds |
@@ -92,7 +96,7 @@ chat in live mode) until you could explain the request to a stranger:
 - **The people, by role** — who would *use* it, who would *be affected*, and, if the goal has one,
   who would *pay* (they may be different people). For each role: an ordinary day near this topic hour by hour, what they use
   now (paper, a chat group, a spreadsheet, a system, someone's memory), their habits and
-  constraints (hands busy, noise, night shift, phone only, Telegram all day), what they complain
+  constraints (hands busy, noise, night shift, phone only, one messenger all day), what they complain
   about and how often. Quote the human's sources (interviews, conversations) — real words beat
   guesses; say where you have none.
 - **Appetite — what "we can do it" means.** Who does it, how many hours a week, until when;
@@ -147,10 +151,6 @@ Two inputs every generator reads, both written before any generation:
   year, what users complain about. Researchers get the field, the roles and the jobs — **never the
   goal or hoped-for ideas**. Own data on unless the human wants an outside view. Save the report
   as `ground.md`.
-- **An inference an option depends on is checked before generation.** When the research marks a
-  claim as an inference (not seen in a source) and an option would stand or fall on it, have it
-  checked in the place's own code or docs first (a cheap read you may do yourself, or a quick
-  agent), and add the result to `ground.md`.
 
 ## 3. Diverge — generators in parallel, blind to each other
 
@@ -185,7 +185,7 @@ Generators do not see each other's files or the other lenses.
 
 One agent (`general-purpose`, `model: fable`; if unavailable, `opus`): "First read
 <skill>/references/develop.md, part Cluster. Brief: <run>/brief.md. Ideas: <run>/ideas/. Write
-<run>/clusters.md." — duplicates merged, features folded into the whole solutions they belong
+<run>/clusters.md." — duplicates merged, **the human's own proposal from `brief.md` entered as a candidate, labelled theirs**, features folded into the whole solutions they belong
 to, 10–16 candidate solutions left, each with the jobs it takes over and the existing products
 it would meet. Its reply lists, per candidate, 1–2 neutral questions for step 5 ("Is there a
 product that does X for Y in Z?").
@@ -196,6 +196,11 @@ Run research `quick` on the candidates' questions (standard: one researcher per 
 deep: two phrasings each). **Researchers get the neutral question, never the idea or the hope.**
 Save the findings to `<run>/taken.md`: per candidate — exists as is / exists for other people or
 another market / exists but done badly (with what users say) / not found (with what was searched).
+
+**An inference a candidate stands on is checked before selection.** When the research marks a
+claim as an inference (not seen in a source) and a candidate would stand or fall on it, have it
+checked in the place's own code or docs, when the place has any (a cheap read you may do
+yourself, or a quick agent), and add the result to `taken.md`.
 
 ## 6. Select
 
@@ -236,7 +241,7 @@ be true** (3–5 checkable hypotheses).
 For the top ideas, turn "what must be true" into research questions and run `research` (`quick`
 per hypothesis; several researchers with varied wording, or two with the same wording when a fact
 is contested). **Researchers get the hypothesis as a neutral question, never the idea or the
-hope.** Then continue the developer with the findings: "Part Correct. Findings: <paths>. Update
+hope.** Where the place has code or docs that bear on a hypothesis, check it there as well. Then continue the developer with the findings: "Part Correct. Findings: <paths>. Update
 <run>/big.md, mark what changed." Repeat up to the depth's limit, or stop when a round changes
 nothing.
 
@@ -271,6 +276,8 @@ An agent writes `<run>/result.md` (in the human's language), from the files, wit
   answer · **a test of the riskiest hypothesis that fits in 30 minutes** · the first small step.
 - If no idea passes as ambitious within the bold appetite, say so plainly, and name what would
   make the strongest out-of-reach one possible.
+- **The human's own proposal**, if there was one: where it wins and where it loses against the
+  others, honestly.
 - **Graveyard** — every dropped idea in one line with the reason (exists as…, beyond appetite,
   nobody would really use it, fragment of…). The human may revive one.
 - What stayed unverified.

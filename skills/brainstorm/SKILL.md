@@ -243,8 +243,9 @@ answer. The human picks the three and which is the ambitious one.
 ## 10. Result
 
 Before the result: for each surviving idea, an agent writes **a step-by-step walkthrough** of one
-concrete case (what the person sees and does, in every state), and a fresh agent checks it for
-logic (contract, "Think it through before the human sees it"). Fix or drop what the check breaks;
+concrete case (what the person sees and does, in every state), following `ai-kit:journey`, and a fresh agent checks it for
+logic with `<kit>/skills/task/references/check-journey.md` (contract, "Think it through before the
+human sees it"). Fix or drop what the check breaks;
 the walkthroughs go into the result.
 
 An agent writes `<run>/result.md` (in the human's language), from the files, without adding ideas:

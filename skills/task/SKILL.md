@@ -115,10 +115,22 @@ behaviour, what stays out. AskUserQuestion, up to 4 per call, each with options 
 recommendation. Answers go to `Decisions`, quoted, dated. Do not draw or plan while a question that
 changes a screen or a contract is open.
 
+## 3b. Journeys — the user's path, before mock-ups and plan
+
+Whenever a person sees or does something new or different (at any size), a fresh implementer
+follows `ai-kit:journey` (brief: "journey") and writes `<notes>/journeys.md`: every role, every case,
+step by step — what they see, do, hear, where they go next. With screens it is made together with
+the mock-ups (step 4), in turn: the journey implementer writes the outline; the mock-ups
+implementer draws one frame per named state, labelled with its step; the journey implementer is
+continued to complete the journeys from the frames. A fresh checker reads them as a first-time user (`check-journey.md`); fix loop until
+"clear". Also run it when a brainstorm or a decision picks an approach, and whenever the human asks
+"how will it work": answer with checked journeys. No person-facing change → skip, say so.
+
 ## 4. Mock-ups — if anything visible changes
 
 At any size, even one button. No visible change → skip, say so in one line. Drawn mock-ups are
-always checked.
+always checked — for the design system **and** for logic and obviousness to a first-time user
+(`check-journey.md` on the mock-ups with their journeys), not only for looks.
 
 - The profile's `Design` names a design skill or stage → use it. Otherwise a fresh implementer draws
   **one page** with every screen and state of the task (brief: "mock-ups"); publish it as an

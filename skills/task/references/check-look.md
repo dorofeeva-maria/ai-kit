@@ -22,6 +22,9 @@ Subject: one page with every screen and state of the task.
   format everywhere.
 - **Texts** come from the product's existing wording or glossary; new texts are marked new.
 - **Covers the request, no wider**; nothing against a recorded decision.
+- **Logic and obviousness, not only looks.** Walk the frames in journey order (`journeys.md`) as a
+  first-time user, by [check-journey.md](check-journey.md): logical, obvious, unambiguous, no dead
+  end, nothing lost, safe. A frame no step uses, or a step with no frame, is a finding.
 - Screen sizes as named; nothing assumes a size the product does not have.
 
 ## Part Built UI

@@ -47,9 +47,15 @@ All stages: "Your decisions so far: <the human's decisions and approved plan/moc
   human at the top, each with a default. Decide small things yourself, one line of reason each.
   Research or an architecture change you need → a request in your reply; you will be continued
   with the result."
+- **journey** — "Follow `ai-kit:journey`. Subject: the request, research, the human's answers, the
+  chosen approach, the code of the screens it touches. Write `<notes>/journeys.md`. Mode:
+  `<outline | complete with the frames of <mock-ups link>>`. Questions for the human go at the top
+  of your reply, each with options and a default."
 - **mock-ups** — "No stage skill (unless the profile's Design names one). Draw one self-contained
-  HTML page with every screen and state of this task, from the real design system
-  `<profile Design>` and the real texts. Screen sizes: `<profile Design>`. Write `<notes>/mockups.html`."
+  HTML page from the real design system `<profile Design>` and the real texts: one frame per state
+  named in `<notes>/journeys.md`, each labelled with its step (e.g. J2.4), so every state of this
+  task is there. A state you need that no journey names → say so in your reply. Screen sizes:
+  `<profile Design>`. Write `<notes>/mockups.html`."
 - **develop** — "Follow `ai-kit:develop`. Part: <part of the plan>. Worktree: `<ws>/worktrees/<KEY>/<repo>`,
   branch `<branch>`. Checks to keep green: <profile Checks for this repo>. Run: <profile Run>.
   slot: `<not yet — you will be continued for the look once your commit is pushed | not needed>`.
@@ -81,8 +87,11 @@ the decisions.
 
 - **Plan checker** — "Follow `<skill>/references/check-plan.md`. Subject: `<ws>/tasks/<KEY>-plan.md`;
   the repos at `origin/<base>`; `<ws>/architecture.md` if this task amended it."
-- **Mock-up checker** — "Follow `<skill>/references/check-look.md`, part Mock-ups. Subject:
-  `<link or path>`; design system: `<profile Design>`."
+- **Journey checker** — "Follow `<skill>/references/check-journey.md`. Subject:
+  `<notes>/journeys.md` (and the mock-ups `<link>` if drawn); the request; the human's decisions."
+- **Mock-up checker** — "Follow `<skill>/references/check-look.md`, part Mock-ups, including its
+  logic and obviousness check. Subject: `<link or path>`; journeys `<notes>/journeys.md`; design
+  system: `<profile Design>`."
 - **Function checker** — "Follow `<skill>/references/check-function.md`. Subject: branch
   `<branch>` at commit `<sha>`, worktree `<path>` (read and run only, never edit); the plan part;
   run: `<profile Run>`; slot: `<held for you | not needed>`."

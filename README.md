@@ -26,6 +26,7 @@ After pulling changes: `/reload-plugins` or a new session. Check it loaded: `cla
 | `skills/product/` | stage: MVP cut, feature order, one task file per feature; triage of new requests |
 | `skills/architecture/` | stage: parts, repos, stack, data, every decision reasoned; change mode |
 | `skills/setup/` | stage: repos, tooling, checks, CI, the kit profile and the workspace files; repair mode |
+| `skills/journey/` | stage: the user's path step by step (what they see, do, hear, where they go next) before mock-ups and plan; checked as a first-time user |
 | `skills/plan/` | stage: the plan of a task — per repo changes, contract between parts, PRs, estimate, forks |
 | `skills/develop/` | stage: implement one planned part and its tests; run the place's checks |
 | `skills/docs/` | stage: docs for people and AI, decisions, the PR description — last, before the PR is ready |

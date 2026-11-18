@@ -92,11 +92,11 @@ outweigh its pros or it breaks something fixed.
 each part, write it as its own option ("assembled from …") and weigh it the same way. The human's
 proposal is weighed like the others, and the file says honestly where it wins and where it loses.
 
-**All options weak?** If no option keeps a favourable balance, say so to the human in a line and
-run `<kit>/skills/brainstorm` (you coordinate it; mode: without me, depth: standard; its brief:
-this question, the criteria, why each existing option fails, `<run>/brief.md` as the caller's
-brief and `<run>` as its run folder) to invent new ones, then weigh them together with the old. Only then, and
-once.
+**All options weak?** If no option keeps a favourable balance, say so to the human in a line.
+Then run `<kit>/skills/brainstorm` once, to invent new options. You coordinate it, with mode
+without me and depth standard. Its brief is this question, the criteria and why each existing
+option fails; the caller's brief is `<run>/brief.md`, and its run folder is `<run>/brainstorm/`.
+Then weigh the new options together with the old.
 
 ## 5. Attack
 
@@ -113,9 +113,11 @@ the strongest attack on each, the answer.
 For the recommended option (and the runner-up when the balance is close), a fresh implementer
 follows `<journey>/SKILL.md` (its brief names `<run>` as the folder) and writes
 `<run>/journeys.md`: the concrete case step by step — what
-the person sees, does and gets, in each state, for each role. A fresh checker then checks it with
-`<kit>/skills/task/references/check-journey.md` (contract, "Think it through"); the implementer
-fixes, the same checker re-checks, to "satisfied" (loop cap: 3 rounds, per the contract). A gap that comes back changes the option or
+the person sees, does and gets, in each state, for each role.
+
+A fresh checker then checks it with `<kit>/skills/task/references/check-journey.md` (contract,
+"Think it through"). The implementer fixes, and the same checker re-checks, until it is
+satisfied (loop cap: 3 rounds, per the contract). A gap that comes back changes the option or
 drops it; re-weigh when it does. With no person-facing steps (a rule, an internal pattern), the
 walkthrough is one concrete case through the code or process, step by step.
 

@@ -50,8 +50,9 @@ anchored on three things:
 `<run>` = `~/.cache/ai-kit/brainstorm/<YYYY-MM-DD>-<short-slug>/` with `ideas/` (absolute path).
 
 **When a caller (e.g. `decide`) gives a brief,** use it: do not re-ask what it already answers
-(ask only what is missing), take the mode and depth it names, and use the caller's run folder as
-`<run>`.
+(ask only what is missing), and take the mode and depth it names. Use the caller's subfolder (e.g. `<run>/brainstorm/`) as
+your `<run>`. Read the caller's brief, copy what it answers into your own `brief.md`, and never
+overwrite the caller's files.
 
 ## Files — who writes what
 

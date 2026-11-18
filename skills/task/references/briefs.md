@@ -43,7 +43,8 @@ All stages: "Your decisions so far: <the human's decisions and approved plan/moc
   `<ws>/architecture.md` only where this task needs it. Repo docs to update → list them in your
   report; they are changed in the task's branches by the docs stage."
 - **plan** — "Follow `ai-kit:plan`. Subject: research, the human's answers, mock-ups `<link>`,
-  `<ws>/architecture.md` if this task amended it. Write `<ws>/tasks/<KEY>-plan.md`. Forks for the
+  journeys `<notes>/journeys.md` (every step needs a part of the plan), `<ws>/architecture.md` if
+  this task amended it. Write `<ws>/tasks/<KEY>-plan.md`. Forks for the
   human at the top, each with a default. Decide small things yourself, one line of reason each.
   Research or an architecture change you need → a request in your reply; you will be continued
   with the result."

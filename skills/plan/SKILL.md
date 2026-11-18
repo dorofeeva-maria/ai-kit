@@ -16,6 +16,7 @@ Shared terms (task file, profile, findings, briefs): [contract](../../docs/contr
 - The task file `tasks/<KEY>.md`: Request, Scope, Decisions (the human's are final), Tried and
   dropped.
 - The profile `.claude/kit-profile.md`: Repos, Checks, Run, Git and PRs, Autonomy, Never.
+- `journeys.md` when the task has one: the plan builds those journeys; every step needs a part.
 - Research reports and mock-ups named in your brief or linked from the task file.
 - In every repo you will touch: its `AGENTS.md` / `CLAUDE.md`, its docs on architecture, and the
   code you will change and its neighbours. **Open the files you name in the plan** — a plan built

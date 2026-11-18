@@ -7,8 +7,8 @@ step, so read it as the person who will have to build it tomorrow. Output and le
 ## Read first
 
 1. The task file: the request (the human's words), acceptance criteria, scope, **decisions**.
-2. The plan (`tasks/<KEY>-plan.md` or the task file's `## Plan`); the architecture file and the
-   approved mock-ups if the plan names them.
+2. The plan (`tasks/<KEY>-plan.md` or the task file's `## Plan`); the architecture file, the
+   approved mock-ups and `journeys.md` if the plan names them or the task has them.
 3. The touched repos at `origin/<base>`: their `AGENTS.md` / `CLAUDE.md`, then the files the plan
    names.
 
@@ -18,6 +18,8 @@ Not the planner's notes or replies: judge the plan, not the reasons given for it
 
 - **Covers the request, no wider.** Every acceptance criterion maps to a step; nothing in the plan
   that nobody asked for. A step against a recorded decision of the human is BLOCKS.
+- **Builds the journeys.** Every step of `journeys.md` has a part of the plan that makes it
+  happen, including the steps marked "needs change"; a step with no part is a finding.
 - **True about the code.** Every claim about the code ("component X already does Y", "endpoint Z
   returns …", "no other caller") — open the file and check. A false claim the plan rests on is
   BLOCKS.

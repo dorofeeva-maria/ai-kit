@@ -30,7 +30,7 @@ current mock-ups if there are any, or you draw alongside (see "With the designer
 ## Write `journeys.md`
 
 1. **Roles.** Each person who touches the feature (who edits, who views, who is refused), with
-   their conditions: device, screen size, input (mouse, touch, scanner, gloves), how often they do
+   their conditions: device, screen size, input (mouse, touch, keyboard, a special device, gloves), how often they do
    this, how much attention they have, what they know.
 2. **Cases.** For each role, every case the feature can meet. Start from this list and drop only
    what cannot happen, saying why:
@@ -70,12 +70,13 @@ at a place on a screen and every screen state is a step of some journey:
 
 ## The check
 
-Run by the orchestrator, or by hand by the human's session — this skill never starts agents. A fresh
-checker (`ai-kit:checker`), never the author: "Follow
-`<kit>/skills/task/references/check-journey.md`. Subject: `<notes>/journeys.md` (and the mock-ups
-`<link>` if drawn). Decisions: <the human's decisions>." The author (the same instance, continued)
-fixes every BLOCKS and MUST, and the same checker checks again, until it is clean. Only then do the journeys (and the mock-ups) go
-to the human, with the open questions.
+Run by the orchestrator, or by hand by the human's session — this skill never starts agents. A
+fresh checker (`ai-kit:checker`), never the author: "Follow
+`<kit>/skills/task/references/check-journey.md` (`<kit>` = this skill's base directory plus
+`../..`). Subject: `<notes>/journeys.md` (and the mock-ups `<link>` if drawn). Decisions: <the
+human's decisions>." The author (the same instance, continued) fixes every BLOCKS and MUST, and
+the same checker checks again, until it is satisfied. Only then do the journeys (and the
+mock-ups) go to the human, with the open questions.
 
 ## Report
 

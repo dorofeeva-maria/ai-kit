@@ -118,27 +118,33 @@ changes a screen or a contract is open.
 ## 3b. Journeys — the user's path, before mock-ups and plan
 
 Whenever a person sees or does something new or different (at any size), a fresh implementer
-follows `ai-kit:journey` (brief: "journey") and writes `<notes>/journeys.md`: every role, every case,
-step by step — what they see, do, hear, where they go next. With screens it is made together with
-the mock-ups (step 4), in turn: the journey implementer writes the outline; the mock-ups
-implementer draws one frame per named state, labelled with its step; the journey implementer is
-continued to complete the journeys from the frames. A fresh checker reads them as a first-time user (`check-journey.md`); fix loop until
-"clear". Also run it when a brainstorm or a decision picks an approach, and whenever the human asks
-"how will it work": answer with checked journeys. No person-facing change → skip, say so.
+follows `ai-kit:journey` (brief: "journey") and writes `<notes>/journeys.md`: every role, every
+case, step by step — what they see, do, hear, where they go next. No person-facing change → skip
+3b and 4, say so in one line. Order, for work with screens (steps 3b and 4 are one flow):
+
+1. The journey implementer writes the **outline**.
+2. Step 4 draws the frames from it.
+3. The same journey implementer is continued to **complete** the journeys from the frames.
+4. One combined check (step 4).
+
+Without screens, skip 2 and the frames in the check. Run the journey stage also when a brainstorm
+or a decision picks an approach, and whenever the human asks "how will it work": answer with
+checked journeys.
 
 ## 4. Mock-ups — if anything visible changes
 
-At any size, even one button. No visible change → skip, say so in one line. Drawn mock-ups are
-always checked — for the design system **and** for logic and obviousness to a first-time user
-(`check-journey.md` on the mock-ups with their journeys), not only for looks.
+At any size, even one button. No visible change → skip, say so in one line.
 
-- The profile's `Design` names a design skill or stage → use it. Otherwise a fresh implementer draws
-  **one page** with every screen and state of the task (brief: "mock-ups"); publish it as an
-  artifact if the session can.
-- A fresh checker checks it (`check-look.md`, part "Mock-ups"); fix loop per the contract. In a
-  small task this is the one combined checker, continued later for steps 7.3, 7.5 and 7.7.
-- `approve`: **stop** — the link and the open questions; continue on the human's yes. Later changes
-  go into the same page.
+- The profile's `Design` names a design skill or stage → use it, and put the frame-label rule
+  (one frame per state named in `journeys.md`, labelled with its step, e.g. J2.4) into its brief.
+  Otherwise a fresh implementer draws **one page** (brief: "mock-ups"); publish it as an artifact
+  if the session can.
+- After step 3 of 3b, **one combined checker**: fresh; `check-look.md` part "Mock-ups" (design
+  system, states, and logic and obviousness to a first-time user) and `check-journey.md` on the
+  journeys with the frames. Fix loop per the contract, to "satisfied". In a small task this is the
+  one combined checker, continued later for steps 7.3, 7.5 and 7.7.
+- `approve`: **stop** — the mock-ups **and** the journeys (links) with the open questions;
+  continue on the human's yes. Later changes go into the same page.
 
 ## 5. Plan
 
@@ -168,8 +174,9 @@ always checked — for the design system **and** for logic and obviousness to a 
   `git -C <repo> worktree add <ws>/worktrees/<KEY>/<repo> -b <branch> origin/<base>`, or the
   worktree command the profile's `Git and PRs` gives instead. Main checkouts stay on the base
   branch, and **nothing is ever written into them** — not by you, not by an agent, not as a quick
-  fix outside the task (contract, "Agent types"): every change lives in a worktree. Install dependencies in the worktree, or link them from the main checkout while the lock
-  file is identical.
+  fix outside the task (contract, "Agent types"): every change of a code repo lives in a worktree.
+  Install dependencies in the worktree, or link them from the main checkout while the lock file is
+  identical.
 - **Shared slot.** If running the app needs the main checkout or a single shared resource (a port, a
   database), one task holds it at a time: you take it on a pushed commit, hand it to the implementer
   for its own look (step 7.1) or to a checker that runs the app, and return it as soon as that look

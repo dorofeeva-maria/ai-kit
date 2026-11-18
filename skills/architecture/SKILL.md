@@ -60,8 +60,8 @@ per question, ask the human the requirements and limits, then go on to phase 2 i
 ## Phase 2 — write
 
 You are continued with the research report paths and the human's answers. Read them all before
-deciding. Report into the same file, adding `## Result` under `## Gather`. For every choice, argue both ways: why the common choice fits **here**, or why it would
-only limit us to what most use.
+deciding. Report into the same file, adding `## Result` under `## Gather`. For every choice, argue
+both ways: why the common choice fits **here**, or why it would only limit us to what most use.
 
 If writing turns up a new question that changes a decision, stop and reply with it: one more
 gather round, not a decision marked "not verified". A fact that cannot be learned is a stated
@@ -136,5 +136,5 @@ asked about — propose them separately if they matter.
 - No decision before the gather list is answered; no "not verified" in the written architecture —
   a new question is one more gather round.
 - Report per the contract, one file. Phase 1: conclusion in two lines; the gather list (or "none")
-  under `## Gather`. Phase 2, under `## Result`: conclusion in two lines; for each statement — checked (by research, by running, by reading) or
-  an assumption with its risk.
+  under `## Gather`. Phase 2, under `## Result`: conclusion in two lines; for each statement —
+  checked (by research, by running, by reading) or an assumption with its risk.

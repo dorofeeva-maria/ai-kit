@@ -41,7 +41,8 @@ the team could not build. So every step here is anchored on three things:
 3. **Reality before selection.** "Does this already exist?" and "can we build it within our
    appetite?" are checked *before* the shortlist, not after the attack.
 
-`<skill>` is this skill's base directory; `<research>` is `<skill>/../research` (read its
+`<skill>` is this skill's base directory; `<kit>` = `<skill>/../..`; `<research>` is
+`<skill>/../research` (read its
 `SKILL.md` before the first research step and run research exactly by it).
 `<run>` = `~/.cache/ai-kit/brainstorm/<YYYY-MM-DD>-<short-slug>/` with `ideas/` (absolute path).
 
@@ -131,7 +132,8 @@ Two inputs every generator reads, both written before any generation:
   by hour; each recurring job as a job story ("When <moment>, I want <…>, so I can <…>") with its
   **frequency** (every shift / weekly / monthly) and **intensity** (how much it hurts, in their
   words), how they do it now, what it costs them, what would push them off the current way and
-  what habit holds them; habits and conditions; direct quotes with dates. You write it from the material; at deep, one agent may draft it for you.
+  what habit holds them; habits and conditions; direct quotes with dates. An agent writes it, at every depth, from the interview and the
+  place's material.
 - **`<run>/ground.md` — what exists**: research on the **field** (standard: `standard`, deep:
   `deep`): products and services that serve these roles' jobs (globally and in the human's market,
   with prices and dates), what was tried and dropped and why, what became possible in the last
@@ -200,8 +202,9 @@ the bold appetite allows.
 ideas keep a balance in their favour, or the last three picks are weak), do two things at once:
 
 - **Tell the human now**, in a few lines: what went wrong in this round and, for each lesson, the
-  change to this skill's rules that would prevent it (which file, what to add). On their yes, edit
-  the kit's skill files and commit; the kit is meant to learn from each run.
+  change to this skill's rules that would prevent it (which file, what to add). On their yes, hand the
+  change to an implementer (you never edit the kit yourself; an independent checker checks it); the
+  kit is meant to learn from each run.
 - **Run step 3 again** with new generators (same brief form), adding to each brief: "Lessons from
   the first round: <run>/lessons.md — avoid these mistakes. The first round's ideas are in
   <run>/clusters.md: do not repeat them." Then steps 4–6 on the old and new ideas together. One

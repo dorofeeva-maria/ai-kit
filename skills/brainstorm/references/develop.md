@@ -46,7 +46,10 @@ Read `taken.md` (what research found per candidate) and `day.md` again.
    candidate write its **pros and cons**, each with a weight (high · medium · low) and one line of
    why, from the scores, `taken.md` and `day.md`. An idea is dropped only when its cons outweigh its
    pros; say the balance in one line ("pros: 2 high, 1 medium · cons: 1 high, 2 low → keep").
-5. **Pick 6–8: the strongest and the most different.** After the top three, each next pick must
+5. **Decision goal:** pick 3–5 (one per real option), and write `lessons.md` only when fewer than 3
+   keep a balance in their favour. The rest of this part applies as written.
+   **Product goal, pick 6–8: the strongest and the most different.** After the top three, each
+   next pick must
    differ in who it serves or in the jobs it takes. At least two as ambitious as the bold appetite
    allows.
 6. **Too few or too weak?** If fewer than 6 candidates keep a balance in their favour, or the

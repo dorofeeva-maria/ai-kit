@@ -39,8 +39,8 @@ If your brief names own data (paths, a knowledge base, connectors), search it to
   like the ones in your brief: the same kind of product (an internal business tool, a public form,
   a consumer app, a game are different worlds), the same field, similar users and conditions. A
   famous source from a different world is weak evidence: if you cite it, say in the claim how its
-  context differs. When the brief names the place's field, search it by name first (for example
-  "warehouse management", "ERP", "back office", "handheld scanner") and name the field-specific
+  context differs. When the brief names the place's field, search it by name first (the field and its
+  usual terms, as the brief names them) and name the field-specific
   sources you looked for and did not find.
 - **Contradictions — resolve, do not just list.** When two sources disagree, search on until you
   find what explains it: a third source, a newer version, a difference of context (users, device,

@@ -1,6 +1,6 @@
 ---
 name: journey
-description: Walk the user's path through a feature or a pattern step by step before anything is drawn or planned — for each role and each case (the normal path, errors, a conflict with another person, no permission, empty, offline, interruption, a dangerous action), what the person sees, what they do, what the system answers, where they go next, what they hear with a screen reader, and how they recover or leave. Written with the designer when there are screens, so every step names where on the screen it happens. Ends in journeys.md that an independent checker reads as a first-time user and tries to break — illogical, ambiguous, a dead end, a lost input, a dangerous action without a guard. Use when the brief says "follow ai-kit:journey", after a brainstorm picks an approach and before mock-ups and the plan, or when the human asks "how will it work step by step".
+description: Walk the user's path through a feature or a pattern step by step before anything is drawn or planned — for each role and each case (the normal path, errors, a conflict with another person, no permission, empty, offline, interruption, a dangerous action), what the person sees, what they do, what the system answers, where they go next, what they hear with a screen reader, and how they recover or leave. Written with the designer when there are screens, so every step names where on the screen it happens. Ends in journeys.md that an independent checker reads as a first-time user and tries to break — illogical, ambiguous, a dead end, a lost input, a dangerous action without a guard. Use when the brief says "follow ai-kit:journey", after a brainstorm or `decide` picks an approach and before mock-ups and the plan, or when the human asks "how will it work step by step".
 ---
 
 # journey — the path a person walks, before it is drawn or built
@@ -17,7 +17,7 @@ product for the first time. Shared terms: [contract](../../docs/contract.md).
 - In a task, after research and the human's answers, **before mock-ups and before the plan**, for
   anything a person sees or does (task skill, step 3b). Mock-ups are then drawn from the journeys,
   and the plan builds them.
-- After a brainstorm or a decision that picks an approach (a pattern, a flow): one journey per
+- After a brainstorm or a `decide` run that picks an approach (a pattern, a flow): one journey per
   surviving option, so the options are compared by what the person lives through.
 - When the human asks "how will it work?": answer with a checked journey, never with a sketch.
 

@@ -22,7 +22,8 @@ After pulling changes: `/reload-plugins` or a new session. Check it loaded: `cla
 | `skills/task/` | `/ai-kit:task` — coordinator: one development task from the request to ready PRs (research, questions, mock-ups, plan, implementation in worktrees, checks, docs, handoff) |
 | `skills/project/` | `/ai-kit:project` — coordinator: a chosen idea to a ready workspace (idea, product, architecture, check, setup) |
 | `skills/research/` | `/ai-kit:research` — coordinator: research on any topic: three depths, blind researchers, link check, a checker that tries to refute claims, verified findings only |
-| `skills/brainstorm/` | `/ai-kit:brainstorm` — coordinator: ideas for a goal: interview, blind research, independent generators, selection, hyperbole, a reality loop, an attack by critics; three checked ideas |
+| `skills/brainstorm/` | `/ai-kit:brainstorm` — coordinator: invent something new for any goal when nothing suitable exists: interview, blind research, independent generators, selection, hyperbole, a reality loop, an attack by critics; three checked ideas |
+| `skills/decide/` | `/ai-kit:decide` — coordinator: choose among solutions that already exist: the place's own way, what others do (research), the human's proposal as a candidate; pros against cons with weights, hybrids, an attack by a critic, a checked walkthrough; a recommendation (calls brainstorm only if every option is weak) |
 | `skills/product/` | stage: MVP cut, feature order, one task file per feature; triage of new requests |
 | `skills/architecture/` | stage: parts, repos, stack, data, every decision reasoned; change mode |
 | `skills/setup/` | stage: repos, tooling, checks, CI, the kit profile and the workspace files; repair mode |

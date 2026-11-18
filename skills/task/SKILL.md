@@ -128,7 +128,7 @@ case, step by step — what they see, do, hear, where they go next. No person-fa
 4. One combined check (step 4).
 
 Without screens, skip 2 and the frames in the check. Run the journey stage also when a brainstorm
-or a decision picks an approach, and whenever the human asks "how will it work": answer with
+or `decide` picks an approach, and whenever the human asks "how will it work": answer with
 checked journeys.
 
 ## 4. Mock-ups — if anything visible changes

@@ -8,7 +8,7 @@ named anywhere in it.** A place brings its own context through its profile.
 
 | Type | What it is | Rules |
 |---|---|---|
-| **Orchestrator** | the main session running a coordinator skill (`task`, `project`, `research`, `brainstorm`) | Talks to the human, picks the pipeline, keeps the state file, starts agents in the background and in parallel, passes findings between them, checks cheap claims itself, decides small technical questions without asking. **Writes no code**: edits only the workspace's state files (`tasks/`, its notes, `idea.md` in a project start, the profile on the human's word); any change to a repo or to tooling goes to an implementer. "Tooling" includes the kit's own skills and docs and the workspace's rules and scripts (`AGENTS.md`, `CLAUDE.md`, `docs/`, `scripts/`, `.claude/` except `kit-profile.md`, which the orchestrator edits on the human's word): the orchestrator never edits them itself — an implementer does, and an independent checker checks the change. Reads agents' short replies, not their work. |
+| **Orchestrator** | the main session running a coordinator skill (`task`, `project`, `research`, `brainstorm`, `decide`) | Talks to the human, picks the pipeline, keeps the state file, starts agents in the background and in parallel, passes findings between them, checks cheap claims itself, decides small technical questions without asking. **Writes no code**: edits only the workspace's state files (`tasks/`, its notes, `idea.md` in a project start, the profile on the human's word); any change to a repo or to tooling goes to an implementer. "Tooling" includes the kit's own skills and docs and the workspace's rules and scripts (`AGENTS.md`, `CLAUDE.md`, `docs/`, `scripts/`, `.claude/` except `kit-profile.md`, which the orchestrator edits on the human's word): the orchestrator never edits them itself — an implementer does, and an independent checker checks the change. Reads agents' short replies, not their work. |
 | **Implementer** | `ai-kit:implementer` | The only one that writes into a tree. Loads the skill of its stage. A fresh instance per stage; within a stage's fix loop the same instance is continued (it remembers). The `journey` stage spans the outline and its completion from the mock-ups, so its instance is continued between them. Parallel instances only for independent parts in separate worktrees. |
 | **Checker** | `ai-kit:checker` | Changes nothing, always fresh. May run checks, start the app and use a browser. Gets the subject and the criteria, never the author's reasoning. Loads the check guide named in its brief. Read-only by rule: Write is allowed only for its own report. |
 
@@ -38,7 +38,8 @@ be both there and gone; a feature that solves nothing in this case) means this s
 
 ## Skills
 
-Coordinators: `task`, `project`, `research`, `brainstorm`.
+Coordinators: `task`, `project`, `research`, `brainstorm` (invent something new), `decide` (choose
+among solutions that exist).
 Stage skills (loaded by the implementer, also usable by hand): `product`, `architecture`, `setup`,
 `journey`, `plan`, `develop`, `docs`.
 Check guides live with the coordinator that uses them (`skills/<coordinator>/references/check-*.md`);

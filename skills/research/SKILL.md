@@ -12,8 +12,8 @@ and the final text. Files carry the knowledge between steps, not your memory.
 
 **Every agent runs in the background** — researchers (all in one message), the compressor, the
 checker and the writer. Wait for each one's completion notice before the step that needs it; do not
-poll and do not do its work meanwhile. So the session stays free when `task`, `project` or
-`brainstorm` calls this skill.
+poll and do not do its work meanwhile. So the session stays free when `task`, `project`,
+`brainstorm` or `decide` calls this skill.
 
 **Run it in the main session, never inside a subagent.** Claude Code refuses a subagent's Write of
 a report-like markdown file (`findings…`, `report…`, `summary…`, `analysis…`): subagents return

@@ -110,16 +110,19 @@ questions get your recommended default, recorded as "default, not confirmed".
   means related by context or by the area the change touches, not only by links: read titles and
   descriptions. One read-only agent writes `<notes>/related-tasks.md`: per task — key, status, what
   it changes, and how it meets this one (duplicate / related / conflicts / depends / this task can
-  prepare the ground). Then propose to the human: **duplicates** — delete (or close) them;
+  prepare the ground); for work with branches or PRs, also its approach in a few lines, with the
+  branch or PR. Then propose to the human: **duplicates** — delete (or close) them;
   **related** — merge them into this task, or keep them apart and carry their context into this
   one (scope, plan, what not to break, what to prepare for them). The answers go to `Decisions`.
   The kit never edits the tracker itself.
   **Related or duplicate task that already has work** (branches, draft PRs): check if it is still
-  current — last activity, owner, how far behind base. *Active* (someone works on it now): ask the
+  current — last activity, owner, how far behind base. Say your call in one line, in `Decisions`;
+  in doubt, treat it as active. *Active* (someone works on it now): ask the
   human as above (merge, keep apart, depend). *Stale or abandoned*: never build on its branch;
-  this task's branch starts from a fresh base. Read what that work did and carry its approach as
-  **one candidate option**, not the default, into where options are compared (`ai-kit:decide`, or
-  the options in the design or plan).
+  this task's branch starts from a fresh base. The approach from `related-tasks.md` goes in as
+  **one candidate option** — compared, not copied by default — into where options are compared
+  (`ai-kit:decide`, or the options in the design or plan); if nothing is compared, note it in
+  the plan.
 
 ## 2. Research — what exists, and whether anything is new
 
@@ -135,7 +138,8 @@ questions get your recommended default, recorded as "default, not confirmed".
    you stay its coordinator) on the new part only: how other projects and products do it, what
    the options cost. Report: `<notes>/research-external.md`.
 4. **Then a brainstorm.** Run `ai-kit:brainstorm` (you coordinate it; mode `stops`, depth `quick`
-   or `standard`) on the new part. Input: the inside, related-tasks and outside reports. Its people
+   or `standard`) on the new part. Input: the inside, related-tasks (with a stale task's approach) and outside
+   reports. Its people
    are the users of the change and the developers of the related tasks; its limit — do not get in
    the related tasks' way, prepare the ground for them where it is cheap.
 5. **Stop — the human picks** one of the options (AskUserQuestion, with your recommendation); the

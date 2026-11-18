@@ -48,14 +48,13 @@ Anything vague, contradictory or doubtful in the request — ask (AskUserQuestio
 with a default), do not guess. A question the caller already answered is not asked again. If
 the human is present, show the brief in 10 lines and let them correct it before anything runs.
 
-## 2. Collect the options — three sources, in parallel, in the background
+## 2. Collect the options — the sources, in parallel, in the background
 
 One message, all agents in the background.
 
 1. **The place's own way** — an agent that changes no file but `own.md` (`model: sonnet`) reads the place's code and docs
    for the question: what is done now and where, the places that do it differently, the rules and
    decisions that bear on it. Notes: `<run>/own.md`, each claim with `path:line`.
-   Work of a stale related task (branch, draft PR) is one more source: its approach is a candidate.
 2. **What similar products and fields do** — run `<research>` (read its `SKILL.md`, follow it;
    you stay its coordinator). Depth `standard`; `deep` for a large decision. Give it **neutral
    questions** (how do similar products solve X, what does it cost them, what went wrong), never
@@ -65,11 +64,13 @@ One message, all agents in the background.
    **balance** (for every approach, evidence for and against, not only its promoters). Findings:
    `<run>/research.md`.
 3. **The human's proposal**, if there is one, enters as a candidate — it needs no source.
+4. **A stale related task's work** (branch, draft PR), if the caller's `related-tasks.md` names
+   one: its approach enters as a candidate, compared, not copied by default.
 
 Then one agent (`general-purpose`, `model: opus`, high effort) writes `<run>/options.md` from the
-three: each distinct option with what it is in a few lines, **where it comes from** — *found
+the sources: each distinct option with what it is in a few lines, **where it comes from** — *found
 practice* (who does it, source), *our own rule* (the place's code or decision), *the human's
-proposal* — and what it would change here. Parts that can be combined are marked; duplicates
+proposal*, *stale related work* — and what it would change here. Parts that can be combined are marked; duplicates
 merge. Do not drop an option for being unfashionable.
 
 ## 3. Check what an option stands on

@@ -47,6 +47,16 @@ over this file).
 - PRs: draft; title `<KEY>: <what>`; description: what, why, how checked
 - Worktree: default
 
+## Reviewers
+<!-- Who is set as reviewer when the task skill creates a PR: per repo, per kind of task
+     (feature / bug / docs …) or per area (backend / frontend / translations), with the code host
+     username. A PR gets the reviewers of every row that matches; a row may say "nobody". The order
+     of review, if the team has one (backend first, then frontend), and whether reviewers are set
+     on drafts. Default: none — the kit sets no reviewer. -->
+| Repo or area | Kind of task | Reviewers |
+|---|---|---|
+| app | any | `@username` |
+
 ## Autonomy
 <!-- stops: approve (the human approves mock-ups and plan) | blockers (stop only on blockers) |
      own (as blockers, and merges within the merge level).

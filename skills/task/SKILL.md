@@ -237,7 +237,11 @@ first. For each part:
    you settle with the planner and the plan checker; a change to scope, contract or mock-ups goes to the human;
    record it in the task file with the date. After the part's first push: a PR per repo by the
    profile's `Git and PRs` (default: draft), title and description by the repo's rules,
-   links to the paired PRs; PR links → task file.
+   links to the paired PRs, and **the reviewers set at once** — the ones the profile's `Reviewers`
+   names for this repo and this kind of task (several rules match → all their reviewers; none
+   match or no `Reviewers` → nobody, and say so in the task file). Setting reviewers never takes a
+   PR out of draft or asks for review earlier than the profile's review order says. PR links and
+   reviewers → task file.
 2. **Checks — by command, not a model.** Run the profile's `Checks` on the pushed commit yourself.
    Red = not ready: the failures go back to the same implementer (continue it).
 3. **Function and look.** On the green commit: a function checker (`check-function.md`); a look

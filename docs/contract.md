@@ -61,6 +61,7 @@ In the workspace root. Plain markdown with these headings (a missing heading = t
 ## Run              <!-- per repo: how to start the app for a function or look check -->
 ## Tasks            <!-- where tasks come from (tasks/ files, a tracker, issues); every place the team keeps tasks and what "open" means there (read for duplicates and related, task step 1); key format, branch naming, keys the kit must not take -->
 ## Git and PRs      <!-- code host and the tool to reach it; commit format, PR title and description rules, draft or not, who is assigned, a worktree command if not the default -->
+## Reviewers        <!-- per repo, kind of task or area: code host usernames set as reviewers when a PR is created; review order; default none -->
 ## Autonomy         <!-- stops: approve | blockers | own · merge: pr | auto-low | full -->
 ## Design           <!-- design system location(s), screen sizes -->
 ## Extra stages     <!-- place-only skills and when they run, e.g. an end-to-end test on a stand; default steps replaced or switched off (e.g. architecture: always | never) -->

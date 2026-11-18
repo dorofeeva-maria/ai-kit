@@ -55,6 +55,7 @@ One message, all agents in the background.
 1. **The place's own way** — an agent that changes no file but `own.md` (`model: sonnet`) reads the place's code and docs
    for the question: what is done now and where, the places that do it differently, the rules and
    decisions that bear on it. Notes: `<run>/own.md`, each claim with `path:line`.
+   Work of a stale related task (branch, draft PR) is one more source: its approach is a candidate.
 2. **What similar products and fields do** — run `<research>` (read its `SKILL.md`, follow it;
    you stay its coordinator). Depth `standard`; `deep` for a large decision. Give it **neutral
    questions** (how do similar products solve X, what does it cost them, what went wrong), never

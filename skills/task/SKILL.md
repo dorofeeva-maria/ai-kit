@@ -114,6 +114,12 @@ questions get your recommended default, recorded as "default, not confirmed".
   **related** — merge them into this task, or keep them apart and carry their context into this
   one (scope, plan, what not to break, what to prepare for them). The answers go to `Decisions`.
   The kit never edits the tracker itself.
+  **Related or duplicate task that already has work** (branches, draft PRs): check if it is still
+  current — last activity, owner, how far behind base. *Active* (someone works on it now): ask the
+  human as above (merge, keep apart, depend). *Stale or abandoned*: never build on its branch;
+  this task's branch starts from a fresh base. Read what that work did and carry its approach as
+  **one candidate option**, not the default, into where options are compared (`ai-kit:decide`, or
+  the options in the design or plan).
 
 ## 2. Research — what exists, and whether anything is new
 

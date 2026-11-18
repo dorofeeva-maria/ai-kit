@@ -36,10 +36,13 @@ over this file).
 - Not taken by the kit: none
 
 ## Git and PRs
-<!-- Commit format, PR title and description rules, draft or not, who is assigned, AI attribution
-     lines yes/no; a worktree command if the place creates worktrees its own way (it replaces the
-     default `git worktree add`; say its arguments). Default: the repo's rules; PRs open as drafts;
+<!-- The code host (GitHub / GitLab, its address) and the tool to reach it (a connector, `gh`,
+     `glab`) — the prs skill and the task skill use it. Commit format, PR title and description
+     rules, draft or not, who is assigned, AI attribution lines yes/no; a worktree command if the
+     place creates worktrees its own way (it replaces the default `git worktree add`; say its
+     arguments). Default: the host of the repos' remotes; the repo's rules; PRs open as drafts;
      nobody assigned; plain `git worktree add`. -->
+- Host: GitHub, `gh`
 - Commits: the repo's format
 - PRs: draft; title `<KEY>: <what>`; description: what, why, how checked
 - Worktree: default

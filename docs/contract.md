@@ -40,6 +40,8 @@ be both there and gone; a feature that solves nothing in this case) means this s
 
 Coordinators: `task`, `project`, `research`, `brainstorm` (invent something new), `decide` (choose
 among solutions that exist).
+Tools for the human: `prs` (one person's open PRs across the workspace, with what each waits for;
+read-only).
 Stage skills (loaded by the implementer, also usable by hand): `product`, `architecture`, `setup`,
 `journey`, `plan`, `develop`, `docs`.
 Check guides live with the coordinator that uses them (`skills/<coordinator>/references/check-*.md`);
@@ -58,7 +60,7 @@ In the workspace root. Plain markdown with these headings (a missing heading = t
 ## Checks           <!-- per repo: the commands that must be green (lint, types, tests, build) -->
 ## Run              <!-- per repo: how to start the app for a function or look check -->
 ## Tasks            <!-- where tasks come from (tasks/ files, a tracker, issues); every place the team keeps tasks and what "open" means there (read for duplicates and related, task step 1); key format, branch naming, keys the kit must not take -->
-## Git and PRs      <!-- commit format, PR title and description rules, draft or not, who is assigned, a worktree command if not the default -->
+## Git and PRs      <!-- code host and the tool to reach it; commit format, PR title and description rules, draft or not, who is assigned, a worktree command if not the default -->
 ## Autonomy         <!-- stops: approve | blockers | own · merge: pr | auto-low | full -->
 ## Design           <!-- design system location(s), screen sizes -->
 ## Extra stages     <!-- place-only skills and when they run, e.g. an end-to-end test on a stand; default steps replaced or switched off (e.g. architecture: always | never) -->

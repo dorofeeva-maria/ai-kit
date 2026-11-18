@@ -30,14 +30,19 @@ directory). Layout, task file, findings and briefs are as in the contract.
 Take today's date with a tool. Ask the human, in one batch with defaults, only what the place does
 not already say:
 
-- **The workspace** — where it lives, its name and its remote, if any. It is a private git repo of
-  its own (idea, plan, tasks). The place's rules win: a system the human keeps may register it as
-  a private module of its own, with its own naming and remote. Default: private, no remote.
+- **The workspace** — where it lives and its name. It is a private git repo of its own (idea,
+  plan, tasks). The place's rules win: it may be a private repo registered in a system the human
+  already keeps, with that system's naming and remote.
+- **The project name** — the working name of the product, used in `idea.md` and the plan. Default:
+  the workspace's name, unless the human names the product otherwise.
 - **The code repos** — not named now. They are separate repos; their names and visibility (private
   or public) come from the architecture, and each remote is created only on its own yes at setup
-  (§6). Ask only for a working project name, if any.
+  (§6).
 - The language with the human (default: theirs) and of files (default: English), and the stop
   level (default `approve`).
+
+The workspace's remote is a separate question, asked on its own (here or with the §6 asks), and
+created only on an explicit yes for it. Default: none, or what the place already set.
 
 Every Agent call below passes `model` and `effort` by the contract's "Models".
 
@@ -69,7 +74,7 @@ brainstorm result or the interview, the human's words quoted with dates where th
 something:
 
 ```markdown
-# <project> — idea
+# <project name> — idea
 ## The idea            <!-- the pitch in one line, then a paragraph -->
 ## For whom and why    <!-- who is better off and how anyone would notice -->
 ## Decisions           <!-- dated; the human's are final -->
@@ -152,15 +157,15 @@ A change to the idea itself (not just the plan) is logged in `idea.md`'s Change 
 
 Before it, ask the human **separately for each** code repo's remote (with its name and visibility),
 account, paid service or anything public the architecture calls for — a yes once is not a yes for
-the next one. The workspace's own remote is not asked here: it was settled at the start. Then
-start a fresh `ai-kit:implementer`, `model: sonnet`:
+the next one. Ask about the workspace's own remote here too, as its own question, if it was not
+settled at the start. Then start a fresh `ai-kit:implementer`, `model: sonnet`:
 
 ```
 Setup stage of a new project. Workspace: <ws>. Today is <YYYY-MM-DD>.
 First read the setup skill (ai-kit:setup), then architecture.md, idea.md, product.md.
 Mode: create. Approved by the human: <each repo remote with its name and visibility / account /
-service, or "none — local only">. Workspace remote: <set by the place /
-approved, private / none>.
+service, or "none — local only">.
+Workspace remote: <set by the place / approved, private / none>.
 Stops: <level>. Never: <…>; no product feature; nothing remote, paid or public beyond the list.
 Report to <ws>/tasks/START-notes/setup.md.
 Reply: conclusion in two lines; each check command and whether it ran green; what could not run.

@@ -102,12 +102,13 @@ The workspace tracks under git only `AGENTS.md`, `idea.md`, `product.md`, `archi
 `.claude/` and `tasks/`; its `.gitignore` (written by setup) keeps every code repo folder and
 `worktrees/` out, so a sync tool that auto-commits the workspace never picks up code.
 
-The workspace is its own git repo, private by default. It may be a module of a system the human
-already keeps; then that system's rules decide its place, name, remote and sync. Its remote, if
-any, follows those rules or the human's yes. Code repos are separate repos with their own names
-and visibility (possibly public), decided by the architecture and each approved on its own. They
-live as ignored subfolders `<ws>/<repo>/`, so nothing private from the workspace reaches a public
-repo and no code reaches the workspace.
+The workspace is its own git repo, private by default. It may be a private repo registered in a
+system the human already keeps; then that system's rules decide its place, name, remote and sync.
+Its remote, if any, follows those rules or the human's yes. Code repos are separate repos with their
+own names and visibility (possibly public), decided by the architecture and each approved on its
+own. They live as ignored subfolders `<ws>/<repo>/`, so nothing private from the workspace reaches a
+public repo and no code reaches the workspace. A public code repo's files, commits and PR text never
+copy the workspace's private content (idea, plan, task notes) and link nothing in it.
 
 Task keys: the place's format; default `T-001`, `T-002`…
 
@@ -174,10 +175,10 @@ cost. `task` and `project` each append their own line.
 
 An agent knows only its brief. Every brief has: the task in one line and the workspace path · what
 to read first (profile, task file, the repo's own rules, the stage skill or check guide) · the
-subject · what the human approved, where the stage needs an approval (a remote repo, an account,
-a paid service, anything public) · what must not be done (from the profile's Never) · where to write the report and what the
-reply must contain. Authors are told their decisions; checkers are never told the author's
-reasoning.
+subject · what the human approved, where the stage needs an approval (the workspace remote, a code
+repo's remote with its visibility, an account, a paid service, anything public) · what must not be
+done (from the profile's Never) · where to write the report and what the reply must contain. Authors
+are told their decisions; checkers are never told the author's reasoning.
 
 Reports: a file `tasks/<KEY>-notes/<role>-<part>-<round>.md` plus a short reply; artefacts that are
 not reports (`research.md`, `mockups.html`, `manual-check.md`) keep a plain name, and the project

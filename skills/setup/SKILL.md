@@ -16,8 +16,9 @@ project, its failures are tooling failures and nothing else.
 ## Read first
 
 `<ws>/architecture.md` (above all the `## Repo:` sections), `<ws>/idea.md`, `<ws>/product.md`,
-and the brief: which remote repositories, accounts or services the human approved. **Nothing
-remote, paid, or public beyond that list** — if you need one more, stop and ask for it in your
+and the brief: which remote repositories (each code repo's name and visibility), accounts or
+services the human approved, and its `Workspace remote:` field. **Nothing remote, paid, or public
+beyond that list** — if you need one more, stop and ask for it in your
 reply.
 
 ## Mode: create
@@ -49,8 +50,8 @@ For each `## Repo:` section:
 Then for the workspace:
 
 - **Its own git repo and remote are not yours to decide.** If the workspace is already a repo (for
-  example a module of a system the human keeps), leave it and its remote alone. Otherwise
-  `git init` it; a remote only if approved in the brief, private.
+  example a private repo registered in a system the human keeps), leave it and its remote alone.
+  Otherwise `git init` it; a remote only if the brief's `Workspace remote:` says approved, private.
 - **`<ws>/.claude/kit-profile.md`** with every heading of the contract: Repos (folder · what it is ·
   base branch · sync off unless others work there), Checks and Run per repo (the exact commands),
   Tasks (`tasks/` files, the key format used by the product stage), Git and PRs, Autonomy (the

@@ -52,7 +52,8 @@ Read `taken.md` (what research found per candidate) and `day.md` again.
    next pick must
    differ in who it serves or in the jobs it takes. At least two as ambitious as the bold appetite
    allows.
-6. **Too few or too weak?** If fewer than 6 candidates keep a balance in their favour, or the
+6. **Too few or too weak?** If fewer than 6 (product goal) or fewer than 3 (decision goal) candidates keep a balance in
+   their favour, or the
    last three picks are weak (their cons weigh as much as their pros), say so at the top of
    `shortlist.md` and write `<run>/lessons.md`: why this round produced weak ideas — a lens too
    narrow, a constraint missing from the brief, copying what exists, one assumption every

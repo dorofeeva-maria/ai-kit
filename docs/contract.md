@@ -14,6 +14,14 @@ named anywhere in it.** A place brings its own context through its profile.
 
 Subagents cannot start subagents: only the orchestrator starts agents.
 
+**No one writes into a repo's main checkout** — no agent, no session, in a task or outside one.
+Every change of a repo, even a one-line local fix to unblock the human, is made in a worktree on
+its own branch. The main checkout belongs to the human: it may hold their uncommitted work, and an
+edit there mixes with it, skips every check and is lost or committed by mistake. The only thing
+that may change in a main checkout is which branch it has checked out, through the place's shared
+slot for a run, and it goes back to the base branch right after. If the human needs a fix to run
+something now, push it on a worktree branch and offer to check that branch out through the slot.
+
 ## Skills
 
 Coordinators: `task`, `project`, `research`, `brainstorm`.

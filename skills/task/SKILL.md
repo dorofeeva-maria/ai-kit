@@ -152,7 +152,8 @@ always checked.
   `task/<KEY>-<slug>`), from a fresh base, each in its worktree:
   `git -C <repo> worktree add <ws>/worktrees/<KEY>/<repo> -b <branch> origin/<base>`, or the
   worktree command the profile's `Git and PRs` gives instead. Main checkouts stay on the base
-  branch. Install dependencies in the worktree, or link them from the main checkout while the lock
+  branch, and **nothing is ever written into them** — not by you, not by an agent, not as a quick
+  fix outside the task (contract, "Agent types"): every change lives in a worktree. Install dependencies in the worktree, or link them from the main checkout while the lock
   file is identical.
 - **Shared slot.** If running the app needs the main checkout or a single shared resource (a port, a
   database), one task holds it at a time: you take it on a pushed commit, hand it to the implementer

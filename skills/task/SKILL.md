@@ -198,7 +198,8 @@ At any size, even one button. No visible change → skip, say so in one line.
 - **The planner's requests.** Its reply may carry a neutral research question → run
   `ai-kit:research` (as in step 2), report to `<notes>/research-<n>.md`; or "the architecture must
   change: …" → under the same condition as above, a fresh implementer with `ai-kit:architecture`
-  in change mode (briefs, "architecture"), then continue the same planner with the result's path;
+  in change mode (briefs, "architecture"; its gather list is researched and asked before it
+  writes, as in `ai-kit:project` step 3), then continue the same planner with the result's path;
   otherwise continue the planner to write the structural change and the contract into the plan.
   The plan check covers an architecture change made for this task.
 - The plan holds per repo what changes and what could break, the checks that cover it, the contract

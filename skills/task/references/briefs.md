@@ -39,9 +39,10 @@ Pass `model` and `effort` on every Agent call, by the contract's "Models": think
 All stages: "Your decisions so far: <the human's decisions and approved plan/mock-ups>."
 
 - **architecture** — "Follow `ai-kit:architecture`, Mode: change. Subject: the request (or the
-  planner's 'the architecture must change: …'), research `<notes>/research*.md`, the repos. Amend
-  `<ws>/architecture.md` only where this task needs it. Repo docs to update → list them in your
-  report; they are changed in the task's branches by the docs stage."
+  planner's 'the architecture must change: …'), research `<notes>/research*.md`, the repos. First
+  the gather list in your reply and stop (or "none"); you will be continued with research and the
+  human's answers. Then amend `<ws>/architecture.md` only where this task needs it. Repo docs to
+  update → list them in your report; they are changed in the task's branches by the docs stage."
 - **plan** — "Follow `ai-kit:plan`. Subject: research, the human's answers, mock-ups `<link>`,
   journeys `<notes>/journeys.md` (every step needs a part of the plan), `<ws>/architecture.md` if
   this task amended it. Write `<ws>/tasks/<KEY>-plan.md`. Forks for the

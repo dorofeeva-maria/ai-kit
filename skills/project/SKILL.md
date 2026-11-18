@@ -105,22 +105,27 @@ exists — their remarks reach the architect while it works, not after.
 
 ## 3. Architecture stage
 
-Start a fresh `ai-kit:implementer`, `model: fable` (if unavailable, `opus`), `effort: high`:
+Two phases: the architect gathers first, writes only after. Start a fresh `ai-kit:implementer`,
+`model: fable` (if unavailable, `opus`), `effort: high`:
 
 ```
-Architecture stage of a new project. Workspace: <ws>. Today is <YYYY-MM-DD>.
+Architecture stage of a new project, phase 1 (gather). Workspace: <ws>. Today is <YYYY-MM-DD>.
 First read the architecture skill (ai-kit:architecture), then idea.md, product.md, tasks/.
 Size: <short|full>. Decisions already made: <…>.
-Never: <…>; no repos, no code.
-Write <ws>/architecture.md; report to <ws>/tasks/START-notes/architecture.md.
-Reply: conclusion in two lines; missing requirements; research requests as neutral questions.
+Never: <…>; no repos, no code; no architecture.md before the gather list is answered.
+Report to <ws>/tasks/START-notes/architecture.md (the gather list under ## Gather).
+Reply: conclusion in two lines; the gather list (facts to research, missing requirements with
+defaults, limits to confirm) — or "none", then go on and write.
 ```
 
-- **Missing requirements** — ask the human (with the architect's defaults), then continue the same
-  instance with the answers. Do not let it guess.
-- **Research requests** — run `ai-kit:research` yourself, by its SKILL.md, giving the question
-  neutrally (never the architect's preferred answer); depth `quick` per fact, `standard` for a
-  comparison of options. Continue the architect with the report paths.
+1. **Facts** — run `ai-kit:research` yourself, by its SKILL.md, giving each question neutrally
+   (never the architect's preferred answer); depth `quick` per fact, `standard` for a comparison
+   of options.
+2. **Missing requirements and limits** — ask the human, with the architect's defaults. Do not let
+   it guess.
+3. **Write** — continue the **same** instance: "Phase 2: write <ws>/architecture.md. Research:
+   <report paths>. The human's answers: <…>." A new question in its reply is one more gather
+   round (1–3 again); it does not write "not verified".
 
 ## 4. Independent check
 

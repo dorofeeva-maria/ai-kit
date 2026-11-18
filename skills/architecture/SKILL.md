@@ -11,7 +11,8 @@ research"); in the human's own session, use `ai-kit:research`. Layout and report
 [contract](../../docs/contract.md).
 
 Two phases, in this order: **gather** everything you must know, then **write**. No decision and
-no `architecture.md`, not even a draft, before the gather list is answered. *Why:* an architecture
+no `architecture.md`, not even a draft, before the gather list is answered — unless the list is
+an explicit "Gather: none". *Why:* an architecture
 written first and questioned after comes back half "not verified" and is written twice.
 
 Why this stage is careful: the architecture is the most expensive thing to change later. Copying
@@ -25,14 +26,14 @@ change mode `<ws>/architecture.md` and each repo's `docs/` and `AGENTS.md`.
 
 ## Phase 1 — gather
 
-### 0. Requirements
+### 1. Requirements
 
 Check you know: users and expected load (now and in a year); where it runs
 (web, mobile, desktop, CLI, a server the human owns, a cloud); data — what, how much, how
 sensitive, how long kept; integrations; offline or real-time needs; budget for running it; who
 will maintain it and what they know; deadlines. **What is missing, say — do not guess.**
 
-### 1. Facts to research
+### 2. Facts to research
 
 For each major choice and each fact a decision rests on (a provider's terms and limits, whether a
 library supports a format, a platform's quotas, a licence), write a **neutral question**: "what do
@@ -40,24 +41,33 @@ projects of this kind (<one-line description>) use for X in <year>, and what pro
 report?", "is Y still maintained, and what are its limits at Z scale?". Never write your
 preferred answer into the question.
 
-### The gather list — reply and stop
+### 3. Limits to confirm
+
+The limits you would otherwise assume — running budget, a provider's quotas, deadlines, where it
+may be hosted, licences the project can accept — each as a value the human confirms or corrects,
+e.g. "running cost: at most a small monthly hosting fee — confirm?".
+
+### 4. The gather list — reply and stop
 
 Write the list into your report file, under `## Gather`, in three groups: facts to research (with
 depth: `quick` per fact, `standard` for a comparison of options) · missing requirements for the
 human, each with a default · limits to confirm. Reply with it and stop. Nothing to ask (a small
 project) → write "Gather: none" and go on to phase 2 in the same run.
 
+In the human's own session there is no one to continue you: after the list, run `ai-kit:research`
+per question, ask the human the requirements and limits, then go on to phase 2 in the same session.
+
 ## Phase 2 — write
 
 You are continued with the research report paths and the human's answers. Read them all before
-deciding. For every choice, argue both ways: why the common choice fits **here**, or why it would
+deciding. Report into the same file, adding `## Result` under `## Gather`. For every choice, argue both ways: why the common choice fits **here**, or why it would
 only limit us to what most use.
 
 If writing turns up a new question that changes a decision, stop and reply with it: one more
 gather round, not a decision marked "not verified". A fact that cannot be learned is a stated
 assumption with its risk, never a silent guess.
 
-### 2. Decide
+### 5. Decide
 
 - **Parts and repos** — the simplest shape that serves the requirements. One repo with one module
   is a fine answer; front and back, or services, only for a reason you can name (different
@@ -78,7 +88,7 @@ Rejected: <alternative> — why · <alternative> — why
 Limits: what this choice cannot do well · Revisit when: <a measurable trigger>
 ```
 
-### 3. Principles — as concrete rules
+### 6. Principles — as concrete rules
 
 Not "clean architecture" but rules a reviewer can check, chosen for this project, e.g.: domain
 logic imports no framework or database code · each part owns its data; no other part reads its
@@ -86,15 +96,15 @@ tables · every external service sits behind one interface in one place · contr
 are typed and versioned · configuration comes from the environment; no secret in a repo · a schema
 change is a migration, forward only · a new feature adds a module, it does not edit five.
 
-### 4. Output — `<ws>/architecture.md`
+### 7. Output — `<ws>/architecture.md`
 
 ```markdown
 # <project> — architecture
 ## Requirements and assumptions     <!-- from phase 1; each assumption with its risk -->
 ## The picture                      <!-- parts, repos, how they talk; a small diagram in text -->
-## Decisions                        <!-- the blocks of step 2 -->
+## Decisions                        <!-- the blocks of step 5 -->
 ## Data                             <!-- schema, flows -->
-## Principles                       <!-- the rules of step 3 -->
+## Principles                       <!-- the rules of step 6 -->
 ## Risks and open questions         <!-- each with a default; none a gather round could answer -->
 ## Repo: <name>                     <!-- one per repo; setup moves it into the repo -->
 ```
@@ -125,6 +135,6 @@ asked about — propose them separately if they matter.
 - A choice without a "why for this project" or without a rejected alternative is not finished.
 - No decision before the gather list is answered; no "not verified" in the written architecture —
   a new question is one more gather round.
-- Report per the contract. Phase 1: conclusion in two lines; the gather list (or "none"). Phase 2:
-  conclusion in two lines; for each statement — checked (by research, by running, by reading) or
+- Report per the contract, one file. Phase 1: conclusion in two lines; the gather list (or "none")
+  under `## Gather`. Phase 2, under `## Result`: conclusion in two lines; for each statement — checked (by research, by running, by reading) or
   an assumption with its risk.

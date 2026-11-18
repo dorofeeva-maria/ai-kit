@@ -191,17 +191,22 @@ At any size, even one button. No visible change → skip, say so in one line.
 - **Small:** you write a short plan in the task file in the format of `ai-kit:plan`.
 - **Medium / large:** an implementer with stage `ai-kit:plan` writes `tasks/<KEY>-plan.md` (large:
   first an implementer with `ai-kit:architecture` in change mode, which amends
-  `<ws>/architecture.md`; briefs, "architecture" — only when the task changes the system's
+  `<ws>/architecture.md`; briefs, "architecture"; run as in "Architecture change" below — only when the task changes the system's
   structure **and** the workspace keeps an `architecture.md` or the profile's `Extra stages` asks
   for it; otherwise the contract between parts lives in the plan). Then a fresh checker with
   `check-plan.md`. The planner (continued) answers the findings; loop to "satisfied".
 - **The planner's requests.** Its reply may carry a neutral research question → run
   `ai-kit:research` (as in step 2), report to `<notes>/research-<n>.md`; or "the architecture must
   change: …" → under the same condition as above, a fresh implementer with `ai-kit:architecture`
-  in change mode (briefs, "architecture"; its gather list is researched and asked before it
-  writes, as in `ai-kit:project` step 3), then continue the same planner with the result's path;
+  in change mode (briefs, "architecture"; run as in "Architecture change" below), then continue
+  the same planner with the result's path;
   otherwise continue the planner to write the structural change and the contract into the plan.
   The plan check covers an architecture change made for this task.
+- **Architecture change** — the architect gathers first, writes after: (1) run `ai-kit:research`
+  on each fact in its gather list, worded neutrally, report to `<notes>/research-<n>.md`; (2) ask
+  the human its missing requirements and limits, with its defaults; (3) continue the **same**
+  instance with the report paths and answers. A new question in its reply is one more gather
+  round, back through (1)–(3).
 - The plan holds per repo what changes and what could break, the checks that cover it, the contract
   between parts, the parts in merge order (the first useful on its own), the place's extra stages
   and their scenario, forks for the human at the top with defaults, what will stay unchecked.

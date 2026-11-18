@@ -123,8 +123,9 @@ defaults, limits to confirm) — or "none", then go on and write.
    of options.
 2. **Missing requirements and limits** — ask the human, with the architect's defaults. Do not let
    it guess.
-3. **Write** — continue the **same** instance: "Phase 2: write <ws>/architecture.md. Research:
-   <report paths>. The human's answers: <…>." A new question in its reply is one more gather
+3. **Write** — continue the **same** instance: "Phase 2: write <ws>/architecture.md; report into
+   the same file under ## Result. Research: <report paths>. The human's answers: <…>." A new
+   question in its reply is one more gather
    round (1–3 again); it does not write "not verified".
 
 ## 4. Independent check
@@ -139,8 +140,9 @@ Criteria: every MVP point serves the idea and nothing the idea needs is silently
 has a reason; every task has checkable acceptance criteria and what is out; the order respects
 dependencies and tests the riskiest hypothesis early; the architecture covers every MVP feature
 and builds nothing the MVP does not need; every decision has why, rejected alternatives and
-limits; the schema and data flows support the features; product and architecture do not
-contradict each other; each repo section is enough to create that repo without guessing.
+limits; no decision is marked "not verified" and every assumption states its risk; the schema and
+data flows support the features; product and architecture do not contradict each other; each repo
+section is enough to create that repo without guessing.
 Findings in the contract's format (<kit>/docs/contract.md). Write <ws>/tasks/START-notes/check-1.md.
 ```
 

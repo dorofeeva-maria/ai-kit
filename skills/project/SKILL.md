@@ -28,9 +28,16 @@ directory). Layout, task file, findings and briefs are as in the contract.
   explain it to a stranger; contradictions and doubts are asked, not guessed.
 
 Take today's date with a tool. Ask the human, in one batch with defaults, only what the place does
-not already say: where the workspace goes (a rule in the place's instructions wins; otherwise ask),
-the project name, the language with the human (default: theirs) and of files (default: English),
-and the stop level (default `approve`).
+not already say:
+
+- **The workspace** — where it lives, its name and its remote, if any. It is a private git repo of
+  its own (idea, plan, tasks). The place's rules win: a system the human keeps may register it as
+  a private module of its own, with its own naming and remote. Default: private, no remote.
+- **The code repos** — not named now. They are separate repos; their names and visibility (private
+  or public) come from the architecture, and each remote is created only on its own yes at setup
+  (§6). Ask only for a working project name, if any.
+- The language with the human (default: theirs) and of files (default: English), and the stop
+  level (default `approve`).
 
 Every Agent call below passes `model` and `effort` by the contract's "Models".
 
@@ -57,8 +64,9 @@ A new session continues from it. At the end it moves to `tasks/done/`.
 
 ## 1. Workspace and `idea.md`
 
-Create `<ws>` and `tasks/`. Write `<ws>/idea.md` from the brainstorm result or the interview, the
-human's words quoted with dates where they decided something:
+Create `<ws>` (or use the one the place made) and `tasks/`. Write `<ws>/idea.md` from the
+brainstorm result or the interview, the human's words quoted with dates where they decided
+something:
 
 ```markdown
 # <project> — idea
@@ -142,14 +150,17 @@ A change to the idea itself (not just the plan) is logged in `idea.md`'s Change 
 
 ## 6. Setup stage
 
-Before it, ask the human **separately for each** remote repository, account, paid service or
-anything public the architecture calls for — a yes once is not a yes for the next one. Then start
-a fresh `ai-kit:implementer`, `model: sonnet`:
+Before it, ask the human **separately for each** code repo's remote (with its name and visibility),
+account, paid service or anything public the architecture calls for — a yes once is not a yes for
+the next one. The workspace's own remote is not asked here: it was settled at the start. Then
+start a fresh `ai-kit:implementer`, `model: sonnet`:
 
 ```
 Setup stage of a new project. Workspace: <ws>. Today is <YYYY-MM-DD>.
 First read the setup skill (ai-kit:setup), then architecture.md, idea.md, product.md.
-Mode: create. Approved by the human: <each remote / account / service, or "none — local only">.
+Mode: create. Approved by the human: <each repo remote with its name and visibility / account /
+service, or "none — local only">. Workspace remote: <set by the place /
+approved, private / none>.
 Stops: <level>. Never: <…>; no product feature; nothing remote, paid or public beyond the list.
 Report to <ws>/tasks/START-notes/setup.md.
 Reply: conclusion in two lines; each check command and whether it ran green; what could not run.
@@ -160,11 +171,12 @@ the same instance; cap 3 rounds.
 
 ## 7. Handoff
 
-Tell the human, briefly: the workspace path; the repos (local / remote); the MVP in one line each;
-what was checked by running, by reading, not at all; open hypotheses. Name the **first task** —
-the highest-priority one in `tasks/` (often the design system or the thinnest end-to-end slice) —
-to take with `ai-kit:task`. Append the run-log line (contract, "Run log", key `START`) to
-`tasks/runs.md`. Move `START.md` and its notes to `tasks/done/`.
+Tell the human, briefly: the workspace path and its remote, if any; the code repos (local / remote,
+private / public); the MVP in one line each; what was checked by running, by reading, not at all;
+open hypotheses. Name the **first task** — the highest-priority one in `tasks/` (often the design
+system or the thinnest end-to-end slice) — to take with `ai-kit:task`. Append the run-log line
+(contract, "Run log", key `START`) to `tasks/runs.md`. Move `START.md` and its notes to
+`tasks/done/`.
 
 ## Never
 

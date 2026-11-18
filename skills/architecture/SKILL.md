@@ -79,11 +79,11 @@ change is a migration, forward only · a new feature adds a module, it does not 
 ```
 
 Each **Repo** section is the brief for setup — enough to create the repo without guessing: its
-purpose; language and runtime with versions to pin; framework; folder structure; modules and their
-boundaries; the schema it owns and its migration tool; the API it exposes and consumes; config and
-environment variables; the tools for lint, format, types, unit tests, end-to-end tests and the
-look check (or why one is not needed); what CI runs; how to start it locally; the rules for its
-own `AGENTS.md`.
+purpose; its name and visibility (private or public, with why); language and runtime with versions
+to pin; framework; folder structure; modules and their boundaries; the schema it owns and its
+migration tool; the API it exposes and consumes; config and environment variables; the tools for
+lint, format, types, unit tests, end-to-end tests and the look check (or why one is not needed);
+what CI runs; how to start it locally; the rules for its own `AGENTS.md`.
 
 Size from the brief: **short** — one page, one Repo section, decisions in one line each with
 the main alternative; **full** — everything above.

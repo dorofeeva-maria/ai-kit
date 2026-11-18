@@ -25,8 +25,9 @@ reply.
 For each `## Repo:` section:
 
 1. **The repo.** Create `<ws>/<repo>/`, `git init`, base branch as the architecture says (default
-   `main`). A remote only if approved in the brief: create it private unless the brief says
-   otherwise, add it, push the first commit.
+   `main`). Its name and visibility come from the section and the brief's approval. A remote only
+   if approved in the brief: private, or public only when approved as public; add it, push the
+   first commit.
 2. **The stack.** Start from the stack's official generator or a minimal hand-written layout —
    whichever leaves less to remove. Take versions by asking the package manager for the current
    stable one, not from memory, and pin them (lockfile committed). Folder structure as the
@@ -47,13 +48,17 @@ For each `## Repo:` section:
 
 Then for the workspace:
 
+- **Its own git repo and remote are not yours to decide.** If the workspace is already a repo (for
+  example a module of a system the human keeps), leave it and its remote alone. Otherwise
+  `git init` it; a remote only if approved in the brief, private.
 - **`<ws>/.claude/kit-profile.md`** with every heading of the contract: Repos (folder · what it is ·
   base branch · sync off unless others work there), Checks and Run per repo (the exact commands),
   Tasks (`tasks/` files, the key format used by the product stage), Git and PRs, Autonomy (the
   stop level from the brief), Design (where the design system will live; screen sizes), Never,
   Language. Unknown → the contract's default, written out.
 - **`<ws>/AGENTS.md`** — what is where, in a page: the idea, the product plan, the architecture,
-  the profile, the tasks, each repo in one line; "start a task with `ai-kit:task`".
+  the profile, the tasks, each repo in one line with its visibility (private or public); "start a
+  task with `ai-kit:task`".
 - **`<ws>/.gitignore`** that ignores every code repo folder and `worktrees/`, so a sync tool that
   auto-commits the workspace never picks up code. The workspace tracks only `AGENTS.md`,
   `idea.md`, `product.md`, `architecture.md`, `.claude/` and `tasks/` (simplest: ignore `/*`, then

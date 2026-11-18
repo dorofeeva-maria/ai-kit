@@ -102,6 +102,13 @@ The workspace tracks under git only `AGENTS.md`, `idea.md`, `product.md`, `archi
 `.claude/` and `tasks/`; its `.gitignore` (written by setup) keeps every code repo folder and
 `worktrees/` out, so a sync tool that auto-commits the workspace never picks up code.
 
+The workspace is its own git repo, private by default. It may be a module of a system the human
+already keeps; then that system's rules decide its place, name, remote and sync. Its remote, if
+any, follows those rules or the human's yes. Code repos are separate repos with their own names
+and visibility (possibly public), decided by the architecture and each approved on its own. They
+live as ignored subfolders `<ws>/<repo>/`, so nothing private from the workspace reaches a public
+repo and no code reaches the workspace.
+
 Task keys: the place's format; default `T-001`, `T-002`…
 
 ## Task file — `tasks/<KEY>.md`

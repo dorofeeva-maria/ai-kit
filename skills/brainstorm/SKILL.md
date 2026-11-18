@@ -170,8 +170,20 @@ another market / exists but done badly (with what users say) / not found (with w
 Continue the cluster agent (it remembers): "Part Select. Taken: <run>/taken.md. Day:
 <run>/day.md. Write <run>/shortlist.md." — scored on the five criteria with one line of why; an
 idea that exists as is in the human's market is dropped or rebuilt around its real opening; an
-idea beyond the bold appetite goes to the graveyard; 6–8 kept, the strongest **and most
-different**, at least two of them as ambitious as the bold appetite allows.
+idea beyond the bold appetite goes to the graveyard; the rest are **weighed, pros against cons**, never knocked out by one weak
+criterion; 6–8 kept, the strongest **and most different**, at least two of them as ambitious as
+the bold appetite allows.
+
+**One more round when the first is weak.** If the agent wrote `<run>/lessons.md` (fewer than 6
+ideas keep a balance in their favour, or the last three picks are weak), do two things at once:
+
+- **Tell the human now**, in a few lines: what went wrong in this round and, for each lesson, the
+  change to this skill's rules that would prevent it (which file, what to add). On their yes, edit
+  the kit's skill files and commit; the kit is meant to learn from each run.
+- **Run step 3 again** with new generators (same brief form), adding to each brief: "Lessons from
+  the first round: <run>/lessons.md — avoid these mistakes. The first round's ideas are in
+  <run>/clusters.md: do not repeat them." Then steps 4–6 on the old and new ideas together. One
+  extra round at most; if it is still weak, say so in the result.
 
 **Stop 1 (stops mode):** show the shortlist as a compact table (name · who uses it daily · which
 jobs it takes · exists? · fits which horizon). The human adds their own ideas, says what lights up

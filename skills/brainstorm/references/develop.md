@@ -41,13 +41,25 @@ Read `taken.md` (what research found per candidate) and `day.md` again.
    opening `taken.md` shows (done badly, too expensive, not localised, not for this segment) and
    say what the opening is. "Exists elsewhere" is an opening, not a death.
 3. **Beyond the bold appetite** → graveyard, "beyond appetite", with what would revive it.
-4. **Pick 6–8: the strongest and the most different.** After the top three, each next pick must
+4. **Weigh, do not knock out.** Apart from the hard limits above (exists as is with no opening,
+   beyond the bold appetite, the human's "dead"), no single weak criterion drops an idea. For each
+   candidate write its **pros and cons**, each with a weight (high · medium · low) and one line of
+   why, from the scores, `taken.md` and `day.md`. An idea is dropped only when its cons outweigh its
+   pros; say the balance in one line ("pros: 2 high, 1 medium · cons: 1 high, 2 low → keep").
+5. **Pick 6–8: the strongest and the most different.** After the top three, each next pick must
    differ in who it serves or in the jobs it takes. At least two as ambitious as the bold appetite
    allows.
+6. **Too few or too weak?** If fewer than 6 candidates keep a balance in their favour, or the
+   last three picks are weak (their cons weigh as much as their pros), say so at the top of
+   `shortlist.md` and write `<run>/lessons.md`: why this round produced weak ideas — a lens too
+   narrow, a constraint missing from the brief, copying what exists, one assumption every
+   generator shared, a criterion read too strictly. Each lesson names the cause and the change
+   that would have avoided it. The coordinator then runs one more generation round with the lessons
+   (SKILL.md, step 6).
 
-`shortlist.md`: a table (name · pitch · who uses it daily · five scores · exists? · horizon ·
-lenses), then each idea's full text. `graveyard.md`: every candidate not picked, one line, with
-the reason.
+`shortlist.md`: a table (name · pitch · who uses it daily · five scores · pros/cons balance ·
+exists? · horizon · lenses), then each idea's full text with its pros and cons. `graveyard.md`:
+every candidate not picked, one line, with the balance that dropped it.
 
 ## Part: Hyperbole
 

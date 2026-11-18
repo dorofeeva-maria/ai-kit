@@ -1,6 +1,6 @@
 ---
 name: decide
-description: Choose among solutions that already exist — a pattern, a rule, an approach, a tool, a design — and say why. Frames the question and the criteria with the human, collects the options (the place's own way, what similar products and fields do through ai-kit:research, and the human's own proposal as a candidate from the start), checks the claims an option stands on, weighs each option's pros against its cons with weights and a one-line balance, combines parts into a hybrid when it beats each part, lets a fresh critic attack the top options, walks the chosen option through step by step, and returns a recommendation with every option, what is found practice and what is our own rule, open questions with defaults, and what was dropped. Calls ai-kit:brainstorm only when every collected option is weak. Use for "which approach", "which pattern", "choose between", "what should we use", "weigh the options", "pros and cons of…".
+description: Choose among solutions that already exist — a pattern, a rule, an approach, a tool, a design — and say why. Frames the question and the criteria with the human. Collects the options: the place's own way, what similar products and fields do (through ai-kit:research), and the human's own proposal as a candidate from the start. Checks the claims an option stands on. Weighs each option's pros against its cons with weights and a one-line balance, and combines parts into a hybrid when it beats each part. A fresh critic attacks the top options, and the chosen option is walked through step by step. Returns a recommendation with every option, what is found practice and what is our own rule, open questions with defaults, and what was dropped. Calls ai-kit:brainstorm only when every collected option is weak. Use for "which approach", "which pattern", "choose between", "what should we use", "weigh the options", "pros and cons of…".
 ---
 
 # decide — pick the best of what exists, with reasons
@@ -52,11 +52,11 @@ the human is present, show the brief in 10 lines and let them correct it before 
 
 One message, all agents in the background.
 
-1. **The place's own way** — a read-only agent (`model: sonnet`) reads the place's code and docs
+1. **The place's own way** — an agent that changes no file but `own.md` (`model: sonnet`) reads the place's code and docs
    for the question: what is done now and where, the places that do it differently, the rules and
    decisions that bear on it. Notes: `<run>/own.md`, each claim with `path:line`.
 2. **What similar products and fields do** — run `<research>` (read its `SKILL.md`, follow it;
-   you stay its coordinator), depth `standard`, `deep` for a large decision. Give it **neutral
+   you stay its coordinator). Depth `standard`; `deep` for a large decision. Give it **neutral
    questions** (how do similar products solve X, what does it cost them, what went wrong), never
    our options or the hoped-for answer. Tell it the three checks to apply:
    **relevance** (does the source's case look like ours — same kind of users, scale, conditions),
@@ -81,18 +81,21 @@ reading `path:line` / checked by running / still an inference).
 ## 4. Weigh
 
 One agent (`general-purpose`, `model: opus`, high effort — the human of this kit asked for high
-effort on thinking roles): "First read `<skill>/references/weigh.md`. Brief: `<run>/brief.md`.
+effort on thinking roles) weighs. Its brief: "First read `<skill>/references/weigh.md`. Brief: `<run>/brief.md`.
 Options: `<run>/options.md`. Own: `<run>/own.md`. Research: `<run>/research.md`. Write
-`<run>/weigh.md`." For every option, **pros against cons**, each with a weight from the brief's
-criteria and one line of why; a one-line balance ("pros: 2 high, 1 medium · cons: 1 high → keeps");
-the cost of getting there. An option is dropped only when its cons outweigh its pros or it breaks
-something fixed. **Hybrids:** when parts of different options combine into something that beats
+`<run>/weigh.md`." For every option it writes **pros against cons**, each with a weight from
+the brief's criteria and one line of why. It adds a one-line balance ("pros: 2 high, 1 medium ·
+cons: 1 high → keeps") and the cost of getting there. An option is dropped only when its cons
+outweigh its pros or it breaks something fixed.
+
+**Hybrids:** when parts of different options combine into something that beats
 each part, write it as its own option ("assembled from …") and weigh it the same way. The human's
 proposal is weighed like the others, and the file says honestly where it wins and where it loses.
 
 **All options weak?** If no option keeps a favourable balance, say so to the human in a line and
-run `<kit>/skills/brainstorm` (you coordinate it; its brief: this question, the criteria, why each
-existing option fails) to invent new ones, then weigh them together with the old. Only then, and
+run `<kit>/skills/brainstorm` (you coordinate it; mode: without me, depth: standard; its brief:
+this question, the criteria, why each existing option fails, `<run>/brief.md` as the caller's
+brief and `<run>` as its run folder) to invent new ones, then weigh them together with the old. Only then, and
 once.
 
 ## 5. Attack
@@ -108,10 +111,11 @@ the strongest attack on each, the answer.
 ## 6. Walk the chosen option through
 
 For the recommended option (and the runner-up when the balance is close), a fresh implementer
-follows `<journey>/SKILL.md` and writes `<run>/journeys.md`: the concrete case step by step — what
+follows `<journey>/SKILL.md` (its brief names `<run>` as the folder) and writes
+`<run>/journeys.md`: the concrete case step by step — what
 the person sees, does and gets, in each state, for each role. A fresh checker then checks it with
 `<kit>/skills/task/references/check-journey.md` (contract, "Think it through"); the implementer
-fixes, the same checker re-checks, to "satisfied". A gap that comes back changes the option or
+fixes, the same checker re-checks, to "satisfied" (loop cap: 3 rounds, per the contract). A gap that comes back changes the option or
 drops it; re-weigh when it does. With no person-facing steps (a rule, an internal pattern), the
 walkthrough is one concrete case through the code or process, step by step.
 

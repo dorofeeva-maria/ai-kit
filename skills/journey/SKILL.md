@@ -18,7 +18,7 @@ product for the first time. Shared terms: [contract](../../docs/contract.md).
   anything a person sees or does (task skill, step 3b). Mock-ups are then drawn from the journeys,
   and the plan builds them.
 - After a brainstorm or a `decide` run that picks an approach (a pattern, a flow): one journey per
-  surviving option, so the options are compared by what the person lives through.
+  surviving option (`decide`: the recommended option and the runner-up), so the options are compared by what the person lives through.
 - When the human asks "how will it work?": answer with a checked journey, never with a sketch.
 
 ## Inputs

@@ -10,6 +10,24 @@ reliably start agents or save report files; see "Files" below). Generators, rese
 critics are background agents; files carry the ideas between steps. You talk to the human, pass
 findings between agents, and never let one agent see another's reasoning.
 
+**The main session stays free for the human — at every depth.** You never generate, cluster,
+select, exaggerate, attack or write the result's ideas yourself, not even at `quick`: each of
+those is a background agent, and you only start agents, save their returned text, check cheap
+facts and talk to the human. A long piece of thinking in the main session blocks the human and has
+no independent eye on it.
+
+**Two kinds of goal.** A **product** goal (what to build or do) runs as written below. A
+**decision** goal — choose a pattern, rule, approach or design for something that exists — runs
+the same steps with these changes: the criteria come from the brief, not the product defaults;
+lenses are the affected roles (one lens per role), "one system" (consistency and the cost of
+changing what exists) and "the evidence" (what the research supports); "already exists?" becomes
+"what do similar products in this field do?"; the shortlist is 3–5, and a second round runs only
+when fewer than 3 options keep a favourable balance; there is no payer, market or horizon unless
+the brief has one.
+
+**The human's own proposal** given in the request is a candidate from the start, labelled as
+theirs, and weighed like the others — the result says honestly where it wins and where it loses.
+
 Why this shape: a single model fixates on its first ideas and averages what it knows, so one
 generator gives a narrow, familiar pool — hence many independent generators, then selection. But
 diversity alone produced the failure of the first run (17.11.2026): features instead of products,
@@ -54,11 +72,11 @@ verbatim — never by renaming, Bash or a script.
 |---|---|---|---|
 | Interview | short | full | full |
 | Ground: users' day + what exists (step 2) | from what the place already has | + research `standard` on what exists | + research `deep` |
-| Generators (step 3) | none — you, with 2–3 lenses, in the session | 4 | 7 |
-| "Already exists?" before selection (step 5) | you, one quick search per finalist | research `quick` per cluster | research `quick` per cluster, 2 phrasings |
+| Generators (step 3) | 1 agent with 2–3 lenses | 4 | 7 |
+| "Already exists?" before selection (step 5) | 1 research `quick` agent on the finalists | research `quick` per cluster | research `quick` per cluster, 2 phrasings |
 | Hyperbole | top 3 | top 5 | top 6 |
 | Reality loop | 1 quick research on the best idea | up to 2 rounds | up to 3 rounds |
-| Attack | you, as the skeptic and the user | 1 critic, 4 roles | 1 critic, 4 roles, per idea |
+| Attack | 1 critic, 2 roles (skeptic, the user) | 1 critic, 4 roles | 1 critic, 4 roles, per idea |
 
 ## 1. Interview — the goal, the people, the appetite
 
@@ -120,6 +138,10 @@ Two inputs every generator reads, both written before any generation:
   year, what users complain about. Researchers get the field, the roles and the jobs — **never the
   goal or hoped-for ideas**. Own data on unless the human wants an outside view. Save the report
   as `ground.md`.
+- **An inference an option depends on is checked before generation.** When the research marks a
+  claim as an inference (not seen in a source) and an option would stand or fall on it, have it
+  checked in the place's own code or docs first (a cheap read you may do yourself, or a quick
+  agent), and add the result to `ground.md`.
 
 ## 3. Diverge — generators in parallel, blind to each other
 

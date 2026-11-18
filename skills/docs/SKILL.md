@@ -59,6 +59,27 @@ the date. Follow the record's own format and numbering. No such place in the rep
 file's `## Decisions` holds them. Decisions that change the system's structure always get a
 record — the history survives only where it is written.
 
+## Record new patterns
+
+A change often brings a way of doing things the repo had not written down: a new interaction or
+screen pattern (how a field that may meet another person's edit behaves, how one input means
+different actions by what is typed — an empty value deletes, for example), a code convention, an
+error shape, a test approach. It may be invented in this task, or **taken from another app, repo
+or project** — a sibling app's design system, another project's rule or instruction. Either way,
+this repo must hold it, so the next person or agent here finds it without knowing where it came
+from.
+
+- Read the diff and the task file's Decisions for every such pattern. Ask: would someone building
+  the next screen or module here make the same choice without being told? If not, write it down.
+- Write it where this repo keeps such rules: its design system's rules or pattern pages, its
+  style or conventions guide, its `AGENTS.md` table of rules — following that place's format.
+  State the rule, when it applies, one real example from this change, and the reason.
+- A pattern taken from elsewhere: write it **in this repo's own words and terms**, and name the
+  source (repo and page, or project) in one line. Never only link to the other project: it is not
+  read from here, and it may change.
+- If it differs from what the source does, say what differs and why.
+- No place for such rules in the repo → name the gap in your report, with the file you propose.
+
 ## What became outdated elsewhere
 
 Docs you may not or cannot change — another repo, a wiki, a design file, a page outside the

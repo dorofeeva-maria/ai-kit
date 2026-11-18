@@ -242,7 +242,12 @@ answer. The human picks the three and which is the ambitious one.
 
 ## 10. Result
 
-Write `<run>/result.md` (in the human's language) — you, from the files, without adding ideas:
+Before the result: for each surviving idea, an agent writes **a step-by-step walkthrough** of one
+concrete case (what the person sees and does, in every state), and a fresh agent checks it for
+logic (contract, "Think it through before the human sees it"). Fix or drop what the check breaks;
+the walkthroughs go into the result.
+
+An agent writes `<run>/result.md` (in the human's language), from the files, without adding ideas:
 
 - **Three ideas**, one of them **the ambitious one** (the biggest consequence that is new and
   fits the bold appetite — say which). For each: the pitch in one line · **who uses it every day

@@ -22,6 +22,15 @@ that may change in a main checkout is which branch it has checked out, through t
 slot for a run, and it goes back to the base branch right after. If the human needs a fix to run
 something now, push it on a worktree branch and offer to check that branch out through the slot.
 
+**Think it through before the human sees it.** A design, a pattern, a plan, a recommendation or an
+explanation is walked through step by step on one concrete case before it is shown: what the
+person sees, what they press, what happens, in every state, in every app it touches. Then a fresh
+agent checks that walkthrough for logic — every control or message named exists in that state and
+does what is said, no step contradicts another or a rule of the place, nothing promised is lost
+(text, data, focus), each part has a reason to be there. The human gets the walkthrough together
+with the result, after the check is clean. A gap the human has to find (a button that is said to
+be both there and gone; a feature that solves nothing in this case) means this step was skipped.
+
 ## Skills
 
 Coordinators: `task`, `project`, `research`, `brainstorm`.

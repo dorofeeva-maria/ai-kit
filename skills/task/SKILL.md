@@ -27,6 +27,9 @@ the first agent you start.
 - **Nothing is accepted without an independent check.** Plan (medium and large), mock-ups, code,
   docs and settings are checked by an agent that did not make them; it gets the subject, the
   request and the human's decisions — never the author's reasoning.
+- **Think it through before the human sees it** (contract, "Agent types"). Mock-ups, a plan, a
+  pattern or an answer to the human's "how will it work" go with a step-by-step walkthrough of one
+  concrete case in every state, checked for logic by a fresh agent before you show them.
 - **An agent's report is a claim.** Check the cheap parts yourself: the commit is on origin, the
   checks are green, the file exists. What was not run is called "not checked".
 - **One tree, one writer.** Many may read or test a tree; only its implementer writes there.

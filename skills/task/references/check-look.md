@@ -37,7 +37,8 @@ Subject: the running app at a commit, and the approved mock-ups.
    edge, uneven spacing, wrong colour or font, alignment, focus and hover states, long texts and
    other locales, dark mode if the product has it, every state from the mock-ups.
 3. For video or animation: frames at named times.
-4. Save screenshots next to your report and name them in findings.
+4. Save screenshots in your run's folder, beside your report (contract, "Reports"), and name them
+   in findings.
 
 Each finding says **where and when**: screen, size, state or moment, and the screenshot. A
 difference the human approved in the mock-ups is not a finding; a difference from the mock-ups

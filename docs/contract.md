@@ -96,8 +96,14 @@ Inside a repo that repo's own `AGENTS.md` / `CLAUDE.md` win over the profile and
   tasks/<KEY>/           everything of one task, and nothing else
     <KEY>.md             the task file: state, decisions, links
     plan.md              the plan, when it is too long for the task file
-    notes/               everything agents write: reports, research, journeys, mock-ups,
-                         screenshots (a subfolder per check), PR description drafts
+    research/            research, related tasks, facts, their checks
+    design/              journeys, mock-ups (with their sources), their checks
+    plan/                the planner's and architect's reports, plan checks
+    <part>/              one per part of the plan (= one PR): develop, review, function and look
+                         checks, the PR description draft
+      <run>/             a run that left files: <run>.md inside, screenshots and logs beside it
+    e2e/                 end-to-end runs and the manual check, a folder per run
+    other/               what fits no stage
   tasks/START/           the project start, before any task key exists: START.md + notes/
   tasks/done/<KEY>/      a closed task's folder, moved whole
   worktrees/<KEY>/<repo>/
@@ -120,12 +126,14 @@ Task keys: the place's format; default `T-001`, `T-002`…
 
 **One folder per task.** Nothing about a task lies loose in `tasks/`: the task file, the plan and
 every agent output go into `tasks/<KEY>/`, so the human sees one line per task and closes a task by
-moving one folder. Work without a task key (a review of the kit, a one-off check of the tooling)
-gets a folder too, named by a short slug (`tasks/kit-review-2026-11-18/`), with a file of the same
-name. Links inside a task's folder are relative (`plan.md`, `notes/check-plan-1.md`); from
-elsewhere they name the full path. An older flat layout (`tasks/<KEY>.md`, `<KEY>-plan.md`,
-`<KEY>-notes/`) is moved into the folder when the task is next continued, its links fixed, and
-anything an agent still writes to an old path is moved in after it.
+moving one folder. Inside it, every agent output goes into the folder of its stage or part; only the
+task file and the plan lie at the top. Work without a task key (a review of the kit, a one-off check
+of the tooling) gets a folder too, named by a short slug (`tasks/kit-review-2026-11-18/`), with a
+file of the same name. Links inside a task's folder are relative (`plan.md`,
+`plan/check-plan-1.md`); from elsewhere they name the full path. An older layout (flat
+`tasks/<KEY>.md`, `<KEY>-plan.md`, `<KEY>-notes/`, or one `notes/` folder) is laid out by stage
+when the task is next continued, its links fixed, and anything an agent still writes to an old
+path is moved in after it.
 
 ## Task file — `tasks/<KEY>/<KEY>.md`
 
@@ -195,7 +203,9 @@ repo's remote with its visibility, an account, a paid service, anything public) 
 done (from the profile's Never) · where to write the report and what the reply must contain. Authors
 are told their decisions; checkers are never told the author's reasoning.
 
-Reports: a file `tasks/<KEY>/notes/<role>-<part>-<round>.md` plus a short reply; artefacts that are
+Reports: a file `tasks/<KEY>/<stage or part>/<role>-<part>-<round>.md` plus a short reply; a run
+that leaves screenshots, logs or recordings is a folder `<role>-<part>-<round>/` with the report
+inside under the same name and its files beside it; artefacts that are
 not reports (`research.md`, `mockups.html`, `manual-check.md`) keep a plain name, and the project
 start names its reports by stage (`START/notes/product.md`, `check-1.md`…). Conclusion first, in
 two lines. For every statement — checked by running, checked by reading, or not checked. If a file write is

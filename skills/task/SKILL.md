@@ -18,8 +18,9 @@ one tree. Code, tests, docs, mock-ups and medium or large plans are written by
 commands (checks, git, worktrees), create draft PRs, and talk to the human.
 
 Paths: `<skill>` is this skill's base directory; `<kit>` = `<skill>/../..`; `<ws>` is the
-workspace root (where `.claude/kit-profile.md` and `tasks/` live); `<notes>` =
-`<ws>/tasks/<KEY>/notes/`. Briefs: [references/briefs.md](references/briefs.md) — read it before
+workspace root (where `.claude/kit-profile.md` and `tasks/` live); `<task>` = `<ws>/tasks/<KEY>/`,
+laid out by stage (contract, "Workspace layout"): `research/`, `design/`, `plan/`, a folder per
+part, `e2e/`. Briefs: [references/briefs.md](references/briefs.md) — read it before
 the first agent you start.
 
 ## Rules you keep all the way
@@ -51,10 +52,11 @@ the first agent you start.
 2. A key the profile's `Tasks` lists as not taken by the kit (read that heading first) → say so
    and stop; another procedure owns it. `tasks/<KEY>/<KEY>.md` exists but is not in the contract's format
    (no `status:` line) → stop and ask the human: it was started another way and may belong to
-   another procedure. Otherwise read it, its `notes/` and the PRs it links; continue from `State`
-   and `Next step`. The task still in the flat layout (`tasks/<KEY>.md` beside `<KEY>-plan.md`,
-   `<KEY>-notes/`) → first move it into its folder (contract, "Workspace layout"; the profile may
-   name a script for it), while no agent of the task is running. Do not reconstruct from old conversations.
+   another procedure. Otherwise read it, the reports in its folder and the PRs it links; continue
+   from `State` and `Next step`. The task still in an older layout (flat `tasks/<KEY>.md` beside
+   `<KEY>-plan.md`, `<KEY>-notes/`, or one `notes/` folder) → first lay it out by stage (contract,
+   "Workspace layout"; the profile may name a script for it), while no agent of the task is
+   running. Do not reconstruct from old conversations.
 3. Otherwise create it by the contract's task-file template. Key: the profile's format (default:
    the next free `T-NNN` across `tasks/` and `tasks/done/`). Set `status: in work`.
 4. **Read the profile** `<ws>/.claude/kit-profile.md`; a missing heading means the contract's
@@ -110,7 +112,7 @@ questions get your recommended default, recorded as "default, not confirmed".
   profile's `Tasks` says they live (a tracker, issues, `tasks/` files — every source it names).
   Only **open** ones: everything not released counts, in progress and in review included. Related
   means related by context or by the area the change touches, not only by links: read titles and
-  descriptions. One read-only agent writes `<notes>/related-tasks.md`: per task — key, status, what
+  descriptions. One read-only agent writes `<task>/research/related-tasks.md`: per task — key, status, what
   it changes, and how it meets this one (duplicate / related / conflicts / depends / this task can
   prepare the ground); for work with branches or PRs, also its approach in a few lines, with the
   branch or PR. Then propose to the human: **duplicates** — delete (or close) them;
@@ -129,7 +131,7 @@ questions get your recommended default, recorded as "default, not confirmed".
 ## 2. Research — what exists, and whether anything is new
 
 1. **Inside — always.** Read-only agents (one per touched repo) report what exists now: code,
-   patterns, docs, recent and open changes in the same area (`<notes>/research-<repo>.md`).
+   patterns, docs, recent and open changes in the same area (`<task>/research/research-<repo>.md`).
 2. **Is anything fundamentally new? — you decide, by the existing code and docs only**, not by
    other tasks. New means one of: no existing feature or pattern does it; it exists in code but
    the approach is **not documented**; or the same goal is reached **in different ways** in
@@ -138,7 +140,7 @@ questions get your recommended default, recorded as "default, not confirmed".
    step 3.
 3. **Something new → outside research.** Run `ai-kit:research` (read its `SKILL.md` and follow it;
    you stay its coordinator) on the new part only: how other projects and products do it, what
-   the options cost. Report: `<notes>/research-external.md`.
+   the options cost. Report: `<task>/research/research-external.md`.
 4. **Then a brainstorm.** Run `ai-kit:brainstorm` (you coordinate it; mode `stops`, depth `quick`
    or `standard`) on the new part. Input: the inside, related-tasks (with a stale task's approach) and outside
    reports. Its people
@@ -160,7 +162,7 @@ changes a screen or a contract is open.
 ## 3b. Journeys — the user's path, before mock-ups and plan
 
 Whenever a person sees or does something new or different (at any size), a fresh implementer
-follows `ai-kit:journey` (brief: "journey") and writes `<notes>/journeys.md`: every role, every
+follows `ai-kit:journey` (brief: "journey") and writes `<task>/design/journeys.md`: every role, every
 case, step by step — what they see, do, hear, where they go next. No person-facing change → skip
 3b and 4, say so in one line. Order, for work with screens (steps 3b and 4 are one flow):
 
@@ -199,13 +201,13 @@ At any size, even one button. No visible change → skip, say so in one line.
   Then a fresh checker with `check-plan.md`. The planner (continued) answers the findings; loop to
   "satisfied".
 - **The planner's requests.** Its reply may carry a neutral research question → run
-  `ai-kit:research` (as in step 2), report to `<notes>/research-<n>.md`; or "the architecture must
+  `ai-kit:research` (as in step 2), report to `<task>/research/research-<n>.md`; or "the architecture must
   change: …" → under the same condition as above, a fresh implementer with `ai-kit:architecture` in
   change mode (briefs, "architecture"; run as in "Architecture change" below), then continue the
   same planner with the result's path; otherwise continue the planner to write the structural change
   and the contract into the plan. The plan check covers an architecture change made for this task.
 - **Architecture change** — the architect gathers first, writes after: (1) run `ai-kit:research`
-  on each fact in its gather list, worded neutrally, report to `<notes>/research-<n>.md`; (2) ask
+  on each fact in its gather list, worded neutrally, report to `<task>/research/research-<n>.md`; (2) ask
   the human its missing requirements and limits, with its defaults; (3) continue the **same**
   instance with the report paths and answers. A new question in its reply is one more gather
   round, back through (1)–(3).
@@ -285,7 +287,7 @@ part's implementer; affected steps run again.
    2–3 lines per part; per PR what was checked by running, by reading, not at all and why; findings
    left unfixed and why; what elsewhere became outdated (docs, tests, recordings).
 3. **How to check by hand**: what to open, press and expect. Up to 4 steps in the message; more →
-   a page (artifact or `<notes>/manual-check.md`).
+   a page (artifact or `<task>/e2e/manual-check.md`).
 4. **Merge** only under stops `own`, within the profile's merge level (contract, "Autonomy
    levels"); under `approve` and `blockers` the human merges, whatever the merge level:
    - `pr` (default) — you never merge or take a PR out of draft; the human does.

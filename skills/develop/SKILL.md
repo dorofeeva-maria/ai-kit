@@ -72,7 +72,7 @@ branch only when the brief says to, and push it with `--force-with-lease`; never
 
 ## The report
 
-A file in `tasks/<KEY>/notes/` (name from the brief) and a short reply. Conclusion first, two
+A file in the part's folder `tasks/<KEY>/<part>/` (name from the brief) and a short reply. Conclusion first, two
 lines. Then:
 
 - **Commits** — hash and message.

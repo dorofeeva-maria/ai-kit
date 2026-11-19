@@ -12,7 +12,7 @@ profile, findings, reports): [contract](../../docs/contract.md).
 ## Read first
 
 - Your brief: the part you build, the worktree or branch, what must not be done.
-- The plan (task file `## Plan` or `tasks/<KEY>/plan.md`) — your part, the contract with the other
+- The plan (task file `## Plan` or `tasks/<status>/<KEY>/plan.md`) — your part, the contract with the other
   parts, the decisions. The task file's Decisions are final.
 - The profile: Checks, Run, Git and PRs, Never, Language.
 - The repo's own `AGENTS.md` / `CLAUDE.md` and contributing docs — they win over this skill.
@@ -72,7 +72,7 @@ branch only when the brief says to, and push it with `--force-with-lease`; never
 
 ## The report
 
-A file in the part's folder `tasks/<KEY>/<part>/` (name from the brief) and a short reply. Conclusion first, two
+A file in the part's folder `tasks/<status>/<KEY>/<part>/` (name from the brief) and a short reply. Conclusion first, two
 lines. Then:
 
 - **Commits** — hash and message.

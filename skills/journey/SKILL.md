@@ -73,7 +73,7 @@ at a place on a screen and every screen state is a step of some journey:
 Run by the orchestrator, or by hand by the human's session — this skill never starts agents. A
 fresh checker (`ai-kit:checker`), never the author: "Follow
 `<kit>/skills/task/references/check-journey.md` (`<kit>` = this skill's base directory plus
-`../..`). Subject: `<ws>/tasks/<KEY>/design/journeys.md` (and the mock-ups `<link>` if drawn). Decisions: <the
+`../..`). Subject: `<ws>/tasks/<status>/<KEY>/design/journeys.md` (and the mock-ups `<link>` if drawn). Decisions: <the
 human's decisions>." The author (the same instance, continued) fixes every BLOCKS and MUST, and
 the same checker checks again, until it is satisfied. Only then do the journeys (and the
 mock-ups) go to the human, with the open questions.

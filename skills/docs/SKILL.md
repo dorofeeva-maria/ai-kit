@@ -107,6 +107,6 @@ format. A docs-only follow-up PR is the exception, and only when the brief says 
 
 ## Hand over
 
-A report in the part's folder `tasks/<KEY>/<part>/` and a short reply, conclusion first: the files changed per repo
+A report in the part's folder `tasks/<status>/<KEY>/<part>/` and a short reply, conclusion first: the files changed per repo
 (one line each), the decisions recorded and where, what became outdated outside your scope, the
 PR description (or its path), and what you did not check.

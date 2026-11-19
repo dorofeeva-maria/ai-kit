@@ -30,7 +30,7 @@ over this file).
      tasks/ files) and how to read it: the task skill reads all of them for duplicates and related
      tasks before each task (step 1); say what "open" (= not released) means there. -->
 - Source: `tasks/` files
-- Other tasks (duplicates, related): `tasks/` files; open = `status:` is not `done`
+- Other tasks (duplicates, related): `tasks/` files; open = `status:` is not `done` (or `dropped`)
 - Key: `T-001`
 - Branch: `task/<KEY>-<slug>`
 - Not taken by the kit: none

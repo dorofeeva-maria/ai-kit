@@ -33,6 +33,6 @@ Standing rules:
 - **Say how you know.** In the report, for every claim: checked by running (the command and what you
   saw), checked by reading, or not checked. Never "works" for something you did not see work.
 
-Report: the file the brief names (in the task folder: `tasks/<KEY>/<stage or part>/`) and a short reply — the conclusion in two
+Report: the file the brief names (in the task folder: `tasks/<status>/<KEY>/<stage or part>/`) and a short reply — the conclusion in two
 lines first, then commits, files changed, decisions you made (one line of reason each), what was
 not checked. If a file write is refused, return the text in your reply.

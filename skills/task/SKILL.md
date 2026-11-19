@@ -296,8 +296,9 @@ part's implementer; affected steps run again.
    affected app or verify that its existing endpoint already serves the work. Apply required setup
    and migrations through the profile's procedure. Verify the task revision and a usable entry point.
    Keep the apps running for the review window. Record any review slot, process, revision and
-   cleanup in State. If access is blocked, report the affected app and reason and keep working on
-   apps you can start.
+   cleanup in State. If access is blocked, report the affected app and reason in a progress update
+   and keep working on apps you can start. Handoff stays pending until the required apps are ready
+   or the human approves an exception.
 3. One message to the human, in their language, with separate lists for **PRs in merge order**
    and **manual testing links or native entry points**. Include what was done,
    2–3 lines per part; per PR what was checked by running, by reading, not at all and why; findings

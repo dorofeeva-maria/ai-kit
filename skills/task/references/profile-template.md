@@ -22,8 +22,7 @@ over this file).
 <!-- Per app: how to start it for agent checks and for human review; URL, native entry point,
      test access, worktree or environment, and setup such as migrations. An existing staging or
      production URL works if it already serves the change and permits the planned manual checks.
-     If there is a shared slot, define the review window and who restores it afterward.
-     whether it needs the main checkout or a shared resource (then the task uses a slot). -->
+     If there is a shared slot, define the review window and who restores it afterward. -->
 - app: `npm run dev` → http://localhost:5173 · runs from any worktree
 
 ## Tasks

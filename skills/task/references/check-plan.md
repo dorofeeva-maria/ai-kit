@@ -16,6 +16,10 @@ Not the planner's notes or replies: judge the plan, not the reasons given for it
 
 ## What to look for
 
+- The manual scenarios, automated suites and CI jobs cover the important risks. Each affected app
+  has a feasible review environment and a verified or verifiable startup procedure, including
+  prerequisites, the entry point for the human, any shared slot and cleanup.
+
 - **Covers the request, no wider.** Every acceptance criterion maps to a step; nothing in the plan
   that nobody asked for. A step against a recorded decision of the human is BLOCKS.
 - **Builds the journeys.** Every step of `journeys.md` has a part of the plan that makes it

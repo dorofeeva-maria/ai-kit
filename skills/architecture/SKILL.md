@@ -116,6 +116,11 @@ migration tool; the API it exposes and consumes; config and environment variable
 lint, format, types, unit tests, end-to-end tests and the look check (or why one is not needed);
 what CI runs; how to start it locally; the rules for its own `AGENTS.md`.
 
+Define how the design will be tested before implementation. Cover the manual review environment
+and important scenarios, the automated suites that cover risks and interfaces, and the jobs that
+run in CI. Include setup, test data, shared resources, and cleanup. In change mode, cover the
+affected parts and give the planner the changes to this approach.
+
 Size from the brief: **short** — one page, one Repo section, decisions in one line each with
 the main alternative; **full** — everything above.
 

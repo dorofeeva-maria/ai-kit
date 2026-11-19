@@ -58,11 +58,15 @@ All stages: "Your decisions so far: <the human's decisions and approved plan/moc
   chosen approach, the code of the screens it touches. Write `<task>/design/journeys.md`. Mode:
   `<outline | complete with the frames of <mock-ups link>>`. Questions for the human go at the top
   of your reply, each with options and a default."
-- **mock-ups** — "No stage skill (unless the profile's Design names one). Draw one self-contained
+- **mock-ups** — "Follow `ai-kit:design` or the profile's Design stage. Draw one self-contained
   HTML page from the real design system `<profile Design>` and the real texts: one frame per state
   named in `<task>/design/journeys.md`, each labelled with its step (e.g. J2.4), so every state of this
   task is there. A state you need that no journey names → say so in your reply. Screen sizes:
   `<profile Design>`. Write `<task>/design/mockups.html`."
+- **end-to-end** — "Follow `ai-kit:e2e` with the approved scenario and the profile's
+  End-to-end rules. Report the environment, revisions, actual results, evidence and changes
+  under `<task>/e2e/`. Slots: `<held for you | not needed>`. Report deviations before running
+  them. Leave product fixes and slot release to the orchestrator and part owners."
 - **develop** — "Follow `ai-kit:develop`. Part: <part of the plan>. Worktree: `<ws>/worktrees/<KEY>/<repo>`,
   branch `<branch>`. Checks to keep green: <profile Checks for this repo>. Run: <profile Run>.
   slot: `<not yet — you will be continued for the look once your commit is pushed | not needed>`.

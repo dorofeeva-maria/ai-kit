@@ -35,12 +35,16 @@ After pulling changes: `/reload-plugins` or a new session. Check it loaded: `cla
 | `agents/implementer.md` | `ai-kit:implementer` — the only agent that writes into a tree; loads its stage skill |
 | `agents/checker.md` | `ai-kit:checker` — the read-only, always-fresh checker every pipeline uses |
 
-## Not built yet
+## Task-stage tools
 
-- Scripts that run the place's checks and manage worktrees — for now the orchestrator runs the
-  commands from the profile's `Checks` and plain `git worktree`.
-- A generic design skill for mock-ups — for now the implementer draws one HTML page, unless the
-  profile's `Design` names a design skill.
+| Skill | When it runs |
+|---|---|
+| `/ai-kit:sync` | Task startup or on request. Refreshes clean bases and reports incoming changes. |
+| `/ai-kit:design` | Before a visible change is implemented. Produces one board from the journeys and the profile. |
+| `/ai-kit:e2e` | On request or when the profile and plan call for a live end-to-end scenario. |
+
+The [tooling reference](skills/task/references/tooling.md) covers worktree creation and cleanup,
+repository reports, task folder moves and optional sync reminders.
 
 ## Agent types
 

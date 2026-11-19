@@ -50,6 +50,11 @@ linked from `## Plan`. Never pad a small plan with empty sections.
    (callers, data already stored, other screens, other repos that read this one); which checks and
    tests cover it — existing ones by name, new ones to write (unit, end-to-end where the repo has
    the tooling), and the place's check commands from the profile.
+   Include a test and review plan. Name manual scenarios and expected outcomes, the automated
+   suites to run or extend, and the CI jobs that judge the change. For each affected app, name the
+   review environment and startup procedure from the profile, any required setup or test data,
+   the entry point for the human, and cleanup. Use the architecture's testing approach when it
+   exists.
 3. **Contract between parts** — only when there is more than one part or repo. Precise enough to
    build both sides in parallel without talking:
    - endpoints or interfaces with their names, inputs and outputs, and the exact shapes (fields,

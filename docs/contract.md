@@ -58,12 +58,14 @@ In the workspace root. Plain markdown with these headings (a missing heading = t
 # Kit profile
 ## Repos            <!-- table: folder · what it is · base branch · sync (on only where others work too) -->
 ## Checks           <!-- per repo: the commands that must be green (lint, types, tests, build) -->
-## Run              <!-- per repo: how to start the app for a function or look check -->
+## Run              <!-- per app: startup for agent checks and human review, including the environment, access, shared resources, and cleanup -->
 ## Tasks            <!-- where tasks come from (tasks/ files, a tracker, issues); every place the team keeps tasks and what "open" means there (read for duplicates and related, task step 1); key format, branch naming, keys the kit must not take -->
 ## Git and PRs      <!-- code host and the tool to reach it; commit format, PR title and description rules, draft or not, who is assigned, a worktree command if not the default -->
 ## Reviewers        <!-- per repo, kind of task or area: code host usernames set as reviewers when a PR is created; review order; default none -->
 ## Autonomy         <!-- stops: approve | blockers | own · merge: pr | auto-low | full -->
+## Sync             <!-- optional sync adapters, follow-up and reminder cadence -->
 ## Design           <!-- design system location(s), screen sizes -->
+## End-to-end       <!-- optional trigger, environment, tools, data and slot rules for a planned live run -->
 ## Extra stages     <!-- place-only skills and when they run, e.g. an end-to-end test on a stand; default steps replaced or switched off (e.g. architecture: always | never) -->
 ## Never            <!-- what must not be read, changed or taken outside -->
 ## Language         <!-- language with the human; language of code, commits and docs -->
@@ -230,6 +232,19 @@ gathering) — a cheaper one; both at the default effort. Effort is never set in
 Tests and linters are run by command, not by a model; the implementer reads the failures.
 
 ## Human
+
+Before implementation, the plan names the manual scenarios, automated tests, and CI jobs that
+will cover the task. The architect defines the testing approach when the architecture stage runs.
+Otherwise the planner defines it from the profile and the existing project. The plan checker
+checks that the proposed coverage and review environment are feasible.
+
+At handoff, prepare and verify a runnable review environment for each affected app, following
+the profile's Run section. The review instance must serve the changes being handed over. A
+staging or production URL can meet this requirement when that instance already serves those
+changes and the planned checks are allowed there. For a native app, give its device, emulator or
+desktop entry point. Give two separate lists: PRs in merge order and manual testing links or entry
+points. Record any resources held during the human's review and release them when the review
+window ends.
 
 Only what matters, briefly: a stage passed, a blocker, a question. A question comes with options and
 a recommendation, and work that does not depend on it continues. Small technical decisions are made

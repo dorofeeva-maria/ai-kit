@@ -1,6 +1,6 @@
 ---
 name: task
-description: Take one development task from the request to ready pull requests across one or more repos, as an orchestrator — research, questions, mock-ups, plan, implementation in worktrees, independent checks after every step, handoff in merge order. Sized small / medium / large; stops and merge follow the place's profile (.claude/kit-profile.md). Use for "/task", "take task T-012", when the human describes a feature, bug or change to build in this workspace, and to continue a task that has a tasks/<status>/<KEY>/<KEY>.md file.
+description: Take one development task from the request to ready pull requests across one or more repos, as an orchestrator — research, questions, mock-ups, plan, implementation in worktrees, independent checks after every step, handoff in merge order. Sized small / medium / large; stops and merge follow the place's profile (.claude/kit-profile.md). Use for "/task", "take task T-012", when the human describes a feature, bug or change to build in this workspace, and to continue a task that has a task file under tasks/.
 ---
 
 # task — from the request to ready pull requests
@@ -49,14 +49,14 @@ the first agent you start.
 ## 0. Start or continue
 
 1. Argument: a task key, a description in words, or nothing (then ask what the task is).
-2. A key the profile's `Tasks` lists as not taken by the kit (read that heading first) → say so
-   and stop; another procedure owns it. `tasks/<status>/<KEY>/<KEY>.md` exists but is not in the contract's format
-   (no `status:` line) → stop and ask the human: it was started another way and may belong to
-   another procedure. Otherwise read it, the reports in its folder and the PRs it links; continue
-   from `State` and `Next step`. The task still in an older layout (flat `tasks/<KEY>.md` beside
-   `<KEY>-plan.md`, `<KEY>-notes/`, one `notes/` folder, no status folder) → first lay it out (contract,
-   "Workspace layout"; the profile may name a script for it), while no agent of the task is
-   running. Do not reconstruct from old conversations.
+2. Read the profile's `Tasks` first. A key assigned to another procedure → say so and stop.
+   Find the task across its current and legacy locations. If a legacy task file has no
+   `status:` line, follow the profile's migration approval rule or ask the human by default.
+   If any paths use the legacy layout, wait for active writers to finish, then use the profile's
+   layout command or the [task-folder helper](references/tooling.md#task-folders). For a legacy task
+   file, carry its decisions, reports, branch and PR links into the contract format. Then resume
+   from `State` and `Next step`. For a task in the current format, read its file, reports and linked
+   PRs and resume from the recorded state. If none exists, continue to step 3.
 3. Otherwise create it by the contract's task-file template. Key: the profile's format (default:
    the next free `T-NNN` across every status folder of `tasks/`). Set `status: in work`; the folder is
    `tasks/in-work/<KEY>/`.
@@ -67,7 +67,7 @@ the first agent you start.
    `Decisions`. The profile's `Extra stages` may add steps and may also **replace or switch off** a
    default step of this skill (the place has its own way of doing it): follow the profile for that
    step and say so in one line when you reach it.
-5. Repos with sync on: fetch and bring the base branch up to date. A task branch behind its base →
+5. For repos with sync on, run [`ai-kit:sync`](../sync/SKILL.md) with the profile's adapter when it names one. After a successful refresh, a task branch behind its base →
    brief its implementer to rebase it (briefs, "rebase"). **Rebase rule:** only the task's own
    branch, only by its implementer on your brief, pushed with `--force-with-lease` — never a plain
    force push, never on a shared or base branch.
@@ -180,10 +180,9 @@ checked journeys.
 
 At any size, even one button. No visible change → skip, say so in one line.
 
-- The profile's `Design` names a design skill or stage → use it, and put the frame-label rule
-  (one frame per state named in `journeys.md`, labelled with its step, e.g. J2.4) into its brief.
-  Otherwise a fresh implementer draws **one page** (brief: "mock-ups"); publish it as an artifact
-  if the session can.
+- A fresh implementer uses [`ai-kit:design`](../design/SKILL.md) or the profile's design stage
+  (brief: "mock-ups"). Include one frame per state named in `journeys.md`, labeled with its step,
+  e.g. J2.4. Publish the board as an artifact if the session can.
 - After step 3 of 3b, **one combined checker**: fresh; `check-look.md` part "Mock-ups" (design
   system, states, and logic and obviousness to a first-time user) and `check-journey.md` on the
   journeys with the frames. Fix loop per the contract, to "satisfied". In a small task this is the
@@ -215,6 +214,11 @@ At any size, even one button. No visible change → skip, say so in one line.
 - The plan holds per repo what changes and what could break, the checks that cover it, the contract
   between parts, the parts in merge order (the first useful on its own), the place's extra stages
   and their scenario, forks for the human at the top with defaults, what will stay unchecked.
+  If the profile's `End-to-end` applies, include its scenario, test environment, data changes and cleanup.
+- Before approval, define the manual scenarios and expected outcomes, automated tests and CI jobs,
+  and how each affected app will run for human review. Include prerequisites and ownership of
+  shared resources. Use the architect's testing approach when the architecture stage runs.
+  Otherwise the planner makes these choices from the profile's Run and Checks sections.
 - `approve`: **stop** — parts, estimate, forks with defaults, what the checker raised and what was
   rejected. The yes also approves the extra stages' scenario.
 
@@ -222,7 +226,7 @@ At any size, even one button. No visible change → skip, say so in one line.
 
 - One branch name for the task in every touched repo (the profile's `Tasks`; default
   `task/<KEY>-<slug>`), from a fresh base, each in its worktree:
-  `git -C <repo> worktree add <ws>/worktrees/<KEY>/<repo> -b <branch> origin/<base>`, or the
+  from the repo root run `bash <kit>/skills/task/scripts/git-worktree.sh add <ws>/worktrees/<KEY>/<repo> <branch> origin/<base>`, or the
   worktree command the profile's `Git and PRs` gives instead. Main checkouts stay on the base
   branch, and **nothing is ever written into them** — not by you, not by an agent, not as a quick
   fix outside the task (contract, "Agent types"): every change of a code repo lives in a worktree.
@@ -272,9 +276,13 @@ first. For each part:
 Small task: one checker checks the mock-ups (step 4) if any were drawn, does step 3 (the look only
 if something visible changed) and, continued, the review (5) and the docs re-check (7).
 
-## 8. The place's extra stages
+## 8. End-to-end and extra stages
 
-Run each where the profile's `Extra stages` says (default: after all parts, before handoff), with the
+When the profile's `End-to-end` applies, brief a separate implementer with [`ai-kit:e2e`](../e2e/SKILL.md),
+the end-to-end brief, the scenario from the plan, and the slots you hold. Use the profile's runner or stage if it overrides
+this default. Release the slots after the run and send findings to part owners.
+
+Run each extra stage where the profile's `Extra stages` says (default: after all parts, before handoff), with the
 skill it names, the scenario from the approved plan, and the slot held by you. If a stage would
 change something the plan did not cover → **stop** and show the difference. Findings go back to the
 part's implementer; affected steps run again.
@@ -283,30 +291,40 @@ part's implementer; affected steps run again.
 
 1. Check yourself: every PR description tells the truth about the current code and links its pairs;
    no stray files, debug output or other people's changes in the diff; checks green on the last
-   commit; slots returned; main checkouts on base.
-2. One message to the human, in their language: **PRs in merge order** with links; what was done,
+   commit. Return slots used by agent checks before preparing the human's review environment.
+2. Prepare the human's review environment from the plan and the profile's Run section. Start each
+   affected app or verify that its existing endpoint already serves the work. Apply required setup
+   and migrations through the profile's procedure. Verify the task revision and a usable entry point.
+   Keep the apps running for the review window. Record any review slot, process, revision and
+   cleanup in State. If access is blocked, report the affected app and reason and keep working on
+   apps you can start.
+3. One message to the human, in their language, with separate lists for **PRs in merge order**
+   and **manual testing links or native entry points**. Include what was done,
    2–3 lines per part; per PR what was checked by running, by reading, not at all and why; findings
    left unfixed and why; what elsewhere became outdated (docs, tests, recordings).
-3. **How to check by hand**: what to open, press and expect. Up to 4 steps in the message; more →
-   a page (artifact or `<task>/e2e/manual-check.md`).
+   For each app, say where to open it, what to do and what to expect. Use a page for more than
+   four steps (artifact or `<task>/e2e/manual-check.md`).
 4. **Merge** only under stops `own`, within the profile's merge level (contract, "Autonomy
    levels"); under `approve` and `blockers` the human merges, whatever the merge level:
    - `pr` (default) — you never merge or take a PR out of draft; the human does.
    - `auto-low` — only PRs the profile marks low-risk, after all checks are green and every checker
      is satisfied on that commit; the rest stay with the human.
    - `full` — every PR of the task, by the same conditions, in merge order.
-5. Task file: `status: review`, PRs and the next step; move the folder to `tasks/review/<KEY>/`
-   (contract, "Workspace layout").
+5. Record the PRs and next step. Move the task to review with the [task-folder helper](references/tooling.md#task-folders)
+   or the profile’s layout command.
 
 Append one line to `tasks/runs.md` by the contract's "Run log", every field but the last.
 
 ## After handoff
 
+- When the human finishes manual testing or the agreed review window ends, stop the review
+  processes and release slots using the profile's cleanup procedure. Restore the base checkout
+  and its build if the review used a shared checkout. Record the result in State.
 - Review comments → the same implementer, new commits on the same branch; behaviour changed →
   function and look re-check before the next review.
 - The human's findings after handoff → the last field of this task's line in `tasks/runs.md`.
 - A PR merged → note it; in a chain, brief the next parts' implementer to rebase them on the new
   base (the rebase rule, step 0.5).
-- **Close** when all PRs are merged or the human says the work is over: remove the task's worktrees
-  (only clean ones whose branch is merged or gone), return slots, set `status: done`, move the task's
-  folder whole to `tasks/done/<KEY>/`.
+- **Close** when all PRs are merged or the human says the work is over: return slots and remove
+  clean, merged worktrees using the [worktree helper](references/tooling.md#sync-and-worktrees) or
+  the profile's command. Move the task whole to done with the task-folder helper or the profile's command.

@@ -65,7 +65,7 @@ checker compares the two and the first author merges what the second did better.
 
 The start is tracked like a task: `<ws>/tasks/in-work/START/START.md` in the contract's task-file format (stage,
 round counters, the human's decisions with dates), agents' reports in `<ws>/tasks/in-work/START/notes/`.
-A new session continues from it. At the end the `START/` folder moves to `tasks/done/START/`.
+A new session continues from it. The [task-folder helper](../task/references/tooling.md#task-folders) moves `START` to done at handoff.
 
 ## 1. Workspace and `idea.md`
 

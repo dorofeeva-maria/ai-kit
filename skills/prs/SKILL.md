@@ -64,7 +64,7 @@ extra call: their state is already clear.
 - If the profile names a tracker and a connector is available, read each key's status in **one**
   search (e.g. JQL `key in (…)`), not one call per key. A task that is done or released while its
   PR is still open is a finding.
-- If the workspace keeps task files (`tasks/<KEY>.md`), read each key's stage line: it says what
+- If the workspace keeps task files (`tasks/<KEY>/<KEY>.md`), read each key's stage line: it says what
   the work waits for better than the host does.
 
 ## 4. Judge what each PR waits for

@@ -9,14 +9,14 @@ agent; between fix rounds continue the same author and the same checker (`SendMe
 
 ```text
 Task <KEY>: <one line>. Workspace: <ws>.
-Read first: <ws>/.claude/kit-profile.md; <ws>/tasks/<KEY>.md (request, scope, decisions);
+Read first: <ws>/.claude/kit-profile.md; <ws>/tasks/<KEY>/<KEY>.md (request, scope, decisions);
 the AGENTS.md / CLAUDE.md of repo <name> in full and the docs they name for this work;
 <the stage skill or check guide of this role>.
 The human's decisions in the task file are final: do not argue with them or widen the task.
 Never: <the profile's Never, verbatim>. Delete only what you created. A refused tool or access —
 do not work around it; say so in the report. You cannot ask the human: put a question in the
 report as one line with a default.
-Report: <ws>/tasks/<KEY>-notes/<role>-<part>-<round>.md and a short reply: the conclusion in two
+Report: <ws>/tasks/<KEY>/notes/<role>-<part>-<round>.md and a short reply: the conclusion in two
 lines first; for every statement — checked by running, by reading, or not checked; code as path:line.
 ```
 
@@ -48,7 +48,7 @@ All stages: "Your decisions so far: <the human's decisions and approved plan/moc
   docs stage."
 - **plan** — "Follow `ai-kit:plan`. Subject: research, the human's answers, mock-ups `<link>`,
   journeys `<notes>/journeys.md` (every step needs a part of the plan), `<ws>/architecture.md` if
-  this task amended it. Write `<ws>/tasks/<KEY>-plan.md`. Forks for the
+  this task amended it. Write `<ws>/tasks/<KEY>/plan.md`. Forks for the
   human at the top, each with a default. Decide small things yourself, one line of reason each.
   Research or an architecture change you need → a request in your reply; you will be continued
   with the result."
@@ -90,7 +90,7 @@ All stages: "Your decisions so far: <the human's decisions and approved plan/moc
 Never pass the author's report, reasoning or replies. A checker gets the subject, the request and
 the decisions.
 
-- **Plan checker** — "Follow `<skill>/references/check-plan.md`. Subject: `<ws>/tasks/<KEY>-plan.md`;
+- **Plan checker** — "Follow `<skill>/references/check-plan.md`. Subject: `<ws>/tasks/<KEY>/plan.md`;
   the repos at `origin/<base>`; `<ws>/architecture.md` if this task amended it."
 - **Journey checker** — "Follow `<skill>/references/check-journey.md`. Subject:
   `<notes>/journeys.md` (and the mock-ups `<link>` if drawn); the request; the human's decisions."

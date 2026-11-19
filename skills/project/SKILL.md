@@ -63,9 +63,9 @@ checker compares the two and the first author merges what the second did better.
 
 ## State
 
-The start is tracked like a task: `<ws>/tasks/START.md` in the contract's task-file format (stage,
-round counters, the human's decisions with dates), agents' reports in `<ws>/tasks/START-notes/`.
-A new session continues from it. At the end it moves to `tasks/done/`.
+The start is tracked like a task: `<ws>/tasks/START/START.md` in the contract's task-file format (stage,
+round counters, the human's decisions with dates), agents' reports in `<ws>/tasks/START/notes/`.
+A new session continues from it. At the end the `START/` folder moves to `tasks/done/START/`.
 
 ## 1. Workspace and `idea.md`
 
@@ -95,7 +95,7 @@ Product stage of a new project. Workspace: <ws>. Today is <YYYY-MM-DD>.
 First read the product skill (ai-kit:product), then <ws>/idea.md. Mode: plan. Size: <short|full>.
 Decisions already made: <the human's, dated, or "none">.
 Never: <limits from idea.md; no code, no repos>.
-Write <ws>/product.md and the tasks in <ws>/tasks/; report to <ws>/tasks/START-notes/product.md.
+Write <ws>/product.md and the tasks in <ws>/tasks/; report to <ws>/tasks/START/notes/product.md.
 Reply: conclusion in two lines, the MVP list, open questions with your default.
 ```
 
@@ -113,7 +113,7 @@ Architecture stage of a new project, phase 1 (gather). Workspace: <ws>. Today is
 First read the architecture skill (ai-kit:architecture), then idea.md, product.md, tasks/.
 Size: <short|full>. Decisions already made: <…>.
 Never: <…>; no repos, no code; no architecture.md before the gather list is answered.
-Report to <ws>/tasks/START-notes/architecture.md (the gather list under ## Gather).
+Report to <ws>/tasks/START/notes/architecture.md (the gather list under ## Gather).
 Reply: conclusion in two lines; the gather list (facts to research, missing requirements with
 defaults, limits to confirm) — or "none", then go on and write.
 ```
@@ -142,7 +142,7 @@ and builds nothing the MVP does not need; every decision has why, rejected alter
 limits; no decision is marked "not verified" and every assumption states its risk; the schema and
 data flows support the features; product and architecture do not contradict each other; each repo
 section is enough to create that repo without guessing.
-Findings in the contract's format (<kit>/docs/contract.md). Write <ws>/tasks/START-notes/check-1.md.
+Findings in the contract's format (<kit>/docs/contract.md). Write <ws>/tasks/START/notes/check-1.md.
 ```
 
 Fix loop: findings go to the **same** author instance (product or architect — it remembers); the
@@ -173,7 +173,7 @@ Mode: create. Approved by the human: <each repo remote with its name and visibil
 service, or "none — local only">.
 Workspace remote: <set by the place / approved, private / none>.
 Stops: <level>. Never: <…>; no product feature; nothing remote, paid or public beyond the list.
-Report to <ws>/tasks/START-notes/setup.md.
+Report to <ws>/tasks/START/notes/setup.md.
 Reply: conclusion in two lines; each check command and whether it ran green; what could not run.
 ```
 
@@ -186,8 +186,8 @@ Tell the human, briefly: the workspace path and its remote, if any; the code rep
 private / public); the MVP in one line each; what was checked by running, by reading, not at all;
 open hypotheses. Name the **first task** — the highest-priority one in `tasks/` (often the design
 system or the thinnest end-to-end slice) — to take with `ai-kit:task`. Append the run-log line
-(contract, "Run log", key `START`) to `tasks/runs.md`. Move `START.md` and its notes to
-`tasks/done/`.
+(contract, "Run log", key `START`) to `tasks/runs.md`. Move the `tasks/START/` folder to
+`tasks/done/START/`.
 
 ## Never
 

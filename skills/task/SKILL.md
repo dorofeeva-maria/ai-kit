@@ -1,6 +1,6 @@
 ---
 name: task
-description: Take one development task from the request to ready pull requests across one or more repos, as an orchestrator — research, questions, mock-ups, plan, implementation in worktrees, independent checks after every step, handoff in merge order. Sized small / medium / large; stops and merge follow the place's profile (.claude/kit-profile.md). Use for "/task", "take task T-012", when the human describes a feature, bug or change to build in this workspace, and to continue a task that has a tasks/<KEY>.md file.
+description: Take one development task from the request to ready pull requests across one or more repos, as an orchestrator — research, questions, mock-ups, plan, implementation in worktrees, independent checks after every step, handoff in merge order. Sized small / medium / large; stops and merge follow the place's profile (.claude/kit-profile.md). Use for "/task", "take task T-012", when the human describes a feature, bug or change to build in this workspace, and to continue a task that has a tasks/<KEY>/<KEY>.md file.
 ---
 
 # task — from the request to ready pull requests
@@ -19,7 +19,7 @@ commands (checks, git, worktrees), create draft PRs, and talk to the human.
 
 Paths: `<skill>` is this skill's base directory; `<kit>` = `<skill>/../..`; `<ws>` is the
 workspace root (where `.claude/kit-profile.md` and `tasks/` live); `<notes>` =
-`<ws>/tasks/<KEY>-notes/`. Briefs: [references/briefs.md](references/briefs.md) — read it before
+`<ws>/tasks/<KEY>/notes/`. Briefs: [references/briefs.md](references/briefs.md) — read it before
 the first agent you start.
 
 ## Rules you keep all the way
@@ -37,7 +37,7 @@ the first agent you start.
 - **An agent's report is a claim.** Check the cheap parts yourself: the commit is on origin, the
   checks are green, the file exists. What was not run is called "not checked".
 - **One tree, one writer.** Many may read or test a tree; only its implementer writes there.
-- **Update `tasks/<KEY>.md` after every step** (stage, branches, PRs, round counters, next step): a
+- **Update `tasks/<KEY>/<KEY>.md` after every step** (stage, branches, PRs, round counters, next step): a
   new session continues from it, not from this conversation.
 - **The human hears only what matters** (contract, "Human"): a stage passed, a blocker, a question
   with options and your recommendation. Small technical questions you decide yourself, without
@@ -49,10 +49,12 @@ the first agent you start.
 
 1. Argument: a task key, a description in words, or nothing (then ask what the task is).
 2. A key the profile's `Tasks` lists as not taken by the kit (read that heading first) → say so
-   and stop; another procedure owns it. `tasks/<KEY>.md` exists but is not in the contract's format
+   and stop; another procedure owns it. `tasks/<KEY>/<KEY>.md` exists but is not in the contract's format
    (no `status:` line) → stop and ask the human: it was started another way and may belong to
-   another procedure. Otherwise read it, its `<notes>` and the PRs it links; continue from `State`
-   and `Next step`. Do not reconstruct from old conversations.
+   another procedure. Otherwise read it, its `notes/` and the PRs it links; continue from `State`
+   and `Next step`. The task still in the flat layout (`tasks/<KEY>.md` beside `<KEY>-plan.md`,
+   `<KEY>-notes/`) → first move it into its folder (contract, "Workspace layout"; the profile may
+   name a script for it), while no agent of the task is running. Do not reconstruct from old conversations.
 3. Otherwise create it by the contract's task-file template. Key: the profile's format (default:
    the next free `T-NNN` across `tasks/` and `tasks/done/`). Set `status: in work`.
 4. **Read the profile** `<ws>/.claude/kit-profile.md`; a missing heading means the contract's
@@ -189,7 +191,7 @@ At any size, even one button. No visible change → skip, say so in one line.
 ## 5. Plan
 
 - **Small:** you write a short plan in the task file in the format of `ai-kit:plan`.
-- **Medium / large:** an implementer with stage `ai-kit:plan` writes `tasks/<KEY>-plan.md` (large:
+- **Medium / large:** an implementer with stage `ai-kit:plan` writes `tasks/<KEY>/plan.md` (large:
   first an implementer with `ai-kit:architecture` in change mode, which amends
   `<ws>/architecture.md`; briefs, "architecture"; run as in "Architecture change" below — only when
   the task changes the system's structure **and** the workspace keeps an `architecture.md` or the
@@ -302,5 +304,5 @@ Append one line to `tasks/runs.md` by the contract's "Run log", every field but 
 - A PR merged → note it; in a chain, brief the next parts' implementer to rebase them on the new
   base (the rebase rule, step 0.5).
 - **Close** when all PRs are merged or the human says the work is over: remove the task's worktrees
-  (only clean ones whose branch is merged or gone), return slots, set `status: done`, move the task
-  file, plan and notes to `tasks/done/`.
+  (only clean ones whose branch is merged or gone), return slots, set `status: done`, move the task's
+  folder whole to `tasks/done/<KEY>/`.

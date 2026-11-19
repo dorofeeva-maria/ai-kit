@@ -91,12 +91,15 @@ Inside a repo that repo's own `AGENTS.md` / `CLAUDE.md` win over the profile and
   product.md             features, the MVP cut and the order                  (project pipeline)
   architecture.md        the general picture only; details live in each repo's docs
   .claude/kit-profile.md
-  tasks/<KEY>.md         one task: state, decisions, links
-  tasks/<KEY>-plan.md    the plan, when it is too long for the task file
-  tasks/<KEY>-notes/     agents' reports for that task
-  tasks/START.md         state of the project start, before any task key exists (+ START-notes/)
+  tasks/README.md        the place's notes on its tasks (optional)
   tasks/runs.md          the run log
-  tasks/done/
+  tasks/<KEY>/           everything of one task, and nothing else
+    <KEY>.md             the task file: state, decisions, links
+    plan.md              the plan, when it is too long for the task file
+    notes/               everything agents write: reports, research, journeys, mock-ups,
+                         screenshots (a subfolder per check), PR description drafts
+  tasks/START/           the project start, before any task key exists: START.md + notes/
+  tasks/done/<KEY>/      a closed task's folder, moved whole
   worktrees/<KEY>/<repo>/
   <repo>/ …
 ```
@@ -115,7 +118,16 @@ copy the workspace's private content (idea, plan, task notes) and link nothing i
 
 Task keys: the place's format; default `T-001`, `T-002`…
 
-## Task file — `tasks/<KEY>.md`
+**One folder per task.** Nothing about a task lies loose in `tasks/`: the task file, the plan and
+every agent output go into `tasks/<KEY>/`, so the human sees one line per task and closes a task by
+moving one folder. Work without a task key (a review of the kit, a one-off check of the tooling)
+gets a folder too, named by a short slug (`tasks/kit-review-2026-11-18/`), with a file of the same
+name. Links inside a task's folder are relative (`plan.md`, `notes/check-plan-1.md`); from
+elsewhere they name the full path. An older flat layout (`tasks/<KEY>.md`, `<KEY>-plan.md`,
+`<KEY>-notes/`) is moved into the folder when the task is next continued, its links fixed, and
+anything an agent still writes to an old path is moved in after it.
+
+## Task file — `tasks/<KEY>/<KEY>.md`
 
 ```markdown
 # <KEY> — <title>
@@ -124,7 +136,7 @@ status: backlog | in work | review | done | dropped · priority: <n> · kind: fe
 ## Request            <!-- the human's words, quoted, with dates; acceptance criteria -->
 ## Scope              <!-- repos touched; what is out of scope -->
 ## Decisions          <!-- dated; the human's are final -->
-## Plan               <!-- short, or a link to <KEY>-plan.md -->
+## Plan               <!-- short, or a link to plan.md -->
 ## State              <!-- stage · branches and PRs per repo · round counters per loop -->
 ## Tried and dropped
 ## Next step
@@ -183,9 +195,9 @@ repo's remote with its visibility, an account, a paid service, anything public) 
 done (from the profile's Never) · where to write the report and what the reply must contain. Authors
 are told their decisions; checkers are never told the author's reasoning.
 
-Reports: a file `tasks/<KEY>-notes/<role>-<part>-<round>.md` plus a short reply; artefacts that are
+Reports: a file `tasks/<KEY>/notes/<role>-<part>-<round>.md` plus a short reply; artefacts that are
 not reports (`research.md`, `mockups.html`, `manual-check.md`) keep a plain name, and the project
-start names its reports by stage (`START-notes/product.md`, `check-1.md`…). Conclusion first, in
+start names its reports by stage (`START/notes/product.md`, `check-1.md`…). Conclusion first, in
 two lines. For every statement — checked by running, checked by reading, or not checked. If a file write is
 refused, the agent returns the text and the orchestrator saves it. Claude Code always refuses a
 subagent's Write of a markdown file whose name starts with `report`, `summary`, `findings` or

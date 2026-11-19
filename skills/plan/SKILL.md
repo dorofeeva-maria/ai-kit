@@ -13,7 +13,7 @@ Shared terms (task file, profile, findings, briefs): [contract](../../docs/contr
 
 ## Read first
 
-- The task file `tasks/<KEY>.md`: Request, Scope, Decisions (the human's are final), Tried and
+- The task file `tasks/<KEY>/<KEY>.md`: Request, Scope, Decisions (the human's are final), Tried and
   dropped.
 - The profile `.claude/kit-profile.md`: Repos, Checks, Run, Git and PRs, Autonomy, Never.
 - `journeys.md` when the task has one: the plan builds those journeys; every step needs a part.
@@ -38,7 +38,7 @@ change to how parts talk to each other. A plan does not make those choices quiet
 ## Size
 
 The plan scales with the task. A small task (one repo, a few files, under half a day) gets about
-ten lines straight in the task file's `## Plan`. A larger one goes into `tasks/<KEY>-plan.md`,
+ten lines straight in the task file's `## Plan`. A larger one goes into `tasks/<KEY>/plan.md`,
 linked from `## Plan`. Never pad a small plan with empty sections.
 
 ## What the plan holds — in this order
@@ -97,7 +97,7 @@ only where you accepted:
 
 ## Hand over
 
-- The plan in the task file, or `tasks/<KEY>-plan.md` linked from it; `## Next step` updated.
+- The plan in the task file, or `tasks/<KEY>/plan.md` linked from it; `## Next step` updated.
 - Reply (conclusion first, two lines): the size, the forks with their defaults, the number of
   implementers and PRs, the estimate, what is unverified. Say which file statements you checked by
   reading and which you did not.

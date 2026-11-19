@@ -51,7 +51,7 @@ complete plan.
 ## Open questions                 <!-- each with your default -->
 ```
 
-### Task files — `<ws>/tasks/<KEY>.md`
+### Task files — `<ws>/tasks/<KEY>/<KEY>.md`
 
 The contract's format. Keys in the place's format (default `T-001`…), numbered in build order.
 `status: backlog`; `priority:` 1 is the highest, the MVP's order decides it; `kind:` only when
@@ -74,7 +74,7 @@ task in `tasks/` (titles, status, priority).
 1. **Does it serve the idea?** If not — propose to drop it, saying which part of the idea it does
    not serve, or what it would cost the idea. You do not drop it: the human decides.
 2. **Is it already there?** A duplicate or part of an existing task → propose to merge, name it.
-3. **Place it.** Write `tasks/<KEY>.md` as above, with the priority that fits: compare it with
+3. **Place it.** Write `tasks/<KEY>/<KEY>.md` as above, with the priority that fits: compare it with
    the open tasks and say which it goes before or after, and why. If it changes the MVP, say so.
 4. **Does it change the idea?** A request that changes what the project is for, or for whom, is a
    change of the idea: propose the change; once the human confirms, add a dated line to the

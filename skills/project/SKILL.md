@@ -186,8 +186,8 @@ Tell the human, briefly: the workspace path and its remote, if any; the code rep
 private / public); the MVP in one line each; what was checked by running, by reading, not at all;
 open hypotheses. Name the **first task** — the highest-priority one in `tasks/` (often the design
 system or the thinnest end-to-end slice) — to take with `ai-kit:task`. Append the run-log line
-(contract, "Run log", key `START`) to `tasks/runs.md`. Move the `tasks/in-work/START/` folder to
-`tasks/done/START/`.
+(contract, "Run log", key `START`) to `tasks/runs.md`. Move `START` to done with the [task-folder helper](../task/references/tooling.md#task-folders),
+using `--status done START`.
 
 ## Never
 

@@ -5,6 +5,7 @@ usage() {
 Usage: git-worktree.sh add <path> <branch> [<start-ref>] [--remote <name>]
        git-worktree.sh merged <path> <base-ref> [--exclude-no-commits]
        git-worktree.sh remove <path> <base-ref>
+       git-worktree.sh release <path> <remote>
 USAGE
   exit 2
 }
@@ -95,6 +96,47 @@ case "$cmd" in
     fi
     # Git checks the worktree's registration and refuses dirty or locked trees.
     git worktree remove -- "$target"
+    ;;
+  release)
+    # The task no longer needs its tree (moved to review or done). Removes the tree when nothing
+    # would be lost: no uncommitted change, and every commit of its branch is on the remote branch
+    # or already in the remote's default branch. The local branch stays. Prints one line.
+    [ "$#" -eq 0 ] || usage
+    remote=$value
+    if [ ! -e "$path/.git" ] || [ -d "$path/.git" ]; then
+      echo "kept|$path|not a linked worktree"; exit 1
+    fi
+    target=$(cd -- "$path" && pwd -P) || exit 1
+    branch=$(git -C "$target" symbolic-ref -q --short HEAD) || branch=
+    if ! changes=$(git -C "$target" status --porcelain --ignore-submodules=all); then
+      echo "kept|$target|git status failed"; exit 1
+    fi
+    [ -z "$changes" ] || { echo "kept|$target|$(printf '%s
+' "$changes" | wc -l | tr -d ' ') uncommitted change(s)"; exit 1; }
+    pushed=
+    [ -z "$branch" ] || pushed=$(git -C "$target" rev-parse -q --verify "refs/remotes/$remote/$branch^{commit}")
+    if [ -n "$pushed" ]; then
+      ahead=$(git -C "$target" rev-list --count "$pushed..HEAD") || exit 1
+      [ "$ahead" = 0 ] || { echo "kept|$target|$ahead commit(s) not pushed to $remote/$branch"; exit 1; }
+    else
+      default=$(git -C "$target" symbolic-ref -q "refs/remotes/$remote/HEAD") || default=
+      if [ -z "$default" ] || ! (cd -- "$target" && merged "$target" "$default" no); then
+        echo "kept|$target|branch not on $remote and not in its default branch"; exit 1
+      fi
+    fi
+    main=$(dirname "$(git -C "$target" rev-parse --path-format=absolute --git-common-dir)")
+    # A dependency folder linked from another checkout: drop the link only, never its target.
+    for link in node_modules vendor; do
+      [ -L "$target/$link" ] || continue
+      if command -v cygpath >/dev/null 2>&1; then
+        cmd //c rmdir "$(cygpath -w "$target/$link")" >/dev/null 2>&1 || rm -f -- "$target/$link"
+      else
+        rm -f -- "$target/$link"
+      fi
+    done
+    git -C "$main" worktree remove --force -- "$target" >/dev/null 2>&1 || { echo "kept|$target|git could not remove it"; exit 1; }
+    rmdir -- "$(dirname "$target")" 2>/dev/null
+    echo "removed|$target|${branch:-detached} stays as a local branch"
     ;;
   *) usage ;;
 esac

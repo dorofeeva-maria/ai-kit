@@ -9,6 +9,7 @@ The label excludes its trailing colon. The legacy status rule applies to an old
 task file without a status line (for example, stage 8 or later with a handoff marker).
 """
 import argparse
+import subprocess
 import filecmp
 import json
 import os
@@ -433,11 +434,54 @@ def move_task(tasks, key, status, overrides, legacy_stage, staged_keys):
     return task
 
 
+RELEASED = {"review", "done", "dropped"}
+
+
+def bash_path():
+    """Git's own bash on Windows (a bare "bash" there may be WSL's, which cannot read C:/ paths)."""
+    if os.name == "nt":
+        try:
+            exec_path = subprocess.run(["git", "--exec-path"], capture_output=True, text=True).stdout.strip()
+            candidate = Path(exec_path).parents[2] / "bin" / "bash.exe"
+            if candidate.is_file():
+                return str(candidate)
+        except (OSError, IndexError):
+            pass
+    return "bash"
+
+
+def release_trees(workspace, key):
+    """Remove the task's trees once the task leaves work; keep any tree that would lose work."""
+    folder = workspace / "worktrees" / key
+    if not folder.is_dir():
+        return
+    helper = Path(__file__).with_name("git-worktree.sh")
+    for tree in sorted(folder.iterdir()):
+        if not (tree / ".git").is_file():
+            continue
+        result = subprocess.run(
+            [bash_path(), helper.as_posix(), "release", tree.as_posix(), "origin"],
+            capture_output=True, text=True, encoding="utf-8", errors="replace",
+        )
+        line = (result.stdout.strip().splitlines() or [f"kept|{tree}|{result.stderr.strip()}"])[-1]
+        state, _, rest = line.partition("|")
+        path, _, reason = rest.partition("|")
+        name = Path(path).name or tree.name
+        print(f"  tree {name}: {state}" + (f" ({reason})" if reason else ""))
+    if folder.is_dir() and not any(folder.iterdir()):
+        folder.rmdir()
+    elif folder.is_dir():
+        left = ", ".join(sorted(p.name for p in folder.iterdir()))
+        print(f"  worktrees/{key} kept: {left}")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--workspace", type=Path, required=True)
     parser.add_argument("--config", type=Path)
     parser.add_argument("--status", type=lambda value: value.replace(" ", "-"), choices=STATUSES)
+    parser.add_argument("--keep-trees", action="store_true",
+                        help="leave the task's worktrees when it moves to review, done or dropped")
     parser.add_argument("keys", metavar="KEY", nargs="+")
     args = parser.parse_args()
     try:
@@ -450,6 +494,8 @@ def main():
         for key in args.keys:
             task = move_task(tasks, key, args.status, overrides, legacy_stage, staged_keys)
             print(f"{key}: {task.relative_to(tasks.parent).as_posix()}")
+            if args.status in RELEASED and not args.keep_trees:
+                release_trees(tasks.parent, key)
     except (OSError, ValueError, re.error) as error:
         parser.exit(1, f"{error}\n")
 

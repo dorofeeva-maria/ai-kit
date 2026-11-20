@@ -34,6 +34,12 @@ python3 <kit>/skills/task/scripts/task_folder.py --workspace <ws> <KEY>
 python3 <kit>/skills/task/scripts/task_folder.py --workspace <ws> --status review <KEY>
 ```
 
+Moving a task to `review`, `done` or `dropped` also removes its trees under `worktrees/<KEY>/`
+(`git-worktree.sh release <path> <remote>`): only a tree with nothing uncommitted whose commits are
+all on its remote branch or in the default branch; a linked `node_modules` or `vendor` loses only
+the link; the local branch stays. A kept tree is printed with the reason. `--keep-trees` skips this.
+Work that comes back from review gets a new tree.
+
 Run layout migration before converting a legacy task file to the contract. Status moves carry
 the whole folder, update the status line and fix references in task Markdown. Run with one
 writer for the task and no concurrent edits to affected references. Optional `--config <json>`

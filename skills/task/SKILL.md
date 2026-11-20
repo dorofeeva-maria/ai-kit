@@ -313,7 +313,8 @@ part's implementer; affected steps run again.
      is satisfied on that commit; the rest stay with the human.
    - `full` — every PR of the task, by the same conditions, in merge order.
 5. Record the PRs and next step. Move the task to review with the [task-folder helper](references/tooling.md#task-folders)
-   or the profile’s layout command.
+   or the profile’s layout command. The move removes the task's worktrees (each one only when it is
+   clean and pushed); name a tree it kept and why.
 
 Append one line to `tasks/runs.md` by the contract's "Run log", every field but the last.
 
@@ -322,11 +323,12 @@ Append one line to `tasks/runs.md` by the contract's "Run log", every field but 
 - When the human finishes manual testing or the agreed review window ends, stop the review
   processes and release slots using the profile's cleanup procedure. Restore the base checkout
   and its build if the review used a shared checkout. Record the result in State.
-- Review comments → the same implementer, new commits on the same branch; behaviour changed →
+- Review comments → the same implementer, new commits on the same branch in a new tree (the
+  worktree helper's `add` reuses the branch); behaviour changed →
   function and look re-check before the next review.
 - The human's findings after handoff → the last field of this task's line in `tasks/runs.md`.
 - A PR merged → note it and run `ai-kit:sync`: it moves the next parts of a chain onto the new
   base by its chain rule (the rebase rule, step 0.5).
 - **Close** when all PRs are merged or the human says the work is over: return slots and remove
-  clean, merged worktrees using the [worktree helper](references/tooling.md#sync-and-worktrees) or
-  the profile's command. Move the task whole to done with the task-folder helper or the profile's command.
+  any worktree still left using the [worktree helper](references/tooling.md#sync-and-worktrees) or
+  the profile's command (the move to review removed the rest). Move the task whole to done with the task-folder helper or the profile's command.

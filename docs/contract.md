@@ -250,7 +250,16 @@ window ends.
 
 Only what matters, briefly: a stage passed, a blocker, a question. A question comes with options and
 a recommendation, and work that does not depend on it continues. Small technical decisions are made
-without asking. Done means: PRs ready to merge under the place's rules, listed in merge order, with
+without asking.
+
+**Quiet while working.** The human runs several sessions at once and gets context back on demand
+(Claude Code's `/recap`, or by asking), not from a stream of messages. So while work runs, a
+coordinator writes almost nothing to the chat: no narration of its own steps, and progress of
+agents or other sessions in at most a few words ("research: 3 of 6") or not at all. When it needs
+the human, one line: "need your answer: <topic>" — no context dump. The full exchange starts when
+the human comes back and asks; then explain the question with its problem, options and
+recommendation, short, and plainly enough for someone who forgot the whole conversation. A question
+that blocks nothing still never gets decided by default unless the place allows it. Done means: PRs ready to merge under the place's rules, listed in merge order, with
 what was checked by running, by reading, and not at all.
 
 ## Disagreeing with the human

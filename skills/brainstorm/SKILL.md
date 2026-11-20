@@ -65,12 +65,10 @@ allowed). Research runs by the research skill, where the compressor and the writ
 and you save it. If any agent's write is refused anyway, it returns the full text and you save it
 verbatim — never by renaming, Bash or a script.
 
-**Write early, check after.** Every agent that produces a file creates it at its first step and
-adds to it as it goes, so a session restart or a lost agent leaves partial work, not nothing (tell
-it so in the brief). When an agent finishes, check that its expected file exists and is not empty;
-if it is missing, save the agent's reply text verbatim as that file, as for a refused write.
-*Why:* a run lost one agent's work to a restart and another's notes file was silently never
-saved.
+**Write early, check after.** Every agent that writes its own file (generators, the developer,
+the critic) creates it at its first step and adds to it as it goes — every brief says so. When an
+agent finishes, check that its expected file exists and is not empty; if it is missing, save its
+reply text verbatim as that file. *Why:* a restart and a silent failed save lost work.
 
 ## Modes — ask at the start unless the request says
 
@@ -164,8 +162,7 @@ Two inputs every generator reads, both written before any generation:
   products sold to them) and **adjacent academic work** on the same jobs (papers, theses,
   student projects). Researchers get the field, the roles and the jobs — **never the
   goal or hoped-for ideas**. Own data on unless the human wants an outside view. Save the report
-  as `ground.md`. *Why:* a run's ideas repeated a thesis and a practitioners' tool found only after
-  generation.
+  as `ground.md`. *Why:* ideas repeated a thesis and a tool found only after generation.
 
 **A live signal for every guessed role — before generation.** When a main role has no real words,
 get one cheap signal from it: a question on that community's mailing list or forum, one message
@@ -174,8 +171,7 @@ and say where to send them; the human sends them (you never post or message on t
 Answers that arrive go into `day.md` and turn the role to **heard**; wait only as long as the
 human agrees, then generate with the role still **guessed**. In **without me** mode, do not wait:
 list the questions and where to send them at the top of the result, and keep every such role
-**guessed**. *Why:* a run where every user was guessed ended with a recommendation nobody was shown
-to need, and the human rejected it for that.
+**guessed**. *Why:* a recommendation nobody was shown to need was rejected.
 
 ## 3. Diverge — generators in parallel, blind to each other
 
@@ -210,7 +206,7 @@ Generators do not see each other's files or the other lenses.
 
 One agent (`general-purpose`, `model: fable`; if unavailable, `opus`): "First read
 <skill>/references/develop.md, part Cluster. Brief: <run>/brief.md. Ideas: <run>/ideas/. Write
-<run>/clusters.md." — duplicates merged, **the human's own proposal from `brief.md` entered as a candidate, labelled theirs**, features folded into the whole solutions they belong
+<run>/clusters.md — create it now and add to it as you go." — duplicates merged, **the human's own proposal from `brief.md` entered as a candidate, labelled theirs**, features folded into the whole solutions they belong
 to, 10–16 candidate solutions left, each with the jobs it takes over and the existing products
 it would meet. Its reply lists, per candidate, 1–2 neutral questions for step 5 ("Is there a
 product that does X for Y in Z?").
@@ -219,7 +215,7 @@ product that does X for Y in Z?").
 
 Run research `quick` on the candidates' questions (standard: one researcher per 3–4 candidates;
 deep: two phrasings each). **Researchers get the neutral question, never the idea or the hope.**
-Save the findings to `<run>/taken.md`: per candidate — exists as is / exists for other people or
+Save the findings to `<run>/taken.md` as each research run returns, not at the end: per candidate — exists as is / exists for other people or
 another market / exists but done badly (with what users say) / not found (with what was searched).
 
 **An inference a candidate stands on is checked before selection.** When the research marks a
@@ -230,7 +226,7 @@ yourself, or a quick agent), and add the result to `taken.md`.
 ## 6. Select
 
 Continue the cluster agent (it remembers): "Part Select. Taken: <run>/taken.md. Day:
-<run>/day.md. Write <run>/shortlist.md." — scored on the five criteria with one line of why; an
+<run>/day.md. Write <run>/shortlist.md — create it now and add to it as you go." — scored on the five criteria with one line of why; an
 idea that exists as is in the human's market (or field) is dropped or rebuilt around its real opening; an
 idea beyond the bold appetite goes to the graveyard; the rest are **weighed, pros against cons**, never knocked out by one weak
 criterion; 6–8 kept, the strongest **and most different**, at least two of them as ambitious as
@@ -254,7 +250,7 @@ and what is dead. Their ideas enter as equals; their "dead" is final.
 
 ## 7. Hyperbole — bigger inside the appetite
 
-Continue the same agent: "Part Hyperbole, top <N>. Write <run>/big.md." — for each: its ceiling,
+Continue the same agent: "Part Hyperbole, top <N>. Write <run>/big.md — create it now and add to it as you go." — for each: its ceiling,
 real vs invented limits, ×10 on the user's benefit and on adoption (not on a marketplace or
 network nobody can build), the **day in the life with it** (the user's moment of use, then the
 payer's morning if there is a payer), the press release from the future, the **wedge** (the first version really used,
@@ -274,7 +270,7 @@ nothing.
 
 A fresh critic (`ai-kit:checker`, or `general-purpose` with the checker's rules; `model: fable` or
 `opus`): "First read <skill>/references/attack.md. Brief: <run>/brief.md. Day: <run>/day.md.
-Ideas: <run>/big.md. Research: <paths>. Write <run>/attack.md." It never gets the generators' or
+Ideas: <run>/big.md. Research: <paths>. Write <run>/attack.md — create it now and add to it as you go." It never gets the generators' or
 developer's reasoning. The developer answers each attack once (fix or concede). An idea whose
 fatal attack stands goes to the graveyard with the reason.
 
@@ -299,10 +295,10 @@ An agent writes `<run>/result.md` (in the human's language), from the files, wit
   differs (sources) · what must be true, and what the research showed · price in the team's hours
   and money, fit to the appetite (the near / bold horizon where there are horizons) · risks, honestly · the strongest attack and the
   answer · **a test of the riskiest hypothesis that fits in 30 minutes** · the first small step.
-- **An idea whose regular user is only guessed is never the main recommendation.** If every
-  surviving idea's user is guessed, say so plainly at the top ("nobody is shown to need any of
-  these yet"), and make the first step of each idea asking that role (the questions from step 2,
-  and where to send them).
+- **An idea whose regular user is only guessed is recommended first only if no idea with a
+  heard user survives** — then say so plainly at the top ("nobody is shown to need it yet; first
+  step: ask"), and make the first step of each such idea asking that role (the questions from
+  step 2, and where to send them).
 - If no idea passes as ambitious within the bold appetite, say so plainly, and name what would
   make the strongest out-of-reach one possible.
 - **The human's own proposal**, if there was one: where it wins and where it loses against the

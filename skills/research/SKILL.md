@@ -23,11 +23,11 @@ retelling it. Researchers' notes and the checker's verdicts are working files th
 themselves. Never try to get around the refusal (another name, Bash, a script): it is the
 harness's rule, and it is how a subagent's result is meant to reach you.
 
-**Write early, check after.** Agents that write a file (researchers' notes, the checker's
-verdicts) create it at their first step and add to it as they go, so a session restart leaves
-partial work. When an agent finishes, check that its expected file exists and is not empty; if it
-is missing, save the agent's reply text verbatim as that file. *Why:* a researcher's notes file
-was once silently never saved.
+**Write early, check after.** Agents that write their own file (researchers, the duplicate
+run, the checker — not the compressor and the writer, whose text you save) create it at their
+first step and add to it as they go; every brief says so. When one finishes, check its file exists
+and is not empty; if missing, save its reply text verbatim as that file. *Why:* a notes file was
+once silently never saved.
 
 Paths below: `<skill>` is this skill's base directory (shown when the skill loads); `<run>` is the
 run folder you create in step 2.
@@ -102,13 +102,13 @@ No purpose, no hoped-for answer, no other researchers' findings.
 **Deep — duplicate run:** start one more researcher on the **whole question** with a different
 search engine: if Exa tools (`mcp__exa__*` or similar) are available, tell it to use them for search
 instead of WebSearch; if not, give it the question reworded and say so in the final report
-("duplicate run used the same engine"). Notes to `<run>/notes/duplicate.md`.
+("duplicate run used the same engine"). Notes to `<run>/notes/duplicate.md` — created at once and
+added to as it goes.
 
-Optional, when Exa is unavailable: a second engine such as **Gemini Deep Research** may serve as
-the duplicate run instead — through the human's browser (e.g. Gemini Notebook) or the Gemini API
-if a key is configured. Give it the whole question, no purpose; save its report verbatim to
-`<run>/notes/duplicate.md` with a line naming the engine. Extracting text from a browser page can
-be slow; skip it when time matters.
+Optionally, when Exa is unavailable, another engine (e.g. Gemini Deep Research, in a browser
+session or by API with a configured key) may be the duplicate run: the whole question, no purpose;
+its report verbatim to `<run>/notes/duplicate.md`, naming the engine. Reading a browser page can
+be slow.
 
 ## 5. Link check — script, no model
 
@@ -139,7 +139,7 @@ Question: <the question>. Findings: <run>/findings.md. Link status: <run>/links.
 <deep> Duplicate run: <run>/notes/duplicate.md — compare it with findings.md; every
 disagreement is a claim to check.
 First read <skill>/references/checker.md and follow it (level: <quick|standard|deep>).
-Write your verdicts to <run>/check.md.
+Write your verdicts to <run>/check.md — create it now and add to it as you go.
 ```
 
 The checker never gets the researchers' reasoning beyond the files, nor the purpose.

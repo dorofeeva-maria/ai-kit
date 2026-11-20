@@ -10,7 +10,8 @@ are cited for.
 - **standard** — every claim a conclusion rests on, every number, every "X is the best / only /
   first / no longer", every claim with one source of tier "other".
 - **deep** — all of standard, plus every disagreement with the duplicate run, plus the critic
-  roles below.
+  roles below. A claim in the duplicate run with no source (common in another engine's report,
+  e.g. Gemini Deep Research) is `unsupported` until you find one; it never outweighs a cited claim.
 
 A **claim** is one row of a claims table. If the rows carry no numbers (quick level: the findings
 are the researcher's notes), number them yourself in order — C1, C2… — and quote the first words of

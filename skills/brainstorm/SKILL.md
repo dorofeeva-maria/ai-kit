@@ -65,6 +65,13 @@ allowed). Research runs by the research skill, where the compressor and the writ
 and you save it. If any agent's write is refused anyway, it returns the full text and you save it
 verbatim — never by renaming, Bash or a script.
 
+**Write early, check after.** Every agent that produces a file creates it at its first step and
+adds to it as it goes, so a session restart or a lost agent leaves partial work, not nothing (tell
+it so in the brief). When an agent finishes, check that its expected file exists and is not empty;
+if it is missing, save the agent's reply text verbatim as that file, as for a refused write.
+*Why:* a run lost one agent's work to a restart and another's notes file was silently never
+saved.
+
 ## Modes — ask at the start unless the request says
 
 - **live** — the human and you throw ideas in the chat; you develop and exaggerate theirs and add
@@ -108,6 +115,8 @@ chat in live mode) until you could explain the request to a stranger:
   "in 9–12 months, maybe one hire"). For a one-off goal (names, a way to do one thing) the
   appetite is just the limits and the deadline. Appetite is a fixed budget: scope bends to fit
   it, not the other way round.
+- **Real words per role** — for each main role: does the human have that role's own words
+  (an interview, a message, a forum post by such a person)? If not, step 2 gets a live signal.
 - **What exists and was rejected** — what they already thought of, tried, dropped, and why.
 - **The bar** — an idea they consider strong, and one they consider mediocre; what excites them.
 
@@ -146,13 +155,27 @@ Two inputs every generator reads, both written before any generation:
   **frequency** (every shift / weekly / monthly) and **intensity** (how much it hurts, in their
   words), how they do it now, what it costs them, what would push them off the current way and
   what habit holds them; habits and conditions; direct quotes with dates. An agent writes it, at every depth, from the interview and the
-  place's material.
+  place's material. Each role is marked **heard** (real words from such a person) or **guessed**.
 - **`<run>/ground.md` — what exists**: research on the **field** (standard: `standard`, deep:
   `deep`): products, services and known approaches that serve these roles' jobs (globally and in the
   human's market if it has one, with prices and dates), what was tried and dropped and why, what became possible in the last
-  year, what users complain about. Researchers get the field, the roles and the jobs — **never the
+  year, what users complain about. It also covers **the tools the roles themselves already use
+  for each job** (their own scripts, community tools, observatory or lab software — not only
+  products sold to them) and **adjacent academic work** on the same jobs (papers, theses,
+  student projects). Researchers get the field, the roles and the jobs — **never the
   goal or hoped-for ideas**. Own data on unless the human wants an outside view. Save the report
-  as `ground.md`.
+  as `ground.md`. *Why:* a run's ideas repeated a thesis and a practitioners' tool found only after
+  generation.
+
+**A live signal for every guessed role — before generation.** When a main role has no real words,
+get one cheap signal from it: a question on that community's mailing list or forum, one message
+to a practitioner. Draft the 2–3 exact questions (neutral, about their job, not about our idea),
+and say where to send them; the human sends them (you never post or message on their behalf).
+Answers that arrive go into `day.md` and turn the role to **heard**; wait only as long as the
+human agrees, then generate with the role still **guessed**. In **without me** mode, do not wait:
+list the questions and where to send them at the top of the result, and keep every such role
+**guessed**. *Why:* a run where every user was guessed ended with a recommendation nobody was shown
+to need, and the human rejected it for that.
 
 ## 3. Diverge — generators in parallel, blind to each other
 
@@ -177,7 +200,7 @@ Standard: lenses 1, 2, 3, 4 (no payer: 1, 3, 4, 5). Deep: all seven (no payer: s
 Generate ideas. Today is <YYYY-MM-DD>.
 Brief: <run>/brief.md. The people's day: <run>/day.md. What exists: <run>/ground.md (if it exists).
 Your lens: <number and name>.
-Write 6–8 ideas to <run>/ideas/<lens-slug>.md.
+Write 6–8 ideas to <run>/ideas/<lens-slug>.md — create it now and add to it as you go.
 First read <skill>/references/generator.md and follow it.
 ```
 
@@ -276,6 +299,10 @@ An agent writes `<run>/result.md` (in the human's language), from the files, wit
   differs (sources) · what must be true, and what the research showed · price in the team's hours
   and money, fit to the appetite (the near / bold horizon where there are horizons) · risks, honestly · the strongest attack and the
   answer · **a test of the riskiest hypothesis that fits in 30 minutes** · the first small step.
+- **An idea whose regular user is only guessed is never the main recommendation.** If every
+  surviving idea's user is guessed, say so plainly at the top ("nobody is shown to need any of
+  these yet"), and make the first step of each idea asking that role (the questions from step 2,
+  and where to send them).
 - If no idea passes as ambitious within the bold appetite, say so plainly, and name what would
   make the strongest out-of-reach one possible.
 - **The human's own proposal**, if there was one: where it wins and where it loses against the

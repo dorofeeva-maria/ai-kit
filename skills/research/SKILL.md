@@ -23,6 +23,12 @@ retelling it. Researchers' notes and the checker's verdicts are working files th
 themselves. Never try to get around the refusal (another name, Bash, a script): it is the
 harness's rule, and it is how a subagent's result is meant to reach you.
 
+**Write early, check after.** Agents that write a file (researchers' notes, the checker's
+verdicts) create it at their first step and add to it as they go, so a session restart leaves
+partial work. When an agent finishes, check that its expected file exists and is not empty; if it
+is missing, save the agent's reply text verbatim as that file. *Why:* a researcher's notes file
+was once silently never saved.
+
 Paths below: `<skill>` is this skill's base directory (shown when the skill loads); `<run>` is the
 run folder you create in step 2.
 
@@ -87,7 +93,7 @@ any age fits> — prefer the freshest good sources; older ones are fine where th
 Own data: <paths / knowledge bases / connectors to search too, or "off — outside sources only">.
 <deep only> Subquestions: when a finding opens an important new question inside your aspect,
 follow it one level down (at most 2 levels, at most 3 subquestions in total); list them.
-Save notes to <run>/notes/<aspect-slug>.md.
+Save notes to <run>/notes/<aspect-slug>.md — create it now and add to it as you go.
 First read <skill>/references/researcher.md and follow it.
 ```
 
@@ -97,6 +103,12 @@ No purpose, no hoped-for answer, no other researchers' findings.
 search engine: if Exa tools (`mcp__exa__*` or similar) are available, tell it to use them for search
 instead of WebSearch; if not, give it the question reworded and say so in the final report
 ("duplicate run used the same engine"). Notes to `<run>/notes/duplicate.md`.
+
+Optional, when Exa is unavailable: a second engine such as **Gemini Deep Research** may serve as
+the duplicate run instead — through the human's browser (e.g. Gemini Notebook) or the Gemini API
+if a key is configured. Give it the whole question, no purpose; save its report verbatim to
+`<run>/notes/duplicate.md` with a line naming the engine. Extracting text from a browser page can
+be slow; skip it when time matters.
 
 ## 5. Link check — script, no model
 

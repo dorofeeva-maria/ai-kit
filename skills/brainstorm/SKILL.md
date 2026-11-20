@@ -114,10 +114,10 @@ chat in live mode) until you could explain the request to a stranger:
   "in 9–12 months, maybe one hire"). For a one-off goal (names, a way to do one thing) the
   appetite is just the limits and the deadline. Appetite is a fixed budget: scope bends to fit
   it, not the other way round.
-- **Hardware budget** — when an idea could need own hardware (devices, sensors, servers), ask
-  it explicitly: is hardware allowed at all, how much per month, how much in total, can it be
-  spread over months, or only in exceptional months? Record the answers in `brief.md` under the
-  appetite. *Why:* without a stated number, ideas either avoid hardware or assume any amount.
+- **Hardware budget** — whenever own hardware (devices, sensors, servers) is plausible for the
+  goal, ask it explicitly: is hardware allowed at all, how much per month, how much in total, can
+  it be spread over months, or only in exceptional months? Record the answers in `brief.md` under
+  the appetite; in **without me** mode, if unknown, assume none is allowed and say so there. *Why:* without a stated number, ideas either avoid hardware or assume any amount.
 - **Real words per role** — for each main role: does the human have that role's own words
   (an interview, a message, a forum post by such a person)? If not, step 2 gets a live signal.
 - **What exists and was rejected** — what they already thought of, tried, dropped, and why.
@@ -144,7 +144,8 @@ shortlist:
 5. **Doable by us within the appetite** — the three main ideas fit the near horizon for their
    first used version, the ambitious one the bold horizon as a whole; with no horizons, they fit
    the limits and the deadline. Every idea carries a rough size in hours (an estimate, not a
-   gate); when the brief has hours, the near-horizon check compares that size with them. Own
+   gate); when the brief has hours, the near-horizon check compares that size with the near horizon's
+   hours (hours per week × weeks). Own
    hardware must fit the brief's hardware budget.
 
 Scale is wanted: among ideas that pass 1–5, the bigger consequence wins. What does **not** pass
@@ -152,8 +153,8 @@ Scale is wanted: among ideas that pass 1–5, the bigger consequence wins. What 
 what would have to change (money, a partner, a hire) to revive it. Hardware above the stated
 budget goes there too.
 
-**Stop 0 (stops mode):** show the brief in 10–15 lines — the roles and their day, the appetite,
-the criteria. The human corrects it before anything runs.
+**Stop 0 (stops mode):** show the brief in 10–15 lines — the roles and their day, the appetite
+(with the hardware budget), the criteria. The human corrects it before anything runs.
 
 ## 2. Ground — the people's day and what already exists
 
@@ -306,8 +307,8 @@ An agent writes `<run>/result.md` (in the human's language), from the files, wit
   situation with it** (a short story of the user's moment, and the payer's if there is one) ·
   which jobs it takes over and what it replaces · who pays and why (if the goal has a payer) ·
   why now · what exists and how this
-  differs (sources) · what must be true, and what the research showed · price in the team's hours
-  and money, fit to the appetite (the near / bold horizon where there are horizons) · risks, honestly · the strongest attack and the
+  differs (sources) · what must be true, and what the research showed · price in the team's hours,
+  money and hardware cost, fit to the appetite (the near / bold horizon where there are horizons) · risks, honestly · the strongest attack and the
   answer · **a test of the riskiest hypothesis that fits in 30 minutes** · the first small step.
 - **An idea whose regular user is only guessed is recommended first only if no idea with a
   heard user survives** — then say so plainly at the top ("nobody is shown to need it yet; first

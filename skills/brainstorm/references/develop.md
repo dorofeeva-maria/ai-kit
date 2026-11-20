@@ -36,14 +36,19 @@ Read `taken.md` (what research found per candidate) and `day.md` again.
 
 1. **Score** each on the brief's criteria, 1–5 with one line of why. Defaults: used every time the
    job comes up, without force · real benefit (user, and payer if there is one) · a whole solution ·
-   new where it matters · doable by us within the appetite. "Used" is judged from `day.md` — the
-   user's real moment, not the idea's promise — and fitted to the goal: a product or tool its user
-   (a person, a team or another system) comes back to regularly, at least about monthly; a fix for
-   a one-off problem is applied whenever the problem occurs. "Doable" uses the idea's size in
-   hours: when the brief has hours, compare it with the near horizon (an estimate, not a hard
-   gate); own hardware must fit the brief's hardware budget. When that role is marked **guessed** in `day.md`,
-   write "used: guessed" next to the score; such an idea is ranked first only if no idea with a
-   heard user survives — then flagged at the top: "nobody is shown to need it; first step: ask".
+   new where it matters · doable by us within the appetite.
+
+   **Used** is judged from `day.md` — the user's real moment, not the idea's promise — and from
+   the idea's "Comes back to it" field, fitted to the goal: a product or tool its user (a person,
+   a team or another system) comes back to regularly, at least about monthly; a fix for a one-off
+   problem is applied whenever the problem occurs. When that role is marked **guessed** in
+   `day.md`, write "used: guessed" next to the score; such an idea is ranked first only if no idea
+   with a heard user survives — then flagged at the top: "nobody is shown to need it; first step:
+   ask".
+
+   **Doable** uses the idea's size in hours: when the brief has hours, compare it with the near
+   horizon's hours (hours per week × weeks) — an estimate, not a hard gate. Own hardware must fit
+   the brief's hardware budget.
 2. **Exists as is** in the human's market for these people → drop, or rebuild it around the real
    opening `taken.md` shows (done badly, too expensive, not localised, not for this segment) and
    say what the opening is. "Exists elsewhere" is an opening, not a death.

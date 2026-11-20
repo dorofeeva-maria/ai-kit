@@ -21,7 +21,8 @@ Read every file in `ideas/`, the brief and `day.md`.
    (marked "assembled from …"), so Select compares the whole against its parts — never leave the
    whole implied in a note.
 5. Keep **10–16 candidates**. For each: who uses it, the jobs it takes over, what it
-   replaces, the closest existing products from `ground.md`.
+   replaces, the closest existing products from `ground.md`, and a rough size in hours (carry the
+   generators' estimate; give one where it is missing).
 
 `clusters.md`: a table (name · user · jobs · replaces · closest existing), then each candidate in
 full. Reply to the coordinator: per candidate, 1–2 **neutral** research questions for "does this
@@ -36,13 +37,18 @@ Read `taken.md` (what research found per candidate) and `day.md` again.
 1. **Score** each on the brief's criteria, 1–5 with one line of why. Defaults: used every time the
    job comes up, without force · real benefit (user, and payer if there is one) · a whole solution ·
    new where it matters · doable by us within the appetite. "Used" is judged from `day.md` — the
-   user's real moment, not the idea's promise. When that role is marked **guessed** in `day.md`,
+   user's real moment, not the idea's promise — and fitted to the goal: a product or tool its user
+   (a person, a team or another system) comes back to regularly, at least about monthly; a fix for
+   a one-off problem is applied whenever the problem occurs. "Doable" uses the idea's size in
+   hours: when the brief has hours, compare it with the near horizon (an estimate, not a hard
+   gate); own hardware must fit the brief's hardware budget. When that role is marked **guessed** in `day.md`,
    write "used: guessed" next to the score; such an idea is ranked first only if no idea with a
    heard user survives — then flagged at the top: "nobody is shown to need it; first step: ask".
 2. **Exists as is** in the human's market for these people → drop, or rebuild it around the real
    opening `taken.md` shows (done badly, too expensive, not localised, not for this segment) and
    say what the opening is. "Exists elsewhere" is an opening, not a death.
-3. **Beyond the bold appetite** → graveyard, "beyond appetite", with what would revive it.
+3. **Beyond the bold appetite** (hardware above the brief's budget included) → graveyard,
+   "beyond appetite", with what would revive it.
 4. **Weigh, do not knock out.** Apart from the hard limits above (exists as is with no opening,
    beyond the bold appetite, the human's "dead"), no single weak criterion drops an idea. For each
    candidate write its **pros and cons**, each with a weight (high · medium · low) and one line of
@@ -60,7 +66,7 @@ Read `taken.md` (what research found per candidate) and `day.md` again.
    (SKILL.md, step 6).
 
 `shortlist.md`: a table (name · pitch · who uses it · five scores · pros/cons balance ·
-exists? · horizon · lenses), then each idea's full text with its pros and cons. `graveyard.md`:
+exists? · horizon · size in hours · lenses), then each idea's full text with its pros and cons. `graveyard.md`:
 every candidate not picked, one line, with the balance that dropped it.
 
 ## Part: Hyperbole

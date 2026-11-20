@@ -114,6 +114,10 @@ chat in live mode) until you could explain the request to a stranger:
   "in 9–12 months, maybe one hire"). For a one-off goal (names, a way to do one thing) the
   appetite is just the limits and the deadline. Appetite is a fixed budget: scope bends to fit
   it, not the other way round.
+- **Hardware budget** — when an idea could need own hardware (devices, sensors, servers), ask
+  it explicitly: is hardware allowed at all, how much per month, how much in total, can it be
+  spread over months, or only in exceptional months? Record the answers in `brief.md` under the
+  appetite. *Why:* without a stated number, ideas either avoid hardware or assume any amount.
 - **Real words per role** — for each main role: does the human have that role's own words
   (an interview, a message, a forum post by such a person)? If not, step 2 gets a live signal.
 - **What exists and was rejected** — what they already thought of, tried, dropped, and why.
@@ -126,8 +130,12 @@ sections.
 **Selection criteria** — the defaults, unless the brief sets others; all are applied before the
 shortlist:
 
-1. **Used every time the job comes up, without being forced** — by a named role, in their real
-   conditions; convenient enough to beat what they use now. Frequency × pain.
+1. **Used every time the job comes up, without being forced** — by a named role (a person, a
+   team, or another system or app), in their real conditions; convenient enough to beat what they
+   use now. Frequency × pain. Fit it to the goal: a product or tool is something they come back to
+   regularly (at least about monthly), not a one-off report nobody reopens; a solution to a
+   one-off problem is actually applied whenever that problem occurs. *Why:* the skill serves
+   tasks inside a project as well as whole projects.
 2. **Real benefit** — to the user and, if there is a payer, to whoever pays; say who and why.
 3. **A whole solution** — it takes a whole job (or a chain of jobs) off someone end to end; not a
    fragment of something else.
@@ -135,11 +143,14 @@ shortlist:
    these people, in this market (when there is one).
 5. **Doable by us within the appetite** — the three main ideas fit the near horizon for their
    first used version, the ambitious one the bold horizon as a whole; with no horizons, they fit
-   the limits and the deadline.
+   the limits and the deadline. Every idea carries a rough size in hours (an estimate, not a
+   gate); when the brief has hours, the near-horizon check compares that size with them. Own
+   hardware must fit the brief's hardware budget.
 
 Scale is wanted: among ideas that pass 1–5, the bigger consequence wins. What does **not** pass
 5 is not "ambitious", it is out of reach — it goes to the graveyard with "beyond appetite" and
-what would have to change (money, a partner, a hire) to revive it.
+what would have to change (money, a partner, a hire) to revive it. Hardware above the stated
+budget goes there too.
 
 **Stop 0 (stops mode):** show the brief in 10–15 lines — the roles and their day, the appetite,
 the criteria. The human corrects it before anything runs.

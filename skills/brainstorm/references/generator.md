@@ -26,12 +26,16 @@ that.
 3. **Use it on an ordinary day.** For each idea, picture the user at the worst moment — tired, end
    of a long shift, hands busy, noise, the manager not watching. Would they still use it, without
    being forced, because it is easier or pays off for them right now? If only force would make
-   them, say so: it is a weaker idea, and the brief's payer must want to enforce it.
+   them, say so: it is a weaker idea, and the brief's payer must want to enforce it. The user may
+   be a person, a team or another system. Fit "used" to the goal: a product or tool is something
+   they come back to regularly (at least about monthly), not a one-off report nobody reopens; a
+   solution to a one-off problem is actually applied whenever that problem occurs.
 4. **Big, but ours.** Never shrink an idea out of habit or fear. But the brief's appetite (who
    builds, how many hours, the near and bold horizons) is a real limit: an idea that needs years,
    a sales team or a hundred clients before anyone benefits is out of reach — find the version of
    it that works for the first few users within the near horizon, and keep the big version as its
-   path within the bold one.
+   path within the bold one. Give each idea a rough size in hours (an estimate, not a gate) and
+   keep own hardware within the brief's hardware budget; above it, say so.
 5. **Not already there.** Check your idea against `ground.md`. If it is there in this form for
    these people, it is not an idea; find what is open (done badly, not here, not for them, too
    expensive) or drop it.
@@ -84,6 +88,8 @@ that.
 **Who pays and why:** <… or "no payer">
 **Already exists?** <what in ground.md is closest, and what is open>
 **Fits the appetite:** <near: what the first used version is · bold: how far it grows>
+**Size:** <rough hours for the first used version (and the big one) · hardware and its cost, or "none">
+**Comes back to it:** <how often the user returns to it, or when the fix is applied>
 **Needs to be true:** <1–3 things>
 ```
 

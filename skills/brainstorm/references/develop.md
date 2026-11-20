@@ -38,7 +38,7 @@ Read `taken.md` (what research found per candidate) and `day.md` again.
    new where it matters · doable by us within the appetite. "Used" is judged from `day.md` — the
    user's real moment, not the idea's promise. When that role is marked **guessed** in `day.md`,
    write "used: guessed" next to the score; such an idea is ranked first only if no idea with a
-   heard user is kept — then flagged at the top: "nobody is shown to need it; first step: ask".
+   heard user survives — then flagged at the top: "nobody is shown to need it; first step: ask".
 2. **Exists as is** in the human's market for these people → drop, or rebuild it around the real
    opening `taken.md` shows (done badly, too expensive, not localised, not for this segment) and
    say what the opening is. "Exists elsewhere" is an opening, not a death.

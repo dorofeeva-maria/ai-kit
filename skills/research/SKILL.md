@@ -107,7 +107,8 @@ added to as it goes.
 
 Optionally, when Exa is unavailable, another engine (e.g. Gemini Deep Research, in a browser
 session or by API with a configured key) may be the duplicate run: the whole question, no purpose;
-its report verbatim to `<run>/notes/duplicate.md`, naming the engine. Reading a browser page can
+you save its report verbatim to `<run>/notes/duplicate.md` (an API-run agent writes it itself),
+naming the engine; the final report names it too. Reading a browser page can
 be slow.
 
 ## 5. Link check — script, no model

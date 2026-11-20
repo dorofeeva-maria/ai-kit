@@ -65,10 +65,11 @@ allowed). Research runs by the research skill, where the compressor and the writ
 and you save it. If any agent's write is refused anyway, it returns the full text and you save it
 verbatim — never by renaming, Bash or a script.
 
-**Write early, check after.** Every agent that writes its own file (generators, the developer,
-the critic) creates it at its first step and adds to it as it goes — every brief says so. When an
-agent finishes, check that its expected file exists and is not empty; if it is missing, save its
-reply text verbatim as that file. *Why:* a restart and a silent failed save lost work.
+**Write early, check after.** Every agent that writes its own file (the `day.md` agent,
+generators, the developer, the critic, the `result.md` agent) creates it at its first step and
+adds to it as it goes — every brief says so. When an agent finishes — and after each part of the
+continued developer (`clusters.md`, `shortlist.md`, `big.md`) — check that the expected file
+exists and is not empty; if it is missing, save its reply text verbatim as that file. *Why:* a restart and a silent failed save lost work.
 
 ## Modes — ask at the start unless the request says
 
@@ -153,7 +154,7 @@ Two inputs every generator reads, both written before any generation:
   **frequency** (every shift / weekly / monthly) and **intensity** (how much it hurts, in their
   words), how they do it now, what it costs them, what would push them off the current way and
   what habit holds them; habits and conditions; direct quotes with dates. An agent writes it, at every depth, from the interview and the
-  place's material. Each role is marked **heard** (real words from such a person) or **guessed**.
+  place's material (its brief: "create it now and add to it as you go"). Each role is marked **heard** (real words from such a person) or **guessed**.
 - **`<run>/ground.md` — what exists**: research on the **field** (standard: `standard`, deep:
   `deep`): products, services and known approaches that serve these roles' jobs (globally and in the
   human's market if it has one, with prices and dates), what was tried and dropped and why, what became possible in the last
@@ -164,13 +165,14 @@ Two inputs every generator reads, both written before any generation:
   goal or hoped-for ideas**. Own data on unless the human wants an outside view. Save the report
   as `ground.md`. *Why:* ideas repeated a thesis and a tool found only after generation.
 
-**A live signal for every guessed role — before generation.** When a main role has no real words,
+**A live signal for every guessed role — before generation, at every depth** (it is light).
+When a main role has no real words,
 get one cheap signal from it: a question on that community's mailing list or forum, one message
 to a practitioner. Draft the 2–3 exact questions (neutral, about their job, not about our idea),
-and say where to send them; the human sends them (you never post or message on their behalf).
+and say where to send them; write them into `day.md` under the role; the human sends them (you never post or message on their behalf).
 Answers that arrive go into `day.md` and turn the role to **heard**; wait only as long as the
 human agrees, then generate with the role still **guessed**. In **without me** mode, do not wait:
-list the questions and where to send them at the top of the result, and keep every such role
+list them (as in `day.md`) and where to send them at the top of the result, and keep every such role
 **guessed**. *Why:* a recommendation nobody was shown to need was rejected.
 
 ## 3. Diverge — generators in parallel, blind to each other
@@ -285,7 +287,8 @@ logic with `<kit>/skills/task/references/check-journey.md` (contract, "Think it 
 human sees it"). Fix or drop what the check breaks;
 the walkthroughs go into the result.
 
-An agent writes `<run>/result.md` (in the human's language), from the files, without adding ideas:
+An agent writes `<run>/result.md` (in the human's language), from the files, without adding ideas
+(its brief: "create it now and add to it as you go"):
 
 - **Three ideas**, one of them **the ambitious one** (the biggest consequence that is new and
   fits the bold appetite — say which). For each: the pitch in one line · **who uses it and the
@@ -298,7 +301,7 @@ An agent writes `<run>/result.md` (in the human's language), from the files, wit
 - **An idea whose regular user is only guessed is recommended first only if no idea with a
   heard user survives** — then say so plainly at the top ("nobody is shown to need it yet; first
   step: ask"), and make the first step of each such idea asking that role (the questions from
-  step 2, and where to send them).
+  `day.md` and the top of the result, and where to send them).
 - If no idea passes as ambitious within the bold appetite, say so plainly, and name what would
   make the strongest out-of-reach one possible.
 - **The human's own proposal**, if there was one: where it wins and where it loses against the

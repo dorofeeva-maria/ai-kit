@@ -40,12 +40,17 @@ After pulling changes: `/reload-plugins` or a new session. Check it loaded: `cla
 
 | Skill | When it runs |
 |---|---|
-| `/ai-kit:sync` | Task startup or on request. Refreshes clean bases and reports incoming changes. |
+| `/ai-kit:sync` | Session start, before a branch, push or PR, after a merge, when the hook says so. Refreshes bases, rebases active task trees, reports what came. |
 | `/ai-kit:design` | Before a visible change is implemented. Produces one board from the journeys and the profile. |
 | `/ai-kit:e2e` | On request or when the profile and plan call for a live end-to-end scenario. |
 
 The [tooling reference](skills/task/references/tooling.md) covers worktree creation and cleanup,
-repository reports, task folder moves and optional sync reminders.
+repository reports, task folder moves and the workspace sync script.
+
+## Hooks
+
+`hooks/hooks.json` runs the sync script at session start and on every prompt. It prints only inside
+a workspace whose `.claude/kit-profile.md` has a repo with sync on; elsewhere it is silent.
 
 ## Agent types
 

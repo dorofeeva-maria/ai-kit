@@ -40,9 +40,12 @@ writer for the task and no concurrent edits to affected references. Optional `--
 supplies legacy status rules, filename mappings and task key patterns. See the
 [helper's configuration notes](../scripts/task_folder.py).
 
-## Sync reminders
+## Workspace sync
 
-A prompt hook can run `bash <kit>/skills/task/scripts/sync-due.sh <timestamp-file>
-<max-age-seconds> <command-label> [<message>]`. The sync adapter records epoch seconds after
-a refresh. A missing or stale timestamp prints a reminder. The optional message supplies
-the workspace's wording.
+`bash <kit>/skills/sync/scripts/workspace-sync.sh status|fetch|sync` runs the whole workspace
+from its profile: bases, task trees, rebase, what came. Its header lists the profile bullets and
+the adapter contract. The plugin's hooks call it as `hook-start` and `hook-prompt`; state (last
+sync, base points, queued trees) is in `<ws>/.git/ai-kit/`.
+
+`sync-due.sh <timestamp-file> <max-age-seconds> <command-label> [<message>]` is the older
+stand-alone reminder for a workspace that keeps its own hook.

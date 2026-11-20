@@ -71,8 +71,13 @@ over this file).
 
 ## Sync
 
-<!-- Optional commands for fetch/report, sync and follow-up, plus reminder cadence.
-     Sync runs on startup for repos with Sync on. -->
+<!-- Optional. ai-kit:sync and the plugin hooks run for repos with Sync on. Bullets, all optional:
+     - adapter <folder>: <command>   that repo is handled by the command (remote, signing…)
+     - after <folder>: <command>     run in the base checkout after it was refreshed
+     - submodules: ignore            submodule changes do not count as uncommitted
+     - reminder: 3                   hours before the prompt hook asks for a sync
+     - instructions: AGENTS.md CLAUDE.md .claude docs/agents   files the digest names
+     Anything after a sync (cleanup, closing tasks) in plain lines. -->
 
 ## Design
 <!-- Design system location(s) per repo or for all; screen sizes; a design skill or stage to use for

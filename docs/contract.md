@@ -65,7 +65,7 @@ In the workspace root. Plain markdown with these headings (a missing heading = t
 ## Git and PRs      <!-- code host and the tool to reach it; commit format, PR title and description rules, draft or not, who is assigned, a worktree command if not the default -->
 ## Reviewers        <!-- per repo, kind of task or area: code host usernames set as reviewers when a PR is created; review order; default none -->
 ## Autonomy         <!-- stops: approve | blockers | own · merge: pr | auto-low | full -->
-## Sync             <!-- optional sync adapters, follow-up and reminder cadence -->
+## Sync             <!-- optional: adapter / after commands per repo, submodules, reminder hours (skills/sync) -->
 ## Design           <!-- design system location(s), screen sizes -->
 ## End-to-end       <!-- optional trigger, environment, tools, data and slot rules for a planned live run -->
 ## Extra stages     <!-- place-only skills and when they run, e.g. an end-to-end test on a stand; default steps replaced or switched off (e.g. architecture: always | never) -->

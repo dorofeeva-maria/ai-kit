@@ -67,10 +67,11 @@ the first agent you start.
    `Decisions`. The profile's `Extra stages` may add steps and may also **replace or switch off** a
    default step of this skill (the place has its own way of doing it): follow the profile for that
    step and say so in one line when you reach it.
-5. For repos with sync on, run [`ai-kit:sync`](../sync/SKILL.md) with the profile's adapter when it names one. After a successful refresh, a task branch behind its base →
-   brief its implementer to rebase it (briefs, "rebase"). **Rebase rule:** only the task's own
-   branch, only by its implementer on your brief, pushed with `--force-with-lease` — never a plain
-   force push, never on a shared or base branch.
+5. For repos with sync on, run [`ai-kit:sync`](../sync/SKILL.md). It rebases the trees of active
+   tasks on their fresh base itself, queues a tree with uncommitted work until it is committed,
+   and stops on a conflict or a chain; a conflict in this task's tree → brief its implementer
+   (briefs, "rebase"). **Rebase rule:** only the task's own branch, pushed with
+   `--force-with-lease` — never a plain force push, never on a shared or base branch.
 
 ## Size — say the choice in one line
 
@@ -324,8 +325,8 @@ Append one line to `tasks/runs.md` by the contract's "Run log", every field but 
 - Review comments → the same implementer, new commits on the same branch; behaviour changed →
   function and look re-check before the next review.
 - The human's findings after handoff → the last field of this task's line in `tasks/runs.md`.
-- A PR merged → note it; in a chain, brief the next parts' implementer to rebase them on the new
-  base (the rebase rule, step 0.5).
+- A PR merged → note it and run `ai-kit:sync`: it moves the next parts of a chain onto the new
+  base by its chain rule (the rebase rule, step 0.5).
 - **Close** when all PRs are merged or the human says the work is over: return slots and remove
   clean, merged worktrees using the [worktree helper](references/tooling.md#sync-and-worktrees) or
   the profile's command. Move the task whole to done with the task-folder helper or the profile's command.

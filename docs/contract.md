@@ -42,6 +42,8 @@ Coordinators: `task`, `project`, `research`, `brainstorm` (invent something new)
 among solutions that exist).
 Tools for the human: `prs` (one person's open PRs across the workspace, with what each waits for;
 read-only).
+Tools for any session that talks to the human (loaded by that session itself, start no agents):
+`debate` (honest argument when the human's words disagree with research or sources, or on request).
 Stage skills (loaded by the implementer, also usable by hand): `product`, `architecture`, `setup`,
 `journey`, `plan`, `develop`, `docs`.
 Check guides live with the coordinator that uses them (`skills/<coordinator>/references/check-*.md`);
@@ -266,3 +268,5 @@ The goal is the best decision, not winning. Every coordinator and stage that tal
 - **Keeps it open and short.** Both sides may change their mind. Name what would change yours. After
   the argument, the human decides; record the decision and the argument that settled it with the
   decision. (Checkers inside a loop still don't argue with a recorded decision — see Findings.)
+
+The step-by-step procedure for all of this: [`skills/debate`](../skills/debate/SKILL.md).

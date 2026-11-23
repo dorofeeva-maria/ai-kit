@@ -14,6 +14,21 @@ git clone <repo-url> ~/.claude/skills/ai-kit
 
 After pulling changes: `/reload-plugins` or a new session. Check it loaded: `claude plugin list`.
 
+## Codex
+
+Codex (CLI and IDE extension) reads Agent Skills from `~/.agents/skills` (user level) and from
+`.agents/skills` folders between the working directory and the repo root; it follows symlinked
+skill folders. Only `wrap` is meant for it so far:
+
+```bash
+mkdir -p ~/.agents/skills && ln -s ~/.claude/skills/ai-kit/skills/wrap ~/.agents/skills/wrap
+```
+
+Or link it into a repo's `.agents/skills/` instead. Call it with `$wrap` or from the `/skills`
+menu; restart Codex if it does not show. Limits: Codex sees only the skills linked this way — the
+other kit skills (`task`, `prs`…) are Claude Code plugin skills. `wrap` is self-contained and
+reads the task file directly, so it still works. The other kit skills are not yet tested in Codex.
+
 ## What is inside
 
 | Path | What |

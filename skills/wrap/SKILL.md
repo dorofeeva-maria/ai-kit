@@ -31,13 +31,14 @@ background tasks. If the tool does not let you see or stop them, say so in one l
 | long (a whole stage, a test suite, a research round) | stop it. An agent's edits are not lost: they stay uncommitted in its tree — name the tree |
 | an operation that breaks if cut mid-way (a rebase, migration, install or push half done) | wait for its end, then stop what started it if anything is left |
 | a loop or scheduled wake-up of this session | leave it unchanged (wrap touches no schedule); name it — the rule below keeps it from starting work |
+| a review environment `task` holds for the human's review window (an app, its slot) | not this session's background work: leave it running; name it in the recap |
 
 The human's word wins: "wait for all" — wait for every one; "stop all" — stop every one, and
 still name what was lost (only the agent's context; its edits stay in the tree).
 
-**After the recap, start nothing.** Until the human's next message, a result or wake-up that
-arrives later is only noted in one line — no new agent, check, commit, push or step of the task.
-The work goes on when the human says "continue".
+**After the recap, start nothing** until the human themselves says to continue. A result or a
+wake-up that arrives later is only noted in one line — no new agent, check, commit, push or step of
+the task. A loop or schedule firing is not the human's message, even when it arrives as a prompt.
 
 One line per item for the recap: what it was · finished / stopped — why.
 
@@ -81,7 +82,8 @@ Query per repo of the task, never the person's whole PR list:
   `--search "<KEY> in:title"` instead of `--head` (`<owner/repo>` from the repo's remote).
 - GitLab — the project from the repo's remote; `GET /projects/:id/merge_requests?state=opened`
   with `source_branch=<branch>`, and once with `search=<KEY>&in=title`. For a candidate for
-  "ready" only, one more `GET` on that MR for its head pipeline, approvals and discussions.
+  "ready" only: `GET .../merge_requests/:iid` (head pipeline), plus its `/approvals` and
+  `/discussions`.
 
 Print only the fields you need; never read raw host JSON whole.
 

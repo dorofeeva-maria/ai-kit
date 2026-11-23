@@ -41,7 +41,8 @@ be both there and gone; a feature that solves nothing in this case) means this s
 Coordinators: `task`, `project`, `research`, `brainstorm` (invent something new), `decide` (choose
 among solutions that exist).
 Tools for the human: `prs` (one person's open PRs across the workspace, with what each waits for;
-read-only).
+read-only), `wrap` (end of the day in one session: settles background work and prints a short
+recap with the stage and this task's PRs ready for review; writes nothing).
 Tools for any session that talks to the human (loaded by that session itself, start no agents):
 `debate` (honest argument when the human's words disagree with research or sources, or on request).
 Stage skills (loaded by the implementer, also usable by hand): `product`, `architecture`, `setup`,

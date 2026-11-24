@@ -29,20 +29,30 @@ Subject: one page with every screen and state of the task.
 
 ## Part Built UI
 
-Subject: the running app at a commit, and the approved mock-ups.
+Subject: the running app at the exact candidate revision and the approved mock-ups.
 
-1. Start it as the profile's `Run` says (the slot from the orchestrator if one is needed). Open the
-   changed screens at each named size, in a browser tool if the session has one.
-2. Compare with the mock-ups and the design system: cut or overlapping content, overflow past the
-   edge, uneven spacing, wrong colour or font, alignment, focus and hover states, long texts and
-   other locales, dark mode if the product has it, every state from the mock-ups.
-3. For video or animation: frames at named times.
-4. Save screenshots in your run's folder, beside your report (contract, "Reports"), and name them
-   in findings.
+1. Start it as the profile's `Run` says with the orchestrator's slot if needed. Verify the
+   revision served. Open each changed screen at the profile sizes with the plan's data and
+   states, covering every applicable mock-up state. Use comparable data when values vary.
+2. Open the corresponding approved frame and compare it with the rendered app at the same
+   size and state. Check the outer layout (page width, margins, frames and section grouping),
+   visual hierarchy (titles, values, labels and secondary text), spacing, alignment, colour and
+   type. Check clipped or overlapping content, overflow, focus and hover, long texts and other
+   locales, and dark mode if supported. For video or animation, compare frames at named times.
+   Judge whether the intended design carries through without requiring pixel-identical images.
+   Where there is no approved frame, check the running UI against the applicable design system
+   and cite the pattern and its source.
+3. Save paired screenshots of the approved frame and running screen for each comparison beside
+   the report (contract, "Reports"). If there is no approved frame, save the running screenshot
+   with the design-system reference. In the report, record the served revision, screen, viewport,
+   state or moment, and the evidence paths or references. Name the relevant evidence in each
+   finding. Unapproved differences from the approved design are MUST.
 
-Each finding says **where and when**: screen, size, state or moment, and the screenshot. A
-difference the human approved in the mock-ups is not a finding; a difference from the mock-ups
-that was not approved is MUST.
+The comparison requires both rendered views when an approved frame exists. Functional tests,
+code review and a screenshot of the built screen alone cannot establish that the UI matches
+its design. If the candidate, frame or required state cannot be rendered or compared, report
+the specific gap and give a verdict of **not satisfied**. The orchestrator records any explicit
+human waiver separately.
 
 ## Limits
 

@@ -67,6 +67,9 @@ the first agent you start.
    `Decisions`. The profile's `Extra stages` may add steps and may also **replace or switch off** a
    default step of this skill (the place has its own way of doing it): follow the profile for that
    step and say so in one line when you reach it.
+   For changed UI, a profile may change the runner, placement or checker of the built-UI check.
+   Independent visual evidence is required at handoff unless the human explicitly waives the
+   named gap and scope in a decision recorded for this task.
 5. For repos with sync on, run [`ai-kit:sync`](../sync/SKILL.md). It rebases the trees of active
    tasks on their fresh base itself, queues a tree with uncommitted work until it is committed,
    and stops on a conflict or a chain; a conflict in this task's tree → brief its implementer
@@ -220,6 +223,11 @@ At any size, even one button. No visible change → skip, say so in one line.
   and how each affected app will run for human review. Include prerequisites and ownership of
   shared resources. Use the architect's testing approach when the architecture stage runs.
   Otherwise the planner makes these choices from the profile's Run and Checks sections.
+- For each changed UI, name the design frames, the profile's screen sizes, and the data and
+  states the independent look checker will compare. Give the app entry point and how to reach
+  each state. Where there is no approved frame, name the applicable design-system pattern.
+  Plan how the checker will render the final candidate and capture both sides of the comparison
+  as described in [check-look.md](references/check-look.md).
 - `approve`: **stop** — parts, estimate, forks with defaults, what the checker raised and what was
   rejected. The yes also approves the extra stages' scenario.
 
@@ -263,6 +271,10 @@ first. For each part:
 3. **Function and look.** On the green commit: a function checker (`check-function.md`); a look
    checker (`check-look.md`) if anything visible changed. Both are `ai-kit:checker`: it may run
    commands, start the app and use a browser, and changes nothing in the tree.
+   Brief the look checker with the exact candidate revision, approved frame links, profile
+   screen sizes, and the plan's entry points, data and states. The checker compares the rendered
+   app with the rendered frames and saves the evidence. A profile stage that replaces this check
+   must provide the same independent visual evidence.
 4. **Tests.** The same implementer (continued) writes the part's tests; checks again.
 5. **Review — only after green.** A fresh checker with `check-review.md` on the whole diff to base.
 6. **Fixes — loop** per the contract after every check (3, 5, 7): findings to the author (continued);
@@ -292,7 +304,12 @@ part's implementer; affected steps run again.
 
 1. Check yourself: every PR description tells the truth about the current code and links its pairs;
    no stray files, debug output or other people's changes in the diff; checks green on the last
-   commit. Return slots used by agent checks before preparing the human's review environment.
+   commit. For every changed UI, require a satisfied independent look report with saved evidence
+   on the exact candidate revision being handed off. If the last look check ran on an earlier
+   revision, continue the checker on the final one. Keep handoff pending if evidence is missing
+   or the verdict is not satisfied. If the human explicitly waives a gap, record the decision and
+   its scope in the task file and disclose the gap at handoff. Return slots used by agent checks
+   before preparing the human's review environment.
 2. Prepare the human's review environment from the plan and the profile's Run section. Start each
    affected app or verify that its existing endpoint already serves the work. Apply required setup
    and migrations through the profile's procedure. Verify the task revision and a usable entry point.

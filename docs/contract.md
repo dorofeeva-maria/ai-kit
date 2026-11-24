@@ -81,6 +81,10 @@ conversation and English for everything that goes into repos.
 skill when the place has its own way of doing it; the coordinator then follows the profile for that
 step.
 
+For changed UI, the profile may change the runner, placement or checker of visual acceptance.
+Independent visual evidence remains a handoff requirement. An exception requires an explicit
+human waiver of the named gap and scope, recorded in the task file.
+
 Before the profile exists (a project being started), the coordinator asks the human for the stop
 level and the languages once, and setup writes them into the profile.
 

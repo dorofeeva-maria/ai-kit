@@ -36,6 +36,10 @@ Concrete rules (the repo's own rules win where they differ):
   no silent defaults that hide a failure.
 - **Names from the domain**: the words of the repo, the plan and the contract — not new synonyms.
 - Small units with one job; a file grows by the repo's usual size, not past it.
+- **Search before you write a helper.** Look for code that already does it, by purpose, not only
+  by name. Use it; if it needs a small change to fit, make that change and keep its other callers
+  working. A copy of existing code is a stop-and-report unless the plan names it as the human's
+  decision.
 - Validate at the boundary (input from users, other services, files); trust inside.
 - No commented-out code, no TODO without a task key, no debugging output left behind.
 - Follow the contract to the letter — field names, shapes, error order. If it is wrong, stop.

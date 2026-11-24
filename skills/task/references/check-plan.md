@@ -35,6 +35,10 @@ Not the planner's notes or replies: judge the plan, not the reasons given for it
   is named.
 - **Parts and order.** Each part buildable and checkable on its own, the first useful alone; what
   others depend on comes first; parallel parts do not write the same files.
+- **Reuse and structure.** For each helper the plan adds, search the repos by purpose for one that
+  already exists. A plan that copies existing code instead of reusing or extracting it, without
+  a fork for the human, is a finding (MUST). So is a module the plan would make mix unrelated
+  concerns or grow well past the repo's usual file size.
 - **Forks for the human** are at the top, each with a default; no hidden decision in the middle.
 - **Estimate** plausible for the steps listed.
 - The repo's own rules (layers, patterns, naming) are followed by the plan, not argued with.

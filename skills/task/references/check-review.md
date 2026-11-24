@@ -20,8 +20,15 @@ you do not get the author's report: judge the code. Output and levels:
 - **Against the plan and the contract.** Missing steps, extra work nobody asked for, a contract
   shape that differs from what the other side expects.
 - **The repo's rules.** Layers, patterns, naming, file placement, formats of commits.
-- **Too much.** Duplication of something that already exists in the repo, abstractions with one
-  user, dead code, debug output, commented-out code, stray files.
+- **Reuse and structure.** For each new function, search the repo by purpose, not only by name,
+  for code that already does it (string handling, escaping, hashing and signing, cookies and
+  tokens, HTTP helpers, mail, captcha, export formats, environment checks). A copy is a finding
+  even when the plan allowed it — unless the human chose it in a recorded decision. Judge every
+  changed file whole, not only its diff: its size against the repo's usual files and whether it
+  mixes unrelated concerns. In a chain of PRs, judge the file as it stands at the end of the
+  chain, not only this part's lines.
+- **Too much.** Abstractions with one user, dead code, debug output, commented-out code, stray
+  files.
 - **Tests test behaviour**, not themselves: they would fail if the code were wrong; no test that
   only restates the implementation; changed behaviour has a test.
 - **Instructions and settings** in the diff (README, `AGENTS.md`, skills, configs, CI): correct,

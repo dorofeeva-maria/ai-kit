@@ -50,6 +50,15 @@ linked from `## Plan`. Never pad a small plan with empty sections.
    (callers, data already stored, other screens, other repos that read this one); which checks and
    tests cover it — existing ones by name, new ones to write (unit, end-to-end where the repo has
    the tooling), and the place's check commands from the profile.
+   **Reuse first.** For every helper the plan adds — parsing and formatting, escaping, hashing and
+   signing, cookies and tokens, HTTP responses and request checks, mail, captcha, export formats,
+   environment checks — search the repos for one that already does it, by purpose, not only by
+   name. Reuse it, or extract it into a shared module that both callers use; where the callers
+   need different behaviour, share the mechanism and keep the policy in each caller. Copying an
+   existing helper instead of extracting it is a fork for the human with the reason, never a
+   silent step of the plan.
+   **One job per module.** Name the module each new piece of code goes into. A file the plan would
+   make mix unrelated concerns, or grow well past the repo's usual file size, is split in the plan.
    Include a test and review plan. Name manual scenarios and expected outcomes, the automated
    suites to run or extend, and the CI jobs that judge the change. For each affected app, name the
    review environment and startup procedure from the profile, any required setup or test data,
@@ -82,6 +91,7 @@ Names come from the repo's own vocabulary.
 - Every requirement of the request maps to a step; no step without a requirement behind it.
 - Every file named exists (or is marked new), and its path is right.
 - Every change that can break something has a check or a test against it.
+- No new helper duplicates one the repos already have; each new module has one job.
 - The contract leaves no shape or error case to the implementer's taste.
 - Nothing contradicts a decision in the task file.
 

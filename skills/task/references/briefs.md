@@ -20,6 +20,9 @@ Report: <ws>/tasks/<status>/<KEY>/<folder>/<role>-<part>-<round>.md, <folder> = 
 plan, e2e) or the part (P1…); a run that leaves files (screenshots, logs) is the folder
 <role>-<part>-<round>/ with the report inside under the same name. And a short reply: the conclusion in two
 lines first; for every statement — checked by running, by reading, or not checked; code as path:line.
+A large result file: skeleton first, then part by part, saved after each, with a progress note
+(done / next) at the top (contract, "Briefs"). After a failed run, point the next agent at the
+partial file.
 ```
 
 ## Models and agent types

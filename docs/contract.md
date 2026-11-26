@@ -228,6 +228,13 @@ subagent's Write of a markdown file whose name starts with `report`, `summary`, 
 main session) saves it — never work around that refusal. Reports are written in the
 language the profile sets for talking with the human.
 
+**A large result is built in parts.** An agent whose result is a large file (a board, a report, a
+plan, a long document) writes the skeleton first, then fills it part by part and saves the file
+after each part. At the top of its report it keeps a short progress note: done / next. A run that is
+cut off (usage limit, crash) then leaves a usable partial file. When a run fails, the orchestrator
+continues the same agent, or starts a new one pointed at the partial file and its progress note —
+it never restarts from zero while a partial result exists.
+
 ## Models
 
 The Agent tool call takes `model` and `effort`; the orchestrator passes both on every call, by the

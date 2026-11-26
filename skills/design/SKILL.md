@@ -18,6 +18,9 @@ the existing screen and nearby patterns as references. Use the journey outline w
 - Show meaningful variants together with their trade-offs. Keep the board focused on the screens
   and put detailed rationale in a linked note. List open decisions and design-system gaps.
 
+A large board is built in parts: skeleton first, then area by area, saved after each, with a
+progress note (done / next) — see the contract, "Briefs".
+
 Follow the profile's artifact format. When no format is specified, produce one reviewable HTML
 page. Save the source in the task's `design/` folder when a task exists.
 

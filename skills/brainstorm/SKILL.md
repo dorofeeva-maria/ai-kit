@@ -120,6 +120,17 @@ chat in live mode) until you could explain the request to a stranger:
   the appetite; in **without me** mode, if unknown, assume none is allowed and say so there. *Why:* without a stated number, ideas either avoid hardware or assume any amount.
 - **Real words per role** — for each main role: does the human have that role's own words
   (an interview, a message, a forum post by such a person)? If not, step 2 gets a live signal.
+- **Deciding constraints** — the few constraints that decide whether an idea can work at all (how
+  the result reaches its users or whoever pays, what the platform, the team or the law permits, a
+  date that cannot move). Name them in `brief.md` under their own heading as constraints every
+  idea is designed within, not a filter applied at Select. *Why:* a deciding constraint applied
+  only at Select left the last picks with cons equal to pros.
+- **The brief's facts, checked; the off-limits, listed** — check what the brief says about the
+  human or team (experience, skills, access, earlier work) against the place's own records when it
+  has any (notes, a CV, the repo, earlier decisions); correct what they contradict and mark the
+  rest unchecked. List explicitly what is off-limits (an area, a system, a contract, an employer's
+  work, people not to contact) under its own heading in `brief.md`. *Why:* an inflated experience
+  claim and an area nobody fenced off went into every generator's brief.
 - **What exists and was rejected** — what they already thought of, tried, dropped, and why.
 - **The bar** — an idea they consider strong, and one they consider mediocre; what excites them.
 
@@ -154,7 +165,7 @@ what would have to change (money, a partner, a hire) to revive it. Hardware abov
 budget goes there too.
 
 **Stop 0 (stops mode):** show the brief in 10–15 lines — the roles and their day, the appetite
-(with the hardware budget), the criteria. The human corrects it before anything runs.
+(with the hardware budget), the deciding constraints, the off-limits, the criteria. The human corrects it before anything runs.
 
 ## 2. Ground — the people's day and what already exists
 
@@ -165,7 +176,8 @@ Two inputs every generator reads, both written before any generation:
   by hour (or, for a one-off situation, what they meet and when); each recurring job as a job story ("When <moment>, I want <…>, so I can <…>") with its
   **frequency** (every shift / weekly / monthly) and **intensity** (how much it hurts, in their
   words), how they do it now, what it costs them, what would push them off the current way and
-  what habit holds them; habits and conditions; direct quotes with dates. An agent writes it, at every depth, from the interview and the
+  what habit holds them; **the moments the need is forced on them** (a deadline, a rule, a
+  recurring cost, a request from someone else); habits and conditions; direct quotes with dates. An agent writes it, at every depth, from the interview and the
   place's material (its brief: "create it now and add to it as you go"). Each role is marked **heard** (real words from such a person) or **guessed**.
 - **`<run>/ground.md` — what exists**: research on the **field** (standard: `standard`, deep:
   `deep`): products, services and known approaches that serve these roles' jobs (globally and in the
@@ -173,9 +185,12 @@ Two inputs every generator reads, both written before any generation:
   year, what users complain about. It also covers **the tools the roles themselves already use
   for each job** (their own scripts, community tools, observatory or lab software — not only
   products sold to them) and **adjacent academic work** on the same jobs (papers, theses,
-  student projects). Researchers get the field, the roles and the jobs — **never the
+  student projects), and **what the surrounding system already gives for free or built in** for
+  these jobs (the platform's or the existing product's own features, defaults of the tools the
+  roles have, free public services) — an idea that duplicates it is not new. Researchers get the field, the roles and the jobs — **never the
   goal or hoped-for ideas**. Own data on unless the human wants an outside view. Save the report
-  as `ground.md`. *Why:* ideas repeated a thesis and a tool found only after generation.
+  as `ground.md`. *Why:* ideas repeated a thesis and a tool found only after generation, and
+  several ideas duplicated what was already free.
 
 **A live signal for every guessed role — before generation, at every depth** (it is light).
 When a main role has no real words,
@@ -204,14 +219,24 @@ the next lens in its place:
 | 6 | ×10 for one segment | Pick one segment of users. What would be ten times better for them on the one dimension they care most about — a different machine, not a bigger one? |
 | 7 | The schlep | Which dull, hard work does everyone in this field avoid (data entry, local integrations, onboarding by hand, messy formats)? What becomes possible for whoever does it? |
 
-Standard: lenses 1, 2, 3, 4 (no payer: 1, 3, 4, 5). Deep: all seven (no payer: six). Brief:
+Standard: lenses 1, 2, 3, 4 (no payer: 1, 3, 4, 5). Deep: all seven (no payer: six).
+
+**A forcing moment, not only the human's own situation.** When the goal has users or a payer other
+than the human, at least one generator (at quick, one of its lenses) starts from a moment in
+`day.md` where the need is forced on them — add the brief's last line below to it. The human's own
+situation is one input, never the only one. *Why:* every lens started from the human's own life, and
+none from the people who must act.
+
+Brief:
 
 ```
 Generate ideas. Today is <YYYY-MM-DD>.
 Brief: <run>/brief.md. The people's day: <run>/day.md. What exists: <run>/ground.md (if it exists).
 Your lens: <number and name>.
+Design within the deciding constraints and the off-limits in brief.md — not something checked later.
 Write 6–8 ideas to <run>/ideas/<lens-slug>.md — create it now and add to it as you go.
 First read <skill>/references/generator.md and follow it.
+[Start from a forcing moment in day.md (a deadline, a rule, a recurring cost, a request from someone else).]
 ```
 
 Generators do not see each other's files or the other lenses.

@@ -36,19 +36,26 @@ that.
    it that works for the first few users within the near horizon, and keep the big version as its
    path within the bold one. Give each idea a rough size in hours (an estimate, not a gate) and
    keep own hardware within the brief's hardware budget; above it, say so.
-5. **Not already there.** Check your idea against `ground.md`. If it is there in this form for
-   these people, it is not an idea; find what is open (done badly, not here, not for them, too
+5. **Not already there.** Check your idea against `ground.md`, including what the surrounding
+   system already gives for free or built in. If it is there in this form for these people, it is
+   not an idea; find what is open (done badly, not here, not for them, too
    expensive) or drop it.
-6. **Do not flatter the brief.** If your lens says the stated goal is aimed at the wrong thing,
+6. **Inside the deciding constraints.** The brief names the constraints that decide whether an
+   idea can work at all, and what is off-limits. Design within them from the start: each idea says
+   how it meets each one (e.g. how it reaches its users, what the platform or team permits); an
+   idea that needs an off-limits area is not written. *Why:* a constraint left to selection
+   produced ideas that could not work.
+7. **Do not flatter the brief.** If your lens says the stated goal is aimed at the wrong thing,
    one idea may say so.
-7. Stay honest about facts: anything you are not sure exists or is true is a hypothesis ("needs:
+8. Stay honest about facts: anything you are not sure exists or is true is a hypothesis ("needs:
    …"), not a fact.
 
 ## Your lens
 
 - **The user's day** — pick the role that uses it most; walk the day hour by hour. Find the
   worst recurring moments and the jobs behind them. Design the product that lives in that day
-  every day.
+  every day. If your brief says to start from a forcing moment, begin the walk there: the deadline,
+  rule, recurring cost or request that makes this role act whether they want to or not.
 - **The payer's day** (only if there is a payer) — walk the payer's day and night: what they cannot see, what they chase by
   hand, what they decide blind, what they lose money or sleep on. Design what they would check
   every morning and pay for every month.
@@ -87,6 +94,7 @@ that.
 **habit / fear to beat:** <what holds them to the old way, and how the idea beats it>
 **Who pays and why:** <… or "no payer">
 **Already exists?** <what in ground.md is closest, and what is open>
+**Deciding constraints:** <how it meets each one named in the brief>
 **Fits the appetite:** <near: what the first used version is · bold: how far it grows>
 **Size:** <rough hours for the first used version (and the big one) · hardware and its cost, or "none">
 **Comes back to it:** <how often the user returns to it, or when the fix is applied>

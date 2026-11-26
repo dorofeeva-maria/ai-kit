@@ -66,7 +66,10 @@ Read `taken.md` (what research found per candidate) and `day.md` again.
    last three picks are weak (their cons weigh as much as their pros), say so at the top of
    `shortlist.md` and write `<run>/lessons.md`: why this round produced weak ideas — a lens too
    narrow, a constraint missing from the brief, copying what exists, one assumption every
-   generator shared, a criterion read too strictly. Each lesson names the cause and the change
+   generator shared, a criterion read too strictly; and check each of these by name: a deciding
+   constraint left to Select, a fact about the human or team taken unchecked, every lens starting
+   from the human's own situation, an idea duplicating what is free or built in, a guessed role
+   never given its live signal (SKILL.md, step 2). Each lesson names the cause and the change
    that would have avoided it. The coordinator then runs one more generation round with the lessons
    (SKILL.md, step 6).
 

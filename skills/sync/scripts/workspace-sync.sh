@@ -27,7 +27,8 @@
 # Task trees are worktrees/<KEY>/<repo>/. A tree is rebased in sync mode only when its task folder
 # is tasks/in-work/<KEY> or tasks/review/<KEY>, it is on a branch, nothing is uncommitted, its
 # remote branch holds no commit it lacks, and it shares no commits with another task tree of the
-# same repo (a chain is rebased in order by the session). A conflict aborts the rebase and names
+# same repo, and it is not a later part (`<branch>-part-N`) of an unmerged previous part on origin,
+# even one with no tree (a chain is rebased in order by the session). A conflict aborts the rebase and names
 # the files. A tree with uncommitted changes is queued: the prompt hook says when it is clean.
 set -u
 
@@ -223,6 +224,20 @@ for tree in $trees; do
   git -C "$ws/$tree" rev-list "HEAD" --not "origin/$(base_of "$repo")" 2>/dev/null | sort > "$tmp/own-$(key_of "$tree")"
 done
 
+prev_part() { # $1 = tree, $2 = branch, $3 = base → origin/<previous part> when it is an unmerged part of a chain
+  local tree=$1 branch=$2 base=$3 stem n prev
+  [[ $branch =~ ^(.+)-part-([0-9]+)$ ]] || return 1
+  stem=${BASH_REMATCH[1]}
+  n=${BASH_REMATCH[2]}
+  if [ "$n" -le 2 ]; then prev=$stem; else prev="$stem-part-$((n - 1))"; fi
+  git -C "$ws/$tree" rev-parse -q --verify "refs/remotes/origin/$prev^{commit}" >/dev/null 2>&1 || return 1
+  # not merged into the base, and either under this branch or copied into it
+  [ -n "$(git -C "$ws/$tree" rev-list -n 1 "origin/$prev" --not "origin/$base" 2>/dev/null)" ] || return 1
+  git -C "$ws/$tree" merge-base --is-ancestor "origin/$prev" HEAD 2>/dev/null ||
+    [ -n "$(git -C "$ws/$tree" cherry HEAD "origin/$prev" 2>/dev/null | grep '^-' | head -n 1)" ] || return 1
+  printf '%s\n' "origin/$prev"
+}
+
 tree_row() { # $1 = tree
   local tree=$1 repo=${1##*/} key base f row rc branch behind ahead dirty range note upstream pushed foreign other files
   key=$(basename "$(dirname "$tree")")
@@ -256,6 +271,7 @@ tree_row() { # $1 = tree
           if [ -n "$(comm -12 "$tmp/own-$(key_of "$tree")" "$tmp/own-$(key_of "$t")" | head -n 1)" ]; then other=$t; break; fi
         done
       fi
+      [ -n "$other" ] || other=$(prev_part "$tree" "$branch" "$base")
       if [ "$foreign" != 0 ]; then
         note="behind; $upstream has $foreign commit(s) this tree lacks: ask the human"
       elif [ -n "$other" ]; then

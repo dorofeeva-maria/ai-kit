@@ -37,6 +37,10 @@ the first agent you start.
   has one). When no option fits — each has a critical con — run `ai-kit:brainstorm`.
 - **An agent's report is a claim.** Check the cheap parts yourself: the commit is on origin, the
   checks are green, the file exists. What was not run is called "not checked".
+- **Small agents, small session** (contract, "Agent size" and "Orchestrator size"). Continue an
+  agent only while its last result is small; past that, a fresh one by the "handover" brief.
+  Never poll a pipeline or an agent turn after turn. At a stage boundary (plan approved, a part
+  accepted, handoff) update the task file, then ask the human to compact the session.
 - **One tree, one writer.** Many may read or test a tree; only its implementer writes there.
 - **Update `tasks/<status>/<KEY>/<KEY>.md` after every step** (stage, branches, PRs, round counters, next step): a
   new session continues from it, not from this conversation.

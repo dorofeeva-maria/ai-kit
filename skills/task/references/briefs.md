@@ -3,7 +3,9 @@
 An agent knows only its brief. Build every brief from the **skeleton** + the **role part** + the
 **subject**. Rules for briefs and reports: [contract](../../../docs/contract.md), "Briefs".
 Start agents in the background; independent ones in one message. A checker is always a fresh
-agent; between fix rounds continue the same author and the same checker (`SendMessage`).
+agent; between fix rounds continue the same author and the same checker (`SendMessage`) **only
+while it is small** (contract, "Agent size": under about 80 tool uses or 150k tokens in its last
+result) — past that, a fresh instance with the "handover" part below.
 
 ## Skeleton — every brief
 
@@ -16,6 +18,7 @@ The human's decisions in the task file are final: do not argue with them or wide
 Never: <the profile's Never, verbatim>. Delete only what you created. A refused tool or access —
 do not work around it; say so in the report. You cannot ask the human: put a question in the
 report as one line with a default.
+Few turns: batch independent calls, cap long output, no poll loops, screenshots only to judge a look.
 Report: <ws>/tasks/<status>/<KEY>/<folder>/<role>-<part>-<round>.md, <folder> = the stage (research, design,
 plan, e2e) or the part (P1…); a run that leaves files (screenshots, logs) is the folder
 <role>-<part>-<round>/ with the report inside under the same name. And a short reply: the conclusion in two
@@ -33,7 +36,7 @@ Pass `model` and `effort` on every Agent call, by the contract's "Models": think
 | Role | `subagent_type` | Model |
 |---|---|---|
 | Implementer: architecture, plan | `ai-kit:implementer` | `opus` (`fable` for a large architecture if available), `effort: high` |
-| Implementer: develop, tests, fixes, rebase, mock-ups | `ai-kit:implementer` | `opus` |
+| Implementer: develop, tests, fixes, rebase, mock-ups | `ai-kit:implementer` | `sonnet`; `opus` for a part the plan marks `hard` |
 | Implementer: docs | `ai-kit:implementer` | `sonnet` |
 | Plan checker, reviewer | `ai-kit:checker` | `opus`, `effort: high` |
 | Mock-up checker | `ai-kit:checker` | `sonnet` |
@@ -54,7 +57,9 @@ All stages: "Your decisions so far: <the human's decisions and approved plan/moc
 - **plan** — "Follow `ai-kit:plan`. Subject: research, the human's answers, mock-ups `<link>`,
   journeys `<task>/design/journeys.md` (every step needs a part of the plan), `<ws>/architecture.md` if
   this task amended it. Write `<ws>/tasks/<status>/<KEY>/plan.md`. Forks for the
-  human at the top, each with a default. Decide small things yourself, one line of reason each.
+  human at the top, each with a default. Decide small things yourself, one line of reason each. Mark a part `hard` only when it needs
+  the strong model (a contract others build on, a wide refactor, subtle state or concurrency);
+  unmarked parts are built by the cheaper one.
   Research or an architecture change you need → a request in your reply; you will be continued
   with the result."
 - **journey** — "Follow `ai-kit:journey`. Subject: the request, research, the human's answers, the
@@ -88,6 +93,11 @@ All stages: "Your decisions so far: <the human's decisions and approved plan/moc
 - **fixes** (continue the same instance) — "Findings: `<task>/<folder>/<report>.md`. Fix BLOCKS and MUST;
   MINOR if cheap; never TASTE; reject a finding that widens the task or argues with a decision.
   Answer with the table finding → fixed (commit) / rejected (why) / could not fix (why)."
+- **handover** (a fresh instance instead of continuing a large one; add the role part it takes
+  over — look, tests, fixes, re-check) — "You take over <part> from an earlier instance; you have
+  none of its context. Read: the plan part, `git diff origin/<base>...<branch>` at `<sha>`, its
+  report `<path>`, the findings `<path>` if any. Do not redo or re-review what is done; do only
+  this round."
 - **rebase** (the part's implementer) — "Rebase `<branch>` in `<worktree>` on `<target>`,
   resolve conflicts keeping both sides' intent, run the checks, push with `--force-with-lease`.
   This branch only; never a plain force push." You name `<target>`: `origin/<base>` for a single PR

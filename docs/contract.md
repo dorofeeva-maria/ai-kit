@@ -9,7 +9,7 @@ named anywhere in it.** A place brings its own context through its profile.
 | Type | What it is | Rules |
 |---|---|---|
 | **Orchestrator** | the main session running a coordinator skill (`task`, `project`, `research`, `brainstorm`, `decide`) | Talks to the human, picks the pipeline, keeps the state file, starts agents in the background and in parallel, passes findings between them, checks cheap claims itself, decides small technical questions without asking. **Writes no code**: edits only the workspace's state files (`tasks/`, its notes, `idea.md` in a project start, the profile on the human's word); any change to a repo or to tooling goes to an implementer. "Tooling" includes the kit's own skills and docs and the workspace's rules and scripts (`AGENTS.md`, `CLAUDE.md`, `docs/`, `scripts/`, `.claude/` except `kit-profile.md`, which the orchestrator edits on the human's word): the orchestrator never edits them itself — an implementer does, and an independent checker checks the change. Reads agents' short replies, not their work. |
-| **Implementer** | `ai-kit:implementer` | The only one that writes into a tree. Loads the skill of its stage. A fresh instance per stage; within a stage's fix loop the same instance is continued (it remembers). The `journey` stage spans the outline and its completion from the mock-ups, so its instance is continued between them. Parallel instances only for independent parts in separate worktrees. |
+| **Implementer** | `ai-kit:implementer` | The only one that writes into a tree. Loads the skill of its stage. A fresh instance per stage; within a stage's fix loop the same instance is continued (it remembers) **while it is small** — see "Agent size" under Models. The `journey` stage spans the outline and its completion from the mock-ups, so its instance is continued between them. Parallel instances only for independent parts in separate worktrees. |
 | **Checker** | `ai-kit:checker` | Changes nothing, always fresh. May run checks, start the app and use a browser. Gets the subject and the criteria, never the author's reasoning. Loads the check guide named in its brief. Read-only by rule: Write is allowed only for its own report. |
 
 Subagents cannot start subagents: only the orchestrator starts agents.
@@ -176,7 +176,8 @@ At most 12, the worst first. No "what is good".
 Verdict at the end: satisfied / not satisfied.
 ```
 
-The author of the checked work answers the checker — the same instance, continued. After a fix
+The author of the checked work answers the checker — the same instance, continued while it is
+small, else a fresh one by handover ("Agent size" under Models). After a fix
 the implementer re-runs the place's checks itself; the orchestrator runs them once more on the last
 commit before handoff. Round counts per loop are kept in the task file's State.
 
@@ -241,9 +242,25 @@ The Agent tool call takes `model` and `effort`; the orchestrator passes both on 
 kind of work. Thinking roles — architecture, plan, plan check, review, selection, the product cut —
 get a strong model (`opus`) — the strongest (`fable`) for the hardest work: a large architecture,
 the critique of a large plan — and `effort: high` (the human of this kit asked for high effort on
-thinking roles). Ordinary implementation — a strong model; mechanical work (setup, running checks,
-gathering) — a cheaper one; both at the default effort. Effort is never set in agent definitions.
+thinking roles). Ordinary implementation — the cheaper model (`sonnet`); a part the plan marks
+`hard` — a strong one; mechanical work (setup, running checks, gathering) — a cheaper one; all at
+the default effort. Effort is never set in agent definitions.
 Tests and linters are run by command, not by a model; the implementer reads the failures.
+
+**Agent size.** Every turn of an agent pays for its whole context again, so most of a task's cost
+is made by a few agents that ran for hundreds of turns — not by the number of agents. A short
+fresh agent is cheap; do not save on independent checks. An agent's result reports its size (tool
+uses, tokens). Continue an agent only while it is small: under about 80 tool uses or 150k tokens.
+Past that, the next round (fixes, tests, a look, a re-check) goes to a **fresh** instance of the
+same role by a handover brief: the task file, the plan part, the diff, the findings file and the
+previous instance's report — files carry the work, not the old context. A fresh re-checker gets
+the earlier findings file and answers per finding as the same checker would.
+
+**Orchestrator size.** The same holds for the main session. It reads short replies, not work;
+caps the output of its own commands; never polls a pipeline or an agent turn after turn (it goes
+on with other work and looks once when the next step needs the answer); and at stage boundaries —
+plan approved, a part accepted, handoff — updates the task file and asks the human to compact the
+session, since the task file, not the conversation, carries the task.
 
 ## Human
 
